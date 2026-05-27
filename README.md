@@ -30,7 +30,7 @@ https://github.com/alzuobaba/private-override
 | 文件 | 功能 | 来源 |
 |------|------|------|
 | `rc-unlock.stoverride` | RevenueCat 内购解锁（200+ App） | 基于 Reheji.js @ddm1023 |
-| `itunes-unlock.stoverride` | iTunes verifyReceipt 验证绕过 | 基于 iTunes.sgmodule |
+| `itunes-unlock.stoverride` | iTunes 验证绕过（兜底方案） | 基于 iTunes.sgmodule |
 | `override.yaml` | RC + iTunes 合一 | 上述两者合并 |
 | `bilibili.stoverride` | 1080P+4K画质 / 去广告 / 页面净化 | 基于 Moli-X Bilibili |
 | `quark.stoverride` | 夸克浏览器去广告（703 CMS key） | 基于 kelee.one 可莉 |
@@ -116,233 +116,499 @@ RevenueCat 重叠部分（Reheji.js/crack.js/Revenuecat.js 共 6 条规则）已
 - 需开启 MITM 并信任根证书
 
 
-## 覆盖 App 清单
+## 统一 App 索引
 
-### RevenueCat 解锁（rc-unlock.stoverride / override.yaml）
+| App 名称 | Bundle ID / 域名 | UA 关键字 | 覆盖方式 |
+|----------|-----------------|-----------|----------|
+| 1Blocker | - | `1Blocker` | RevenueCat |
+| A Widget | - | `A%20Widget` | RevenueCat |
+| Accountit | - | `Accountit` | RevenueCat |
+| AccuFind | - | `AccuFind` | RevenueCat |
+| AdBlock终身订阅 | - | - | Premium 专用脚本 |
+| adbTools | - | `adbTools` | RevenueCat |
+| AdGuard解锁永久高级版 | - | - | Premium 专用脚本 |
+| AGC Player解锁会员 | `api.agcplayer.com` | - | Premium 专用脚本 |
+| ai_music_generator | - | `ai_music_generator` | RevenueCat |
+| AICalculator | - | `AICalculator` | RevenueCat |
+| AIChat | - | `AIChat` | RevenueCat |
+| AIKeyboard | - | `AIKeyboard` | RevenueCat |
+| Airmail | - | `Airmail` | RevenueCat |
+| Aisten | - | `Aisten` | RevenueCat |
+| AI Chat | - | `AI%C2%A0Chat` | RevenueCat |
+| alistTools | - | `alistTools` | RevenueCat |
+| AlohaBrowser解锁Premium | - | - | Premium 专用脚本 |
+| Alpenglow | - | `Alpenglow` | RevenueCat |
+| andyworks-calculator | - | `andyworks-calculator` | RevenueCat |
+| AnimeArt | - | `AnimeArt` | RevenueCat |
+| AnkiPro | - | `AnkiPro` | RevenueCat |
+| Anybox | - | `Anybox` | RevenueCat |
+| Ape | - | `Ape` | RevenueCat |
+| Aphrodite | - | `Aphrodite` | RevenueCat |
+| apollo | - | `apollo` | RevenueCat |
+| app.imone.OneWidget | `app.imone.OneWidget` | - | RevenueCat |
+| app/112 | - | `app/112` | RevenueCat |
+| app/38 | - | `app/38` | RevenueCat |
+| AppBox | - | `AppBox` | RevenueCat |
+| APTV | - | `APTV` | RevenueCat |
+| ArchiveList | - | `ArchiveList` | RevenueCat |
+| ArtStage | - | `ArtStage` | RevenueCat |
+| ASKAI | - | `ASKAI` | RevenueCat |
+| Assembly | - | `Assembly` | RevenueCat |
+| Atomic | - | `Atomic` | RevenueCat |
+| audiomack-iphone | - | `audiomack-iphone` | RevenueCat |
+| Authenticator | - | `Authenticator` | RevenueCat |
+| AutoCAD解锁Pro | - | - | Premium 专用脚本 |
+| Awake | - | `Awake` | RevenueCat |
+| B612解锁VIP | - | - | Premium 专用脚本 |
+| BabyCare | - | `BabyCare` | RevenueCat |
+| becoming | - | `becoming` | RevenueCat |
+| BeetleADB | - | `BeetleADB` | RevenueCat |
+| Bg Remover | - | `Bg%20Remover` | RevenueCat |
+| Binsoo | - | `Binsoo` | RevenueCat |
+| bluredit | - | `bluredit` | RevenueCat |
+| Boar | - | `Boar` | RevenueCat |
+| Boom解锁高级会员 | - | - | Premium 专用脚本 |
+| BORD | - | `BORD` | RevenueCat |
+| Brass | - | `Brass` | RevenueCat |
+| Browser | - | `Browser` | RevenueCat |
+| Calflow | - | `Calflow` | RevenueCat |
+| CallAnnie | - | `CallAnnie` | RevenueCat |
+| camp.user.penbook | `camp.user.penbook` | - | RevenueCat |
+| Carbon-iOS | - | `Carbon-iOS` | RevenueCat |
+| CardPhoto | - | `CardPhoto` | RevenueCat |
+| CharingCrossRoad | - | `CharingCrossRoad` | RevenueCat |
+| ChatBot | - | `ChatBot` | RevenueCat |
+| ChatGPTApp | - | `ChatGPTApp` | RevenueCat |
+| ChatGPT解锁 Plus 订阅 | - | - | Premium 专用脚本 |
+| ChatLLM | - | `ChatLLM` | RevenueCat |
+| ChatPub | - | `ChatPub` | RevenueCat |
+| Chatty | - | `Chatty` | RevenueCat |
+| Chat练口语 | - | `Chat%E7%BB%83%E5%8F%A3%E8%AF%AD` | RevenueCat |
+| ClevCalc | - | `ClevCalc` | RevenueCat |
+| Clipboard | - | `Clipboard` | RevenueCat |
+| CodeScanner | - | `CodeScanner` | RevenueCat |
+| CollageMaker | - | `CollageMaker` | RevenueCat |
+| Collect | - | `Collect` | RevenueCat |
+| Color Widgets | - | `Color%20Widgets` | RevenueCat |
+| com.ausoco.umai | `com.ausoco.umai` | - | RevenueCat |
+| com.dison.diary | - | `com.dison.diary` | RevenueCat |
+| com.exoplanet.chatme | `com.exoplanet.chatme` | - | RevenueCat |
+| com.flexicalc.app | `com.flexicalc.app` | - | RevenueCat |
+| com.laser-focused.focus-ios | `com.laser-focused.focus-ios` | - | RevenueCat |
+| com.OfflineMusic.www | `com.OfflineMusic.www` | - | RevenueCat |
+| com.reader.book | `com.reader.book` | - | RevenueCat |
+| com.reku.Counter | `com.reku.Counter` | - | RevenueCat |
+| com.roehl | `com.roehl` | - | RevenueCat |
+| com.runbuddy.prod | `com.runbuddy.prod` | - | RevenueCat |
+| com.skysoft.removalfree | `com.skysoft.removalfree` | - | RevenueCat |
+| com.trainfitness.Train | `com.trainfitness.Train` | - | RevenueCat |
+| com.valo.reader | `com.valo.reader` | - | RevenueCat |
+| com.voicedream.Voic | `com.voicedream.Voic` | - | RevenueCat |
+| com.zhang333.dd | `com.zhang333.dd` | - | RevenueCat |
+| Context_iOS | - | `Context_iOS` | RevenueCat |
+| ContextApp | - | `ContextApp` | RevenueCat |
+| Cookie | - | `Cookie` | RevenueCat |
+| CountdownWidget | - | `CountdownWidget` | RevenueCat |
+| CountDuck | - | `CountDuck` | RevenueCat |
+| CPUMonitor | - | `CPUMonitor` | RevenueCat |
+| Craft解锁Premium | - | - | Premium 专用脚本 |
+| Cubox 解锁高级会员 | - | - | Premium 专用脚本 |
+| Currency | - | `Currency` | RevenueCat |
+| Dailyart | - | `Dailyart` | RevenueCat |
+| DarkLooker | - | `DarkLooker` | RevenueCat |
+| Darkroom | - | `Darkroom` | RevenueCat |
+| DataCalc | - | `DataCalc` | RevenueCat |
+| DayPoem | - | `DayPoem` | RevenueCat |
+| Decision | - | `Decision` | RevenueCat |
+| Deezer解锁Hi-Fi订阅 | - | - | Premium 专用脚本 |
+| design.yugen.Flow | `design.yugen.Flow` | - | RevenueCat |
+| DHWaterMarkManager | - | `DHWaterMarkManager` | RevenueCat |
+| DJ串烧集 | - | - | Premium 专用脚本 |
+| DJ音乐库 | - | - | Premium 专用脚本 |
+| Documents文件管理器+解锁订阅 | `license.pdfexpert.com` | - | Premium 专用脚本 |
+| Dotly | - | `Dotly` | RevenueCat |
+| Drafts解锁Pro | - | - | Premium 专用脚本 |
+| DreamFace解锁Pro | - | - | Premium 专用脚本 |
+| Drops | - | `Drops` | RevenueCat |
+| Drowsy | - | `Drowsy` | RevenueCat |
+| dtdvibe | - | `dtdvibe` | RevenueCat |
+| Dumb Phone | - | `Dumb%20Phone` | RevenueCat |
+| easy_chart | - | `easy_chart` | RevenueCat |
+| EasyClicker | - | `EasyClicker` | RevenueCat |
+| Echo | - | `Echo` | RevenueCat |
+| ElementNote | - | `ElementNote` | RevenueCat |
+| ElonAI | - | `ElonAI` | RevenueCat |
+| Email Me | - | `Email%20Me` | RevenueCat |
+| Emby Premiere解锁 | - | - | Premium 专用脚本 |
+| EncryptNote | - | `EncryptNote` | RevenueCat |
+| Endel | - | `Endel` | RevenueCat |
+| Endel解锁Premium | - | - | Premium 专用脚本 |
+| Epik解锁Pro | - | - | Premium 专用脚本 |
+| EraseIt | - | `EraseIt` | RevenueCat |
+| Facebook | - | `Facebook` | RevenueCat |
+| FaceLab解锁Vip | - | - | Premium 专用脚本 |
+| FaceSwapper-AI换脸解锁Vip | - | - | Premium 专用脚本 |
+| Falendar | - | `Falendar` | RevenueCat |
+| fastdiet | - | `fastdiet` | RevenueCat |
+| fengling | - | `fengling` | RevenueCat |
+| FilmicPro相机解锁高级会员 | - | - | Premium 专用脚本 |
+| Filmix解锁Pro | - | - | Premium 专用脚本 |
+| Filmr-视频剪辑 解锁PRO | `payments.invideo.io` | - | Premium 专用脚本 |
+| Flightradar24解锁Gold | - | - | Premium 专用脚本 |
+| FlipaClip解锁Plus | `api.purchasely.io` | - | Premium 专用脚本 |
+| Flourish | - | `Flourish` | RevenueCat |
+| Flow & VN套装-解锁Premium | - | - | Premium 专用脚本 |
+| Focos+Focos live☆解锁会员权限 | - | - | Premium 专用脚本 |
+| FocusFour | - | `FocusFour` | RevenueCat |
+| FoJiCam | - | `FoJiCam` | RevenueCat |
+| Fontsify | - | `Fontsify` | RevenueCat |
+| Food-Diary | - | `Food-Diary` | RevenueCat |
+| Free | - | `Free` | RevenueCat |
+| FretTrainer | - | `FretTrainer` | RevenueCat |
+| FRMD | - | `FRMD` | RevenueCat |
+| FruitMinder | - | `FruitMinder` | RevenueCat |
+| FujiLifeStyle | - | `FujiLifeStyle` | RevenueCat |
+| Funimate解锁Premium | `api.funimate.com` | - | Premium 专用脚本 |
+| Gear | - | `Gear` | RevenueCat |
+| Gentler | - | `Gentler` | RevenueCat |
+| GithubPro解锁永久订阅 | `api.github.com` | - | Premium 专用脚本 |
+| GoodNotes6☆解锁会员 | - | - | Premium 专用脚本 |
+| GradientMusic | - | `GradientMusic` | RevenueCat |
+| GrowthPath | - | `GrowthPath` | RevenueCat |
+| Habitor | - | `Habitor` | RevenueCat |
+| Happy:Days | - | `Happy%3ADays` | RevenueCat |
+| Harukong | - | `Harukong` | RevenueCat |
+| Heal Clock | - | `Heal%20Clock` | RevenueCat |
+| Hi论坛/69 | - | `Hi%E8%AE%BA%E5%9D%9B/69` | RevenueCat |
+| HRZN | - | `HRZN` | RevenueCat |
+| HTTPBot | - | `HTTPBot` | RevenueCat |
+| HurtYou | - | `HurtYou` | RevenueCat |
+| iBody | - | `iBody` | RevenueCat |
+| IDM | - | `IDM` | RevenueCat |
+| IFTTT解锁永久Vip | - | - | Premium 专用脚本 |
+| ig-bookmarker | - | `ig-bookmarker` | RevenueCat |
+| iLovePDF解锁Vip | - | - | Premium 专用脚本 |
+| image_upscaler | - | `image_upscaler` | RevenueCat |
+| ImageX | - | `ImageX` | RevenueCat |
+| ImagineAI | - | `ImagineAI` | RevenueCat |
+| Infltr | - | `Infltr` | RevenueCat |
+| intervalFlow | - | `intervalFlow` | RevenueCat |
+| io.fadel.TeleprompterX | `io.fadel.TeleprompterX` | - | RevenueCat |
+| io.innerpeace.yiye | `io.innerpeace.yiye` | - | RevenueCat |
+| ip_tv_react_native | - | `ip_tv_react_native` | RevenueCat |
+| IPA-Installer | - | - | Premium 专用脚本 |
+| IPCams | - | `IPCams` | RevenueCat |
+| iplayTV | - | `iplayTV` | RevenueCat |
+| IPTVUltra | - | `IPTVUltra` | RevenueCat |
+| iRead | - | `iRead` | RevenueCat |
+| Jellycuts | - | `Jellycuts` | RevenueCat |
+| Journal_iOS | - | `Journal_iOS` | RevenueCat |
+| Joy | - | `Joy` | RevenueCat |
+| kiddztube | - | `kiddztube` | RevenueCat |
+| knowme-storage | - | `knowme-storage` | RevenueCat |
+| Kylin | - | `Kylin` | RevenueCat |
+| Langster | - | `Langster` | RevenueCat |
+| Language Learning | - | `Language%20Learning` | RevenueCat |
+| LaunchTrans | - | `LaunchTrans` | RevenueCat |
+| Law | - | `Law` | RevenueCat |
+| LazyBoard | - | `LazyBoard` | RevenueCat |
+| LazyReply | - | `LazyReply` | RevenueCat |
+| Ledger | - | `Ledger` | RevenueCat |
+| Leica LUX | - | `Leica%20LUX` | RevenueCat |
+| LemonKeepAccounts | - | `LemonKeepAccounts` | RevenueCat |
+| Liftbear | - | `Liftbear` | RevenueCat |
+| Lightune | - | `Lightune` | RevenueCat |
+| Linearity Curve | - | `Linearity%20Curve` | RevenueCat |
+| Lito | - | `Lito` | RevenueCat |
+| LiveCaption | - | `LiveCaption` | RevenueCat |
+| LiveWallpaper | - | `LiveWallpaper` | RevenueCat |
+| LockFlow | - | `LockFlow` | RevenueCat |
+| Loopsie | - | `Loopsie` | RevenueCat |
+| Loora | - | `Loora` | RevenueCat |
+| LUTCamera | - | `LUTCamera` | RevenueCat |
+| MagicTiles3 | - | `MagicTiles3` | RevenueCat |
+| MallocVPN | - | `MallocVPN` | RevenueCat |
+| maple_mobile | - | `maple_mobile` | RevenueCat |
+| MatrixClock | - | `MatrixClock` | RevenueCat |
+| MaxWallpaper | - | `MaxWallpaper` | RevenueCat |
+| Meal Planner | - | `Meal%20Planner` | RevenueCat |
+| Medication List | - | `Medication%20List` | RevenueCat |
+| metaslip | - | `metaslip` | RevenueCat |
+| MinimalDiary | - | `MinimalDiary` | RevenueCat |
+| MissAV去广告 | - | - | Premium 专用脚本 |
+| MIX2解锁会员 | - | - | Premium 专用脚本 |
+| mizframa | - | `mizframa` | RevenueCat |
+| Mockview | - | `Mockview` | RevenueCat |
+| Moises-音乐人应用解锁Premium | - | - | Premium 专用脚本 |
+| Mojo | - | `Mojo` | RevenueCat |
+| money_manager | - | `money_manager` | RevenueCat |
+| MoneyThings | - | `MoneyThings` | RevenueCat |
+| moonbox.co.il.grow | `moonbox.co.il.grow` | - | RevenueCat |
+| Moonlitt | - | `Moonlitt` | RevenueCat |
+| Morpholio Trace CAD草图解锁Pro | - | - | Premium 专用脚本 |
+| Morphose | - | `Morphose` | RevenueCat |
+| moss-ios | - | `moss-ios` | RevenueCat |
+| Movavi视频图片编辑解锁Pro | - | - | Premium 专用脚本 |
+| MOZE | - | `MOZE` | RevenueCat |
+| MuCase | - | `MuCase` | RevenueCat |
+| multitimer_app | - | `multitimer_app` | RevenueCat |
+| muoyu | - | `muoyu` | RevenueCat |
+| MusicMate | - | `MusicMate` | RevenueCat |
+| MusicPutty | - | `MusicPutty` | RevenueCat |
+| Musixmatch解锁会员功能 | `apic.musixmatch.com` | - | Premium 专用脚本 |
+| My Diary | - | `My%20Diary` | RevenueCat |
+| My Time | - | `My%20Time` | RevenueCat |
+| MyFitnessPal解锁Premium | - | - | Premium 专用脚本 |
+| MyPianist | - | `MyPianist` | RevenueCat |
+| MySticker | - | `MySticker` | RevenueCat |
+| MyThings | - | `MyThings` | RevenueCat |
+| nbcamera | - | `nbcamera` | RevenueCat |
+| net.tengl.powertimer | `net.tengl.powertimer` | - | RevenueCat |
+| Nicegram会员解锁 | - | - | Premium 专用脚本 |
+| No Fusion | - | `No%20Fusion` | RevenueCat |
+| Notability解锁2099年 | - | - | Premium 专用脚本 |
+| Notebook笔记本 | - | - | Premium 专用脚本 |
+| NotePlan | - | `NotePlan` | RevenueCat |
+| Noto 笔记 | - | `Noto%20%E7%AC%94%E8%AE%B0` | RevenueCat |
+| nPtt | - | `nPtt` | RevenueCat |
+| ObjectRemoval | - | `ObjectRemoval` | RevenueCat |
+| OffScreen | - | `OffScreen` | RevenueCat |
+| One4WallSwiftUI | - | `One4WallSwiftUI` | RevenueCat |
+| OneClear | - | `OneClear` | RevenueCat |
+| OneFlag | - | `OneFlag` | RevenueCat |
+| OneGrow | - | `OneGrow` | RevenueCat |
+| OneMockup | - | `OneMockup` | RevenueCat |
+| OneScreen | - | `OneScreen` | RevenueCat |
+| OneTap | - | `OneTap` | RevenueCat |
+| OneTodo | - | `OneTodo` | RevenueCat |
+| OneWidget | - | `OneWidget` | RevenueCat |
+| opusvpn | - | `opusvpn` | RevenueCat |
+| OrbitFast | - | `OrbitFast` | RevenueCat |
+| Overdue | - | `Overdue` | RevenueCat |
+| Packr | - | `Packr` | RevenueCat |
+| Pantry Check | - | `Pantry%20Check` | RevenueCat |
+| Paper | - | `Paper` | RevenueCat |
+| PDF Viewer | - | `PDF%20Viewer` | RevenueCat |
+| PDF_convertor | - | `PDF_convertor` | RevenueCat |
+| pdfai_app | - | `pdfai_app` | RevenueCat |
+| PeakVisor解锁Premium | - | - | Premium 专用脚本 |
+| Percento | - | `Percento` | RevenueCat |
+| Perfect365解锁VIP | - | - | Premium 专用脚本 |
+| Persona | - | `Persona` | RevenueCat |
+| Personal Best | - | `Personal%20Best` | RevenueCat |
+| Photo Cleaner | - | `Photo%20Cleaner` | RevenueCat |
+| photography | - | `photography` | RevenueCat |
+| PhotoMapper | - | `PhotoMapper` | RevenueCat |
+| Photomator | - | `Photomator` | RevenueCat |
+| Photon | - | `Photon` | RevenueCat |
+| Photoooo | - | `Photoooo` | RevenueCat |
+| PhotoRoom | - | `PhotoRoom` | RevenueCat |
+| Photoshop Express-图片编辑&修图 解锁Premium | `lcs-mobile-cops.adobe.io` | - | Premium 专用脚本 |
+| PhotoVault | - | `PhotoVault` | RevenueCat |
+| Phtoto Swiper | - | `Phtoto%20Swiper` | RevenueCat |
+| PianoTrainer | - | `PianoTrainer` | RevenueCat |
+| PicLoom | - | `PicLoom` | RevenueCat |
+| Picsart美易 解锁Gold | `api.` | - | Premium 专用脚本 |
+| Pigment | - | `Pigment` | RevenueCat |
+| PikPak解锁会员 | - | - | Premium 专用脚本 |
+| Pillow | - | `Pillow` | RevenueCat |
+| PinPaper | - | `PinPaper` | RevenueCat |
+| Pins | - | `Pins` | RevenueCat |
+| PipDoc | - | `PipDoc` | RevenueCat |
+| PixelStudio | - | `PixelStudio` | RevenueCat |
+| PixImagine | - | `PixImagine` | RevenueCat |
+| PM4 | - | `PM4` | RevenueCat |
+| PrivateBrowser | - | `PrivateBrowser` | RevenueCat |
+| ProCam | - | `ProCam` | RevenueCat |
+| Project Delta | - | `Project%20Delta` | RevenueCat |
+| PwDrawingPad | - | `PwDrawingPad` | RevenueCat |
+| QingLong | - | `QingLong` | RevenueCat |
+| Qobuz解锁Hi-Res订阅 | - | - | Premium 专用脚本 |
+| QuietCam | - | `QuietCam` | RevenueCat |
+| quitnow | - | `quitnow` | RevenueCat |
+| Readle | - | `Readle` | RevenueCat |
+| Rec | - | `Rec` | RevenueCat |
+| RedditPro解锁会员功能 | - | - | Premium 专用脚本 |
+| remoteMouse | - | `remoteMouse` | RevenueCat |
+| RetouchPics醒图解锁会员 | - | - | Premium 专用脚本 |
+| rewritingText | - | `rewritingText` | RevenueCat |
+| Ricoh Recipes | - | `Ricoh%20Recipes` | RevenueCat |
+| Rootd | - | `Rootd` | RevenueCat |
+| Saifs Ai | - | `Saifs%20Ai` | RevenueCat |
+| SalesCat | - | `SalesCat` | RevenueCat |
+| ScannerPro | - | `ScannerPro` | RevenueCat |
+| Scelta | - | `Scelta` | RevenueCat |
+| ScreenRecordCase | - | `ScreenRecordCase` | RevenueCat |
+| SCRL | - | `SCRL` | RevenueCat |
+| Seamless | - | `Seamless` | RevenueCat |
+| server_bee | - | `server_bee` | RevenueCat |
+| Sex Actions | - | `Sex%20Actions` | RevenueCat |
+| Shapy | - | `Shapy` | RevenueCat |
+| Shared Family Shopping List | - | `Shared%20Family%20Shopping%20List` | RevenueCat |
+| SharkSMS | - | `SharkSMS` | RevenueCat |
+| ShellBean | - | `ShellBean` | RevenueCat |
+| ShellBoxKit | - | `ShellBoxKit` | RevenueCat |
+| shipian-ios | - | `shipian-ios` | RevenueCat |
+| ShouChong | - | `ShouChong` | RevenueCat |
+| simple-timer | - | `simple-timer` | RevenueCat |
+| simple-weather | - | `simple-weather` | RevenueCat |
+| SleepDown | - | `SleepDown` | RevenueCat |
+| SleepSounds | - | `SleepSounds` | RevenueCat |
+| Slidebox解锁Pro | - | - | Premium 专用脚本 |
+| SmartAIChat | - | `SmartAIChat` | RevenueCat |
+| smscat | - | `smscat` | RevenueCat |
+| SnapWords | - | `SnapWords` | RevenueCat |
+| Snipd | - | `Snipd` | RevenueCat |
+| Soundcloud解锁Go plus | `api-mobile.soundcloud.com` | - | Premium 专用脚本 |
+| Spark | - | `Spark` | RevenueCat |
+| Spotify解锁Premium | - | - | Premium 专用脚本 |
+| StarDiary | - | `StarDiary` | RevenueCat |
+| StarFocus | - | `StarFocus` | RevenueCat |
+| Startodo | - | `Startodo` | RevenueCat |
+| StayOff | - | `StayOff` | RevenueCat |
+| StockPlus | - | `StockPlus` | RevenueCat |
+| stopwatch | - | `stopwatch` | RevenueCat |
+| Storage Cleaner | - | `Storage%20Cleaner` | RevenueCat |
+| streaks | - | `streaks` | RevenueCat |
+| Stress | - | `Stress` | RevenueCat |
+| Structured | - | `Structured` | RevenueCat |
+| StudyAI | - | `StudyAI` | RevenueCat |
+| Subtrack | - | `Subtrack` | RevenueCat |
+| Sunlitt | - | `Sunlitt` | RevenueCat |
+| SwiftyCompiler解锁Premium | - | - | Premium 专用脚本 |
+| Symbolab计算器-解锁Premium | - | - | Premium 专用脚本 |
+| Taio | - | `Taio` | RevenueCat |
+| Tangerine | - | `Tangerine` | RevenueCat |
+| tech.miidii.MDClock | `tech.miidii.MDClock` | - | RevenueCat |
+| TeleprompterX | `TeleprompterX` | - | RevenueCat |
+| Termius解锁Premium | - | - | Premium 专用脚本 |
+| tetrify | - | `tetrify` | RevenueCat |
+| TextMask | - | `TextMask` | RevenueCat |
+| TheGreatMe | - | `TheGreatMe` | RevenueCat |
+| Themy | - | `Themy` | RevenueCat |
+| Thiro | - | `Thiro` | RevenueCat |
+| TIDALHiFiPlusCrack | - | - | Premium 专用脚本 |
+| Tide Guide | - | `Tide%20Guide` | RevenueCat |
+| tiimo | - | `tiimo` | RevenueCat |
+| TimeFinder | - | `TimeFinder` | RevenueCat |
+| timetrack.io | - | `timetrack.io` | RevenueCat |
+| totowallet | - | `totowallet` | RevenueCat |
+| TouchRetouchBasic | - | `TouchRetouchBasic` | RevenueCat |
+| TQBrowser | - | `TQBrowser` | RevenueCat |
+| Tracepad-iOS | - | `Tracepad-iOS` | RevenueCat |
+| Transfer | - | `Transfer` | RevenueCat |
+| Translate - Talk Translator | - | `Translate%20-%20Talk%20Translator` | RevenueCat |
+| transmission_ui | - | `transmission_ui` | RevenueCat |
+| TripMemo | - | `TripMemo` | RevenueCat |
+| TruthOrDare | - | `TruthOrDare` | RevenueCat |
+| TuneTally | - | `TuneTally` | RevenueCat |
+| Unfold | - | `Unfold` | RevenueCat |
+| UTC | - | `UTC` | RevenueCat |
+| Utiful | - | `Utiful` | RevenueCat |
+| VibeCamera | - | `VibeCamera` | RevenueCat |
+| vibes | - | `vibes` | RevenueCat |
+| VidCap | - | `VidCap` | RevenueCat |
+| Video Teleprompter | - | `Video%20Teleprompter` | RevenueCat |
+| Vinyls | - | `Vinyls` | RevenueCat |
+| Vision | - | `Vision` | RevenueCat |
+| VivaCut解锁永久订阅 | - | - | Premium 专用脚本 |
+| VK音乐 | `api.moosic.io` | - | Premium 专用脚本 |
+| VN视频剪辑解锁订阅 | - | - | Premium 专用脚本 |
+| VoiceAI | - | `VoiceAI` | RevenueCat |
+| VSCO | - | `VSCO` | RevenueCat |
+| WallCraftFProCrack | - | - | Premium 专用脚本 |
+| WallShift | - | `WallShift` | RevenueCat |
+| Watchly | - | `Watchly` | RevenueCat |
+| WeNote | - | `WeNote` | RevenueCat |
+| Whisper | - | `Whisper` | RevenueCat |
+| WhiteCloud | - | `WhiteCloud` | RevenueCat |
+| widget_art | - | `widget_art` | RevenueCat |
+| WidgetSmith | - | `WidgetSmith` | RevenueCat |
+| Wishy | - | `Wishy` | RevenueCat |
+| wordswag | - | `wordswag` | RevenueCat |
+| WorkingCopy 解锁Pro | - | - | Premium 专用脚本 |
+| Worrydolls | - | `Worrydolls` | RevenueCat |
+| Wozi | - | `Wozi` | RevenueCat |
+| WPSDocerVIPowerCrack | - | - | Premium 专用脚本 |
+| WPSDocerVIPuserCrack | - | - | Premium 专用脚本 |
+| WPSuperVIPowerCrack | - | - | Premium 专用脚本 |
+| WPSuperVIPuserCrack | - | - | Premium 专用脚本 |
+| XMind思维导图+解锁VIP | - | - | Premium 专用脚本 |
+| Y2002电音-DJ电音音乐播放器解锁永久Vip-Y1 | - | - | Premium 专用脚本 |
+| Y2002电音-DJ电音音乐播放器解锁永久Vip-Y2 | - | - | Premium 专用脚本 |
+| YandexMusic | `api.music.yandex.net` | - | Premium 专用脚本 |
+| Yosum | - | `Yosum` | RevenueCat |
+| Youdao网易有道词典解锁会员 | - | - | Premium 专用脚本 |
+| YubePiP | - | `YubePiP` | RevenueCat |
+| Yummi | - | `Yummi` | RevenueCat |
+| Zen Flip Clock | - | `Zen%20Flip%20Clock` | RevenueCat |
+| Zettelbox | - | `Zettelbox` | RevenueCat |
+| 书旗小说-会员中心 | - | - | Premium 专用脚本 |
+| 书旗小说-用户中心 | - | - | Premium 专用脚本 |
+| 事线 | - | `%E4%BA%8B%E7%BA%BF` | RevenueCat |
+| 云听-解锁会员 | - | - | Premium 专用脚本 |
+| 人生清单 | - | `%E4%BA%BA%E7%94%9F%E6%B8%85%E5%8D%95` | RevenueCat |
+| 信息计算 | - | `%E4%BF%A1%E6%81%AF%E8%AE%A1%E7%AE%97` | RevenueCat |
+| 兔U | - | - | Premium 专用脚本 |
+| 全本小说-解锁VIP | - | - | Premium 专用脚本 |
+| 凹凸啦查妆 | - | `%E5%87%B9%E5%87%B8%E5%95%A6%E6%9F%A5%E5%A6%86` | RevenueCat |
+| 剪映解锁会员 | - | - | Premium 专用脚本 |
+| 咪咕音乐解锁Vip | - | - | Premium 专用脚本 |
+| 哔哩哔哩 Bilibili | `app.bilibili.com` | - | bilibili.stoverride |
+| 喵组件 | - | `%E5%96%B5%E7%BB%84%E4%BB%B6` | RevenueCat |
+| 地震预警-解锁会员 | - | - | Premium 专用脚本 |
+| 墨迹天气解锁SVip | - | - | Premium 专用脚本 |
+| 夸克浏览器 Quark | `open-cms-api.quark.cn` | - | quark.stoverride |
+| 宜搜小说-超级会员 | - | - | Premium 专用脚本 |
+| 小旋风收音机解锁VIP | - | - | Premium 专用脚本 |
+| 山丘阅读解锁Vip | - | - | Premium 专用脚本 |
+| 幕布-解锁终身会员 | `api2.mubu.com` | - | Premium 专用脚本 |
+| 彩云天气SVIP | - | - | Premium 专用脚本 |
+| 得间小说-解锁会员 | - | - | Premium 专用脚本 |
+| 懒人听书vip | - | - | Premium 专用脚本 |
+| 手持弹幕 | - | `%E6%89%8B%E6%8C%81%E5%BC%B9%E5%B9%95` | RevenueCat |
+| 扫描全能王-解锁黄金会员 | - | - | Premium 专用脚本 |
+| 插画世界解锁Vip | - | - | Premium 专用脚本 |
+| 时间记录 | - | `%E6%97%B6%E9%97%B4%E8%AE%B0%E5%BD%95` | RevenueCat |
+| 波点音乐 | - | - | Premium 专用脚本 |
+| 泼辣修图解锁Pro | - | - | Premium 专用脚本 |
+| 海角社区 解锁付费会员视频 | - | - | Premium 专用脚本 |
+| 滚动截屏-解锁 Premium | - | - | Premium 专用脚本 |
+| 熊猫脑洞小说VIP | - | - | Premium 专用脚本 |
+| 爱听收音机 | - | - | Premium 专用脚本 |
+| 猫头鹰文件 | - | - | Premium 专用脚本 |
+| 白描解锁黄金会员 | - | - | Premium 专用脚本 |
+| 百度网盘解锁 SVIP | - | - | Premium 专用脚本 |
+| 目标地图 | - | `%E7%9B%AE%E6%A0%87%E5%9C%B0%E5%9B%BE` | RevenueCat |
+| 石墨文档 解锁超级会员 | `shimo.im` | - | Premium 专用脚本 |
+| 秩序时钟 | - | `%E7%A7%A9%E5%BA%8F%E6%97%B6%E9%92%9F` | RevenueCat |
+| 秩序目标 | - | `%E7%A7%A9%E5%BA%8F%E7%9B%AE%E6%A0%87` | RevenueCat |
+| 网易蜗牛读书解锁Vip | - | - | Premium 专用脚本 |
+| 美图秀秀 解锁SVIP | - | - | Premium 专用脚本 |
+| 美妆日历 | - | `%E7%BE%8E%E5%A6%86%E6%97%A5%E5%8E%86` | RevenueCat |
+| 美颜相机 解锁VIP | - | - | Premium 专用脚本 |
+| 翻页时钟 | - | `%E7%BF%BB%E9%A1%B5%E6%97%B6%E9%92%9F` | RevenueCat |
+| 芒果TV | - | - | Premium 专用脚本 |
+| 萌客AI绘画 | - | `%E8%90%8C%E5%AE%A2AI%E7%BB%98%E7%94%BB` | RevenueCat |
+| 蛋啵解锁vip | `api-sub` | - | Premium 专用脚本 |
+| 蜗牛睡眠解锁Vip | - | - | Premium 专用脚本 |
+| 解锁 Pixiv Premium | - | - | Premium 专用脚本 |
+| 解锁特权 | - | - | Premium 专用脚本 |
+| 解除微信链接限制 | - | - | Premium 专用脚本 |
+| 语音计算器 | - | `%E8%AF%AD%E9%9F%B3%E8%AE%A1%E7%AE%97%E5%99%A8` | RevenueCat |
+| 谜底时钟 | - | `%E8%B0%9C%E5%BA%95%E6%97%B6%E9%92%9F` | RevenueCat |
+| 谜底黑胶 | - | `%E8%B0%9C%E5%BA%95%E9%BB%91%E8%83%B6` | RevenueCat |
+| 资源搬运大师 | - | `%E8%B5%84%E6%BA%90%E6%90%AC%E8%BF%90%E5%A4%A7%E5%B8%88` | RevenueCat |
+| 车票票 | - | `%E8%BD%A6%E7%A5%A8%E7%A5%A8` | RevenueCat |
+| 轻图解锁Pro | - | - | Premium 专用脚本 |
+| 迅雷Unlock | - | - | Premium 专用脚本 |
+| 追读小说-解锁会员 | - | - | Premium 专用脚本 |
+| 酷我音乐解锁VIP | - | - | Premium 专用脚本 |
+| 阿基米德-电台FM解锁Vip | - | - | Premium 专用脚本 |
+| 阿里云盘解锁SVIP | - | - | Premium 专用脚本 |
+| 随手写FeeNote-解锁Premium | - | - | Premium 专用脚本 |
 
-**通过 Bundle ID 匹配（23 个）：**
-
-- `TeleprompterX`
-- `app.imone.OneWidget`
-- `camp.user.penbook`
-- `com.OfflineMusic.www`
-- `com.ausoco.umai`
-- `com.exoplanet.chatme`
-- `com.flexicalc.app`
-- `com.laser-focused.focus-ios`
-- `com.reader.book`
-- `com.reku.Counter`
-- `com.roehl`
-- `com.runbuddy.prod`
-- `com.skysoft.removalfree`
-- `com.trainfitness.Train`
-- `com.valo.reader`
-- `com.voicedream.Voic`
-- `com.zhang333.dd`
-- `design.yugen.Flow`
-- `io.fadel.TeleprompterX`
-- `io.innerpeace.yiye`
-- `moonbox.co.il.grow`
-- `net.tengl.powertimer`
-- `tech.miidii.MDClock`
-
-**通过 User-Agent 匹配（345 个）：**
-
-- #：1Blocker
-- A：A Widget, AICalculator, AIChat, AIKeyboard, AI Chat, APTV, ASKAI, Accountit, AccuFind, Airmail, Aisten, Alpenglow, AnimeArt, AnkiPro, Anybox, Ape, Aphrodite, AppBox, ArchiveList, ArtStage …等 32 个
-- B：BORD, BabyCare, BeetleADB, Bg Remover, Binsoo, Boar, Brass, Browser, becoming, bluredit
-- C：CPUMonitor, Calflow, CallAnnie, Carbon-iOS, CardPhoto, CharingCrossRoad, ChatBot, ChatGPTApp, ChatLLM, ChatPub, Chatty, Chat练口语, ClevCalc, Clipboard, CodeScanner, CollageMaker, Collect, Color Widgets, ContextApp, Context_iOS …等 25 个
-- D：DHWaterMarkManager, Dailyart, DarkLooker, Darkroom, DataCalc, DayPoem, Decision, Dotly, Drops, Drowsy, Dumb Phone, dtdvibe
-- E：EasyClicker, Echo, ElementNote, ElonAI, Email Me, EncryptNote, Endel, EraseIt, easy_chart
-- F：FRMD, Facebook, Falendar, Flourish, FoJiCam, FocusFour, Fontsify, Food-Diary, Free, FretTrainer, FruitMinder, FujiLifeStyle, fastdiet, fengling
-- G：Gear, Gentler, GradientMusic, GrowthPath
-- H：HRZN, HTTPBot, Habitor, Happy:Days, Harukong, Heal Clock, Hi论坛/69, HurtYou
-- I：IDM, IPCams, IPTVUltra, ImageX, ImagineAI, Infltr, iBody, iRead, ig-bookmarker, image_upscaler, intervalFlow, ip_tv_react_native, iplayTV
-- J：Jellycuts, Journal_iOS, Joy
-- K：Kylin, kiddztube, knowme-storage
-- L：LUTCamera, Langster, Language Learning, LaunchTrans, Law, LazyBoard, LazyReply, Ledger, Leica LUX, LemonKeepAccounts, Liftbear, Lightune, Linearity Curve, Lito, LiveCaption, LiveWallpaper, LockFlow, Loopsie, Loora
-- M：MOZE, MagicTiles3, MallocVPN, MatrixClock, MaxWallpaper, Meal Planner, Medication List, MinimalDiary, Mockview, Mojo, MoneyThings, Moonlitt, Morphose, MuCase, MusicMate, MusicPutty, My Diary, My Time, MyPianist, MySticker …等 28 个
-- N：No Fusion, NotePlan, Noto 笔记, nPtt, nbcamera
-- O：ObjectRemoval, OffScreen, One4WallSwiftUI, OneClear, OneFlag, OneGrow, OneMockup, OneScreen, OneTap, OneTodo, OneWidget, OrbitFast, Overdue, opusvpn
-- P：PDF Viewer, PDF_convertor, PM4, Packr, Pantry Check, Paper, Percento, Persona, Personal Best, Photo Cleaner, PhotoMapper, PhotoRoom, PhotoVault, Photomator, Photon, Photoooo, Phtoto Swiper, PianoTrainer, PicLoom, Pigment …等 32 个
-- Q：QingLong, QuietCam, quitnow
-- R：Readle, Rec, Ricoh Recipes, Rootd, remoteMouse, rewritingText
-- S：SCRL, Saifs Ai, SalesCat, ScannerPro, Scelta, ScreenRecordCase, Seamless, Sex Actions, Shapy, Shared Family Shopping List, SharkSMS, ShellBean, ShellBoxKit, ShouChong, SleepDown, SleepSounds, SmartAIChat, SnapWords, Snipd, Spark …等 38 个
-- T：TQBrowser, Taio, Tangerine, TextMask, TheGreatMe, Themy, Thiro, Tide Guide, TimeFinder, TouchRetouchBasic, Tracepad-iOS, Transfer, Translate - Talk Translator, TripMemo, TruthOrDare, TuneTally, tetrify, tiimo, timetrack.io, totowallet …等 21 个
-- U：UTC, Unfold, Utiful
-- V：VSCO, VibeCamera, VidCap, Video Teleprompter, Vinyls, Vision, VoiceAI, vibes
-- W：WallShift, Watchly, WeNote, Whisper, WhiteCloud, WidgetSmith, Wishy, Worrydolls, Wozi, widget_art, wordswag
-- Y：Yosum, YubePiP, Yummi
-- Z：Zen Flip Clock, Zettelbox
-- 事：事线
-- 人：人生清单
-- 信：信息计算
-- 凹：凹凸啦查妆
-- 喵：喵组件
-- 手：手持弹幕
-- 时：时间记录
-- 目：目标地图
-- 秩：秩序时钟, 秩序目标
-- 美：美妆日历
-- 翻：翻页时钟
-- 萌：萌客AI绘画
-- 语：语音计算器
-- 谜：谜底时钟, 谜底黑胶
-- 资：资源搬运大师
-- 车：车票票
-
-> 总计覆盖 **368** 个 App
-
-### iTunes 验证绕过（itunes-unlock.stoverride）— 兜底方案
-
-适用面窄：仅对"曾购买过但已过期"且不使用 RevenueCat 的 App 生效。绝大多数 App 已被 RC 或 Premium 覆盖，此脚本作为最后的兜底手段。
-
-所有使用 `buy.itunes.apple.com/verifyReceipt` 验证内购的 App 均可受益。
-
-- **曾购买过（含已过期）** → 直接生效。Apple 收据永久保留历史购买记录（含真实 product_id），脚本将其 `expires_date` 从过去改成 2099 年。
-- **从未购买过** → 受限。收据中无 product_id，脚本只能猜测，大概率不匹配。
-
-> 实际 product_id 由开发者在 App Store Connect 自定义，无规律可循。因此对全新安装且从未购买的 App，建议搭配 rc-unlock 或 Premium 合集使用对应 App 的专用脚本。
-
-### Premium 合集（premium.stoverride）
-
-131 个独立解锁脚本：
-
-- AGC Video Player解锁会员
-- AdBlockPro 终身订阅
-- AdGuard 解锁永久高级版
-- Aloha Browser解锁Premium
-- AutoCAD解锁Pro
-- B612解锁VIP
-- Boom解锁高级会员权限
-- ChatGPT 解锁 Plus 订阅
-- Craft解锁Premium
-- Cubox - 文章阅读与标注笔记 解锁高级会员
-- DJ串烧集-解锁VIP
-- DJ音乐库-解锁VIP
-- Deezer解锁Hi-Fi订阅
-- Documents文件管理器+解锁订阅
-- Drafts解锁Pro
-- DreamFace解锁Pro
-- Emby Premiere Unlock解锁
-- Endel-舒缓睡眠音-解锁Premium
-- Epik解锁Pro
-- FaceLab解锁Vip
-- FaceSwapper-AI换脸解锁Vip
-- Filmic Pro相机解锁高级会员
-- Filmix解锁Pro
-- Filmr-视频剪辑 解锁 PRO
-- Flightradar24 解锁Gold
-- FlipaClip解锁Plus
-- Flow & VN套装-解锁Premium
-- Focos+Focos live☆解锁会员权限
-- Funimate 解锁 Premium
-- GitHub解锁永久订阅
-- GoodNotes6☆解锁会员权限
-- IFTTT解锁永久Vip
-- IPA应用辅助安装器
-- MIX 解锁特权 (需恢复购买)
-- MIX2 解锁会员
-- MissAV去广告
-- Moises-音乐人应用解锁Premium
-- Morpholio Trace - Sketch CAD草图解锁Pro
-- Movavi-视频图片编辑解锁Pro
-- Musixmatch解锁会员功能
-- MyFitnessPal解锁Premium
-- Nicegram会员解锁
-- Notability解锁2099年
-- Notebook笔记本-解锁Pro
-- PeakVisor解锁Premium
-- Perfect365 解锁VIP
-- Photoshop Express-图片编辑&修图 解锁Premium
-- Picsart美易 解锁Gold
-- PikPak解锁会员
-- Polarr 泼辣修图解锁Pro
-- Qobuz解锁Hi-Res订阅
-- Reddit过滤应用内推广,阻止NSFW提示,解锁会员功能
-- Slidebox解锁Pro
-- Soundcloud解锁Go plus
-- Spotify if-none-match返回304状态码
-- Spotify解锁Premium
-- SwiftyCompiler解锁Premium Lifetime
-- Symbolab计算器-数学分步求解器(需要登录)解锁Premium
-- TIDAL解锁HiFi Plus
-- Termius解锁Premium
-- VK音乐-解锁VIP
-- VN视频剪辑解锁订阅
-- VivaCut解锁永久订阅
-- WPS 解锁超级会员 Pro
-- WPS解锁稻壳会员
-- WallCraft解锁永久专业版
-- WorkingCopy 解锁Pro.利用 GitHub Education解锁Working Copy
-- XMind思维导图+解锁VIP
-- Y2002电音-DJ电音音乐播放器解锁永久Vip
-- YandexMusic-解锁VIP
-- iLovePDF解锁Vip
-- 书旗小说-会员中心
-- 书旗小说-用户中心
-- 云听-全国电台有声书解锁会员
-- 会员优惠券弹窗
-- 会员界面横幅广告
-- 兔U-引领广播剧潮牌 Unlock VIP SVIP
-- 全本小说—淘小说—解锁VIP
-- 剪映解锁会员
-- 听读训练
-- 咪咕视频 开屏广告
-- 咪咕视频Vip会员
-- 咪咕音乐去广告
-- 咪咕音乐解锁Vip
-- 地震预警-解锁会员
-- 墨迹天气解锁SVip
-- 宜搜小说-全场免费读超级会员
-- 小旋风收音机解锁VIP
-- 山丘阅读解锁Vip
-- 幕布-大纲笔记&思维导图 解锁终身会员
-- 彩云天气 解锁SVIP.最高支持版本：6.7.2(旧版)
-- 得间小说-解锁会员
-- 懒人听书vip
-- 扫描全能王-手机扫描仪 解锁黄金会员
-- 插画世界-P站画师创作约稿平台解锁Vip
-- 插画世界-去开屏广告
-- 搜索预想
-- 波点音乐 会员调试 + 去广告 + 下载功能 + 付费专辑解锁
-- 海角社区 解锁付费会员视频
-- 滚动截屏-解锁 Premium
-- 熊猫脑洞小说VIP
-- 爱听收音机解锁会员
-- 猫头鹰文件-解锁VIP
-- 白描解锁黄金会员
-- 百度网盘解锁 SVIP
-- 石墨文档-在线文档协作编辑和表格制作 解锁超级会员
-- 网易有道词典  翻译 广告均由 安妮 分享
-- 网易有道词典解锁会员
-- 网易蜗牛读书解锁Vip
-- 美图秀秀 解锁SVIP 获取ai擦除照片
-- 美颜相机 解锁VIP
-- 芒果TV+去广告,页面优化
-- 芒果TV,Vip+会员画质+去广告,页面优化
-- 蛋啵解锁vip功能
-- 蜗牛睡眠解锁Vip
-- 解锁 Pixiv Premium
-- 解除微信链接限制
-- 轻图解锁Pro
-- 迅雷Unlock 倍速播放
-- 追读小说-解锁会员
-- 酷我音乐解锁VIP
-- 醒图解锁会员
-- 阿基米德-电台FM解锁Vip
-- 阿里云盘解锁SVIP
-- 随手写FeeNote-解锁Premium
-- 首次查词弹窗
-- 首页左上角福利中心
-- 首页弹窗
-
-
-### 独立覆写
-
-- **bilibili.stoverride**：哔哩哔哩（1080P+4K画质 / 去广告 / 页面净化）
-- **quark.stoverride**：夸克浏览器（去广告：阅读/弹窗/横幅/VIP推广）
-
+> 共 **487** 个条目。RC = RevenueCat 字典匹配，Premium = 独立解锁脚本。
 ---
 
 ### 总计覆盖
