@@ -1,0 +1,36 @@
+/*
+# 石墨文档 - 在线文档协作编辑和表格制作  解锁超级会员
+# https://apps.apple.com/cn/app/id1013727678?uo=4
+
+
+[rewrite_local]
+https://shimo.im/lizard-api/users/me url script-response-body https://raw.githubusercontent.com/Yu9191/Rewrite/main/shimowendang.js
+
+[mitm]
+hostname = shimo.im
+*/
+
+var body = $response.body;
+
+
+body = body.replace(/"isEnterpriseLight":\w+/g, '"isEnterpriseLight":true');
+
+
+body = body.replace(/"isEnterprisePremium":\w+/g, '"isEnterprisePremium":true');
+
+body = body.replace(/"isPersonalPremium":\w+/g, '"isPersonalPremium":true');
+
+body = body.replace(/"isTrial":\w+/g, '"isTrial":true');
+
+
+body = body.replace(/"isWework":\s*false/g, '"isWework":true');
+
+
+// 是否为企业
+body = body.replace(/"isEnterprise":\s*false/g, '"isEnterprise":true');
+
+body = body.replace(/"isDingtalk":\s*false/g, '"isDingtalk":true');
+
+body = body.replace(/"isFreeEnterprise":\s*false/g, '"isFreeEnterprise":true');
+
+$done({ body });
