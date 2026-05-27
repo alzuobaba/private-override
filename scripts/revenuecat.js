@@ -200,8 +200,8 @@ function run(data) {
   if (excludeCached && matchedKey) {
     try {
       var excludes = JSON.parse(excludeCached);
-      var rcList = excludes.rc || [];
-      if (rcList.indexOf(matchedKey) !== -1 || rcList.indexOf(bundle_id) !== -1) {
+      var list = excludes.exclude || (Array.isArray(excludes) ? excludes : []);
+      if (list.indexOf(matchedKey) !== -1 || list.indexOf(bundle_id) !== -1) {
         $done({});
         return;
       }

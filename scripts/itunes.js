@@ -91,9 +91,8 @@ const bundleId =
 var excludeCached = $persistentStore.read(EXCLUDE_CACHE);
 if (excludeCached) {
   try {
-    var excludes = JSON.parse(excludeCached);
-    var itunesList = excludes.itunes || [];
-    if (itunesList.indexOf(bundleId) !== -1) {
+    var list = (JSON.parse(excludeCached)).exclude || [];
+    if (list.indexOf(bundleId) !== -1) {
       $done({});
       return;
     }

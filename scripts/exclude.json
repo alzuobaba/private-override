@@ -1,5 +1,4 @@
 {
-  "__comment": "App 黑名单——按标识符关闭指定 App 的解锁",
-  "rc": [],
-  "itunes": []
+  "__comment": "App 黑名单——按标识符关闭指定 App 的解锁（RC 按 UA 关键字 / Bundle ID 匹配，iTunes 按 Bundle ID 匹配）",
+  "exclude": []
 }
