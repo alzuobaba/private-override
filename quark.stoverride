@@ -1,0 +1,65 @@
+name: '&#x1F30F; 夸克浏览器 去广告'
+desc: |-
+  夸克浏览器广告净化覆写
+  - 首页信息流广告过滤
+  - 搜索结果推广屏蔽
+  - 小说阅读广告移除
+  - 开屏广告禁用
+  - 个人中心推广清理
+author: alzuobaba
+homepage: https://github.com/alzuobaba/private-override
+category: '&#x1F6AB; 去广告 / 净化'
+date: '2026-05-27'
+version: '1.0.0'
+
+http:
+  mitm:
+    - '*.quark.cn'
+    - '*.uc.cn'
+    - '*.sm.cn'
+    - browser.quark.cn
+    - api.quark.cn
+    - quark.sm.cn
+
+  # 已知广告域名直接拦截
+  url-rewrite:
+    - ^https?:\/\/.+\.uc\.cn\/ad\/ reject-200
+    - ^https?:\/\/.+\.uc\.cn\/.+sdk\.js reject-200
+    - ^https?:\/\/(track|log|analytics)\. reject-200
+    - ^https?:\/\/.+\.(umeng|umtrack)\.com\/ reject-200
+    - ^https?:\/\/.+\.(amap|alibaba-inc|taobao)\.com\/ reject-200
+    - ^https?:\/\/api\.zhihu\.com\/ab reject-dict
+    - ^https?:\/\/api-quark\.zhihu\.com reject-dict
+
+  # 响应体脚脚本过滤
+  script:
+    - match: ^https?:\/\/.+\.quark\.cn\/api\/(feed|recommend|homev2)
+      name: quark
+      type: response
+      require-body: true
+      timeout: 5
+    - match: ^https?:\/\/.+\.quark\.cn\/api\/(search|query)
+      name: quark
+      type: response
+      require-body: true
+      timeout: 5
+    - match: ^https?:\/\/.+\.quark\.cn\/api\/(novel|reader|book)
+      name: quark
+      type: response
+      require-body: true
+      timeout: 5
+    - match: ^https?:\/\/.+\.quark\.cn\/api\/(splash|welcome|launch)
+      name: quark
+      type: response
+      require-body: true
+      timeout: 5
+    - match: ^https?:\/\/.+\.quark\.cn\/api\/(user|mine|profile)
+      name: quark
+      type: response
+      require-body: true
+      timeout: 5
+
+script-providers:
+  quark:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/quark.js
+    interval: 86400
