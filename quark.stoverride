@@ -1,8 +1,8 @@
 name: '&#x1F30F; 夸克浏览器 去广告'
 desc: |-
-  夸克浏览器广告净化覆写
-  原理：删除 open-cms-api.quark.cn/open-cms 响应中的 500+ CMS 配置开关，
-  一次性关闭阅读广告、各页面弹窗横幅、VIP 推广入口等所有广告功能。
+  移除阅读广告、各页面弹窗及横幅，精简我的页面。
+  原理：删除 open-cms-api.quark.cn/open-cms 响应中 CMS 配置开关，
+  客户端读取到空值从而关闭对应功能。
 author: 可莉 / Stash 适配 alzuobaba
 homepage: https://github.com/alzuobaba/private-override
 category: '&#x1F6AB; 去广告 / 净化'
@@ -13,30 +13,13 @@ http:
   mitm:
     - open-cms-api.quark.cn
     - stars.shuqireader.com
-    - pan.quark.cn
-    - drive-pc.quark.cn
-    - api.quark.cn
 
-  # 书旗小说广告请求直接拦截
   url-rewrite:
     - ^https:\/\/stars\.shuqireader\.com\/kkios\/render\/load\/resource\/app$ reject-dict
     - ^https:\/\/stars\.shuqireader\.com\/kkios\/render\/load\/resource\/appConfig$ reject-dict
 
-  # CMS 配置响应——删除所有广告开关
   script:
     - match: ^https:\/\/open-cms-api\.quark\.cn\/open-cms
-      name: quark
-      type: response
-      require-body: true
-      timeout: 5
-    # 网盘会员——SVIP+ 状态注入
-    - match: ^https:\/\/(pan|drive-pc|api)\.quark\.cn\/.+?\/(member|vip|user\/(info|vip))
-      name: quark
-      type: response
-      require-body: true
-      timeout: 5
-    # 视频清晰度——合并 VIP 受限流，补全 4K/1080P
-    - match: ^https:\/\/.+\.quark\.cn\/.+?\/(video|play|stream|player)
       name: quark
       type: response
       require-body: true

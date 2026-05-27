@@ -4,9 +4,11 @@
  * 来源：kelee.one/Tool/Loon/Lpx/QuarkBrowser_remove_ads.lpx
  * 作者：可莉 / Stash 适配：alzuobaba
  *
- * 原理：夸克浏览器通过 open-cms 接口下发 500+ 个 CMS 配置开关，
- * 控制各类广告、弹窗、VIP 推广入口的启用/禁用。
- * 本脚本在响应中删除这些开关的配置值，使客户端读取到空值从而关闭对应功能。
+ * 原理：夸克浏览器通过 open-cms 接口下发 CMS 配置开关，
+ * 控制各页面广告、弹窗、横幅、VIP 推广入口的启用/禁用。
+ * 本脚本删除响应中 703 个配置 key，使客户端读取到空值从而关闭对应功能。
+ *
+ * 注意：此脚本仅去广告，不包含会员/VIP/清晰度解锁等功能。
  */
 
 var url = $request.url;
@@ -17,7 +19,6 @@ if (!body) { $done({}); return; }
 var obj;
 try { obj = JSON.parse(body); } catch (e) { $done({}); return; }
 
-// 主端点：删除 CMS 配置中所有广告/推广开关
 if (url.indexOf('open-cms-api.quark.cn/open-cms') !== -1) {
   if (obj.result) {
     var CMS_KEYS = [
@@ -359,7 +360,7 @@ if (url.indexOf('open-cms-api.quark.cn/open-cms') !== -1) {
   'cms_quark_cloud_member_pay_qa',
   'novel_ad_space_count',
   'sk_idphoto_show_cloud_print',
-  'quark',
+  'quark-countdown-2025',
   'cms_quark_sug_card',
   'cloud_drive_home_tool_banner',
   'cms_quark_zvip_tab_show',
@@ -729,159 +730,6 @@ if (url.indexOf('open-cms-api.quark.cn/open-cms') !== -1) {
       delete obj.result[CMS_KEYS[i]];
     }
   }
-}
-
-// ============================================================
-// 夸克网盘 SVIP+ 会员注入
-// 拦截 pan.quark.cn / drive-pc.quark.cn 的会员接口，
-// 强制返回 SVIP+ 最高等级状态
-// ============================================================
-if (/quark\.cn\/.+?\/(member|vip|user\/info|user\/vip)/.test(url)) {
-  try {
-    var data = obj.data || obj;
-    if (data.member !== undefined) {
-      data.member = {
-        memberType: 'svip',
-        level: 99,
-        vipLevel: 99,
-        isVip: true,
-        isSvip: true,
-        isSvipPlus: true,
-        expireTime: 4102444800,
-        name: 'SVIP+'
-      };
-    }
-    if (data.vip !== undefined) {
-      data.vip = {
-        isVip: true,
-        isSvip: true,
-        isSvipPlus: true,
-        vipType: 'svip_plus',
-        expireTime: 4102444800,
-        level: 99
-      };
-    }
-    if (data.isVip !== undefined) {
-      data.isVip = true;
-      data.isSvip = true;
-      data.isSvipPlus = true;
-      data.vipType = 'svip_plus';
-      data.expireTime = 4102444800;
-    }
-  } catch (e) { console.log('Quark SVIP+:' + e); }
-}
-
-// ============================================================
-// 视频清晰度解锁
-// 夸克/网盘的视频播放接口，服务端会校验 VIP 身份后下发可用分辨率。
-// 若识别到 vip_streams / svip_streams 等受限字段，将其合并到主列表中，
-// 使客户端可选 4K / 1080P 等高清选项。
-// ============================================================
-if (/quark\.cn\/.+?\/(video|play|stream|player)/.test(url)) {
-  try {
-    var d = obj.data || obj.result || obj;
-    if (!d) { d = obj; }
-
-    // 视频流列表合并：vip/svip 受限流 → 合并到主列表
-    if (d.streams && (d.vip_streams || d.svip_streams)) {
-      var vipStreams = d.vip_streams || d.svip_streams || [];
-      for (var i = 0; i < vipStreams.length; i++) {
-        d.streams.push(vipStreams[i]);
-      }
-      delete d.vip_streams;
-      delete d.svip_streams;
-    }
-
-    // 分辨率列表补全
-    if (d.qualities || d.resolutions || d.qualityList || d.resolutionList) {
-      var list = d.qualities || d.resolutions || d.qualityList || d.resolutionList;
-      var full = ['4K', '1080P', '720P', '480P', '360P', '240P'];
-      for (var j = 0; j < full.length; j++) {
-        if (list.indexOf(full[j]) === -1) {
-          list.push(full[j]);
-        }
-      }
-    }
-
-    // 逐条视频流的 quality 标记提升
-    if (d.streams) {
-      for (var k = 0; k < d.streams.length; k++) {
-        var s = d.streams[k];
-        if (s.vip_only) s.vip_only = false;
-        if (s.svip_only) s.svip_only = false;
-        if (s.need_vip) s.need_vip = false;
-        if (s.quality === 'sd' || s.quality === 'hd') {
-          s.quality = '4K';
-        }
-      }
-    }
-
-    // 子对象递归处理：data.playInfo / videoInfo 等
-    function walk(obj, depth) {
-      if (!obj || typeof obj !== 'object' || depth > 3) return;
-      if (obj.streams || obj.qualities || obj.vip_streams) {
-        if (obj.streams && (obj.vip_streams || obj.svip_streams)) {
-          var vs = obj.vip_streams || obj.svip_streams || [];
-          for (var m = 0; m < vs.length; m++) { obj.streams.push(vs[m]); }
-          delete obj.vip_streams;
-          delete obj.svip_streams;
-        }
-        if (obj.qualities || obj.resolutions || obj.qualityList || obj.resolutionList) {
-          var ql = obj.qualities || obj.resolutions || obj.qualityList || obj.resolutionList;
-          var fullQ = ['4K', '1080P', '720P', '480P'];
-          for (var n = 0; n < fullQ.length; n++) {
-            if (ql.indexOf(fullQ[n]) === -1) ql.push(fullQ[n]);
-          }
-        }
-      }
-      var keys = Object.keys(obj);
-      for (var p = 0; p < keys.length; p++) {
-        if (typeof obj[keys[p]] === 'object') walk(obj[keys[p]], depth + 1);
-      }
-    }
-    walk(d, 0);
-
-    // 臻彩视界（Dolby Vision / HDR）强制开启
-    // 杜比音效（Dolby Audio / DDP）强制开启
-    // 遍历所有嵌套对象，将 dolby/hdr/dv 相关开关设为 true
-    function enableDolby(o, depth) {
-      if (!o || typeof o !== 'object' || depth > 4) return;
-      // Dolby Vision / 臻彩视界
-      if (o.dolby_vision !== undefined) o.dolby_vision = true;
-      if (o.dolby_vision_enable !== undefined) o.dolby_vision_enable = true;
-      if (o.nvp_dv_enable !== undefined) o.nvp_dv_enable = true;
-      if (o.dv_enable !== undefined) o.dv_enable = true;
-      if (o.hdr !== undefined) o.hdr = true;
-      if (o.hdr10 !== undefined) o.hdr10 = true;
-      if (o.hdr_enable !== undefined) o.hdr_enable = true;
-      if (o.is_hdr !== undefined) o.is_hdr = true;
-      // 杜比音效
-      if (o.dolby_audio !== undefined) o.dolby_audio = true;
-      if (o.dolby_atmos !== undefined) o.dolby_atmos = true;
-      if (o.ddp_enable !== undefined) o.ddp_enable = true;
-      if (o.ac3_enable !== undefined) o.ac3_enable = true;
-      if (o.audio_enhance !== undefined) o.audio_enhance = true;
-      // 杜比音轨注入：若 audio_tracks 中缺少 Dolby 音轨，补一条
-      if (o.audio_tracks && Array.isArray(o.audio_tracks)) {
-        var hasDolby = o.audio_tracks.some(function(t) {
-          return t.codec && /dolby|ddp|ac3|eac3|atmos/i.test(t.codec);
-        });
-        if (!hasDolby) {
-          o.audio_tracks.push({
-            codec: 'ddp',
-            name: '杜比音效',
-            channels: 6,
-            bitrate: 640000
-          });
-        }
-      }
-      var ks = Object.keys(o);
-      for (var q = 0; q < ks.length; q++) {
-        if (typeof o[ks[q]] === 'object') enableDolby(o[ks[q]], depth + 1);
-      }
-    }
-    enableDolby(d, 0);
-  } catch (e) { console.log('Quark video:' + e); }
 }
 
 $done({ body: JSON.stringify(obj) });
