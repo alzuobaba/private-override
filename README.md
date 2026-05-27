@@ -197,8 +197,8 @@ RevenueCat 重叠部分（Reheji.js/crack.js/Revenuecat.js 共 6 条规则）已
 
 所有使用 `buy.itunes.apple.com/verifyReceipt` 验证内购的 App 均可受益。
 
-- **已有过购买记录**（含已过期） → 直接生效。收据中已有真实 product_id，脚本将其到期日延长至 2099 年。
-- **从未有过购买** → 受限。收据中无 product_id，脚本只能猜测 `{BundleID}.premium`，若与 App 实际内购商品 ID 不符则不生效。
+- **曾购买过（含已过期）** → 直接生效。Apple 收据永久保留历史购买记录（含真实 product_id），脚本将其 `expires_date` 从过去改成 2099 年。
+- **从未购买过** → 受限。收据中无 product_id，脚本只能猜测，大概率不匹配。
 
 > 实际 product_id 由开发者在 App Store Connect 自定义，无规律可循。因此对全新安装且从未购买的 App，建议搭配 rc-unlock 或 Premium 合集使用对应 App 的专用脚本。
 
