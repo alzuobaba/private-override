@@ -771,4 +771,76 @@ if (/quark\.cn\/.+?\/(member|vip|user\/info|user\/vip)/.test(url)) {
   } catch (e) { console.log('Quark SVIP+:' + e); }
 }
 
+// ============================================================
+// 视频清晰度解锁
+// 夸克/网盘的视频播放接口，服务端会校验 VIP 身份后下发可用分辨率。
+// 若识别到 vip_streams / svip_streams 等受限字段，将其合并到主列表中，
+// 使客户端可选 4K / 1080P 等高清选项。
+// ============================================================
+if (/quark\.cn\/.+?\/(video|play|stream|player)/.test(url)) {
+  try {
+    var d = obj.data || obj.result || obj;
+    if (!d) { d = obj; }
+
+    // 视频流列表合并：vip/svip 受限流 → 合并到主列表
+    if (d.streams && (d.vip_streams || d.svip_streams)) {
+      var vipStreams = d.vip_streams || d.svip_streams || [];
+      for (var i = 0; i < vipStreams.length; i++) {
+        d.streams.push(vipStreams[i]);
+      }
+      delete d.vip_streams;
+      delete d.svip_streams;
+    }
+
+    // 分辨率列表补全
+    if (d.qualities || d.resolutions || d.qualityList || d.resolutionList) {
+      var list = d.qualities || d.resolutions || d.qualityList || d.resolutionList;
+      var full = ['4K', '1080P', '720P', '480P', '360P', '240P'];
+      for (var j = 0; j < full.length; j++) {
+        if (list.indexOf(full[j]) === -1) {
+          list.push(full[j]);
+        }
+      }
+    }
+
+    // 逐条视频流的 quality 标记提升
+    if (d.streams) {
+      for (var k = 0; k < d.streams.length; k++) {
+        var s = d.streams[k];
+        if (s.vip_only) s.vip_only = false;
+        if (s.svip_only) s.svip_only = false;
+        if (s.need_vip) s.need_vip = false;
+        if (s.quality === 'sd' || s.quality === 'hd') {
+          s.quality = '4K';
+        }
+      }
+    }
+
+    // 子对象递归处理：data.playInfo / videoInfo 等
+    function walk(obj, depth) {
+      if (!obj || typeof obj !== 'object' || depth > 3) return;
+      if (obj.streams || obj.qualities || obj.vip_streams) {
+        if (obj.streams && (obj.vip_streams || obj.svip_streams)) {
+          var vs = obj.vip_streams || obj.svip_streams || [];
+          for (var m = 0; m < vs.length; m++) { obj.streams.push(vs[m]); }
+          delete obj.vip_streams;
+          delete obj.svip_streams;
+        }
+        if (obj.qualities || obj.resolutions || obj.qualityList || obj.resolutionList) {
+          var ql = obj.qualities || obj.resolutions || obj.qualityList || obj.resolutionList;
+          var fullQ = ['4K', '1080P', '720P', '480P'];
+          for (var n = 0; n < fullQ.length; n++) {
+            if (ql.indexOf(fullQ[n]) === -1) ql.push(fullQ[n]);
+          }
+        }
+      }
+      var keys = Object.keys(obj);
+      for (var p = 0; p < keys.length; p++) {
+        if (typeof obj[keys[p]] === 'object') walk(obj[keys[p]], depth + 1);
+      }
+    }
+    walk(d, 0);
+  } catch (e) { console.log('Quark video:' + e); }
+}
+
 $done({ body: JSON.stringify(obj) });

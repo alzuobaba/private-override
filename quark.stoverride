@@ -35,6 +35,12 @@ http:
       type: response
       require-body: true
       timeout: 5
+    # 视频清晰度——合并 VIP 受限流，补全 4K/1080P
+    - match: ^https:\/\/.+\.quark\.cn\/.+?\/(video|play|stream|player)
+      name: quark
+      type: response
+      require-body: true
+      timeout: 5
 
 script-providers:
   quark:
