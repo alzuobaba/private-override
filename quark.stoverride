@@ -1,12 +1,9 @@
 name: '&#x1F30F; 夸克浏览器 去广告'
 desc: |-
   夸克浏览器广告净化覆写
-  - 首页信息流广告过滤
-  - 搜索结果推广屏蔽
-  - 小说阅读广告移除
-  - 开屏广告禁用
-  - 个人中心推广清理
-author: alzuobaba
+  原理：删除 open-cms-api.quark.cn/open-cms 响应中的 500+ CMS 配置开关，
+  一次性关闭阅读广告、各页面弹窗横幅、VIP 推广入口等所有广告功能。
+author: 可莉 / Stash 适配 alzuobaba
 homepage: https://github.com/alzuobaba/private-override
 category: '&#x1F6AB; 去广告 / 净化'
 date: '2026-05-27'
@@ -14,46 +11,17 @@ version: '1.0.0'
 
 http:
   mitm:
-    - '*.quark.cn'
-    - '*.uc.cn'
-    - '*.sm.cn'
-    - browser.quark.cn
-    - api.quark.cn
-    - quark.sm.cn
+    - open-cms-api.quark.cn
+    - stars.shuqireader.com
 
-  # 已知广告域名直接拦截
+  # 书旗小说广告请求直接拦截
   url-rewrite:
-    - ^https?:\/\/.+\.uc\.cn\/ad\/ reject-200
-    - ^https?:\/\/.+\.uc\.cn\/.+sdk\.js reject-200
-    - ^https?:\/\/(track|log|analytics)\. reject-200
-    - ^https?:\/\/.+\.(umeng|umtrack)\.com\/ reject-200
-    - ^https?:\/\/.+\.(amap|alibaba-inc|taobao)\.com\/ reject-200
-    - ^https?:\/\/api\.zhihu\.com\/ab reject-dict
-    - ^https?:\/\/api-quark\.zhihu\.com reject-dict
+    - ^https:\/\/stars\.shuqireader\.com\/kkios\/render\/load\/resource\/app$ reject-dict
+    - ^https:\/\/stars\.shuqireader\.com\/kkios\/render\/load\/resource\/appConfig$ reject-dict
 
-  # 响应体脚脚本过滤
+  # CMS 配置响应——删除所有广告开关
   script:
-    - match: ^https?:\/\/.+\.quark\.cn\/api\/(feed|recommend|homev2)
-      name: quark
-      type: response
-      require-body: true
-      timeout: 5
-    - match: ^https?:\/\/.+\.quark\.cn\/api\/(search|query)
-      name: quark
-      type: response
-      require-body: true
-      timeout: 5
-    - match: ^https?:\/\/.+\.quark\.cn\/api\/(novel|reader|book)
-      name: quark
-      type: response
-      require-body: true
-      timeout: 5
-    - match: ^https?:\/\/.+\.quark\.cn\/api\/(splash|welcome|launch)
-      name: quark
-      type: response
-      require-body: true
-      timeout: 5
-    - match: ^https?:\/\/.+\.quark\.cn\/api\/(user|mine|profile)
+    - match: ^https:\/\/open-cms-api\.quark\.cn\/open-cms
       name: quark
       type: response
       require-body: true
