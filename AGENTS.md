@@ -1,128 +1,116 @@
-# Reheji.js 分析
+# Stash 覆写脚本仓库
 
-**来源**: https://raw.githubusercontent.com/chxm1023/Rewrite/main/Reheji.js
-**作者**: @ddm1023
+https://github.com/alzuobaba/private-override
 
-## 功能
+## 文件结构
 
-RevenueCat 系列解锁合集。拦截 `api.revenuecat.com` / `api.rc-backup.com` 的订阅验证请求，根据 bundle ID 或 User-Agent 匹配 App，注入 premium 凭证。
+```
+├── override.yaml                  # RC + iTunes 合一（可选）
+├── rc-unlock.stoverride           # RevenueCat 独立覆写
+├── itunes-unlock.stoverride       # iTunes 独立覆写
+├── bilibili.stoverride            # Bilibili 净化 + 会员画质
+├── quark.stoverride               # 夸克浏览器去广告
+├── premium.stoverride             # Premium 合集（123 脚本）
+├── AGENTS.md                      # 本文档
+├── README.md
+├── exclude.json                   # 统一黑名单
+└── scripts/
+    ├── revenuecat.js              # RC 解锁逻辑
+    ├── revenuecat-data.json       # App 字典（bundle 23 + listua 345）
+    ├── itunes.js                  # iTunes 验证绕过
+    ├── bilibili.js                # Bilibili 多功能脚本
+    ├── quark.js                   # 夸克 CMS 去广告
+    └── premium/                   # 123 个 App 解锁脚本
+```
 
-## 双上下文脚本
+## 使用方法
 
-Reheji.js 是一个**双上下文脚本**，在 Surge/Loon 中同时注册为 `script-response-body` 和 `script-request-header`：
+在 Stash 中导入对应的 `.stoverride` 文件：
 
-| 上下文 | `$response` | 行为 |
-|--------|------------|------|
-| response-body | 可用 | `ddm = JSON.parse($response.body)` → 在原始响应上**增量修改后返回** |
-| request-header | undefined | `ddm = {}` → 从头构造响应 |
+| 文件 | 功能 | 来源 |
+|------|------|------|
+| `rc-unlock.stoverride` | RevenueCat 内购解锁（200+ App） | 基于 Reheji.js @ddm1023 |
+| `itunes-unlock.stoverride` | iTunes verifyReceipt 验证绕过 | 基于 iTunes.sgmodule |
+| `override.yaml` | RC + iTunes 合一 | 上述两者合并 |
+| `bilibili.stoverride` | 1080P+4K画质 / 去广告 / 页面净化 | 基于 Moli-X Bilibili |
+| `quark.stoverride` | 夸克浏览器去广告（703 CMS key） | 基于 kelee.one 可莉 |
+| `premium.stoverride` | 100+ App 解锁合集 | 基于 BOBOLAOSHIV587/Rules |
 
-这就是 `ddm` 变量（L21）的核心意义：**合并而非覆盖**。RevenueCat 响应的辅助字段（`request_date`、`non_subscriptions`、`management_url` 等）必须保留，否则部分 App 可能校验失败。
-
-## 结构
-
-1. **禁止列表**: 检测 `forbiddenApps` 中 UA 或 `$request.body` 时立即放行（UA 级 + body 级双重防护）
-2. **bundle 字典**（24 条）: 按 `X-Client-Bundle-ID` header 匹配 → `{ name, id, cm }`
-3. **listua 字典**（~180 条）: 按 User-Agent 匹配（同上结构）
-4. **响应模式**:
-   - `sja` (App Store 回执格式): `/receipts` 端点 → 注入 `receipt.in_app` + `latest_receipt_info` + `pending_renewal_info`
-   - `sjb` (subscriber 格式): `/subscribers/` 端点 → 注入 `subscriber.entitlements` + `subscriber.subscriptions`
-   - `sjc` (简易格式): `/receipts` 端点特定 App → 扁平化 `entitlement` 对象
-5. **APTV 例外**: APTV 同时存在于 `forbiddenApps` 和 `listua` — 前者按 UA 阻断新版本，后者作为旧版本降级策略
-6. **末尾 jsjiami v5 混淆**: 混淆段包含上述路由逻辑的编解码实现，数据字典在混淆前已明文定义
-
-## Stash 适配要点
-
-- 使用 `http-response` + `response-body`，`$response` 始终可访问
-- 三个 merge 函数（`mergeSJA`/`mergeSJB`/`mergeSJC`）均对 `ddm` **就地修改**，保留原响应所有字段
-- `$request.body` 参与 forbiddenApps 检测（补齐原脚本的 body 检查）
-- `/subscribers/` → 始终 mergeSJB；`/receipts` → 按 `cm` 路由
+**推荐组合**：导入 `rc-unlock.stoverride` + `itunes-unlock.stoverride`，再按需导入 `bilibili`、`quark`、`premium`。
 
 ---
 
-# iTunes.sgmodule 分析
+# 各脚本原理
 
-**来源**: https://reven.jsforbaby.workers.dev/reven/iTunes.sgmodule
+## revenuecat.js — RevenueCat 解锁
 
-## 功能
+拦截 `api.revenuecat.com` / `api.rc-backup.com` 的验证请求。数据与逻辑分离：
 
-iTunes 内购验证绕过。将 `buy.itunes.apple.com/verifyReceipt` 转发至 Cloudflare Worker (`reven.jsforbaby.workers.dev`)。
+- `revenuecat-data.json`：App 字典（bundle ID → 商品 ID + 响应模式），通过 `$persistentStore` 缓存
+- `revenuecat.js`：纯逻辑，加载字典后在原始响应上增量合并（ddm 策略）
 
-## 原实现
+三种响应模式：
 
-```
-[URL Rewrite]
-^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt
-  → {{{Mock}}}/buy.itunes.apple.com/verifyReceipt?enabled={{{Enabled}}}&expires={{{Expires}}}&country={{{Country}}} header
-```
+| 模式 | 端点 | 格式 |
+|------|------|------|
+| SJA | `/receipts` | 模拟 Apple 回执（receipt + latest_receipt_info + pending_renewal_info） |
+| SJB | `/subscribers/` | RevenueCat subscriber 格式（entitlements + subscriptions） |
+| SJC | `/receipts`（特定 App） | 扁平化 entitlement 对象 |
 
-| 参数 | 默认值 | 说明 |
-|------|--------|------|
-| `Mock` | `https://reven.jsforbaby.workers.dev/reven` | Worker 网关 |
-| `Enabled` | `true` | 启用/关闭注入 |
-| `Expires` | `2099-09-09` | 订阅到期日 |
-| `Country` | `HK` | App Store 地区码 |
+## itunes.js — iTunes 验证绕过
 
-## Worker 实际行为（通过测试推断）
+拦截 `buy.itunes.apple.com/verifyReceipt` 的响应（http-response），在 Apple 原始回执上注入 2099 年到期的订阅记录。
 
-实测定点 `POST` 到 Worker：
-- `enabled=false` → Worker 透传请求至 Apple 并返回原始响应
-- `enabled=true` → Worker 转发至 Apple，然后对响应注入订阅，再返回给客户端
+- 已有购买 → 延长 `expires_date`
+- 无购买 → fallback `{bundle_id}.premium`（局限：无法查询 App Store API）
 
-Worker 的核心价值是**通过 `Country` 参数调用 Apple App Store Lookup API**，查询该 App 在该区实际上架的商品，选取最贵商品 ID 作为注入目标。`enabled=false` 是一个干净的旁路开关。
+## bilibili.js — Bilibili 多功能
 
-## 自包含重写 (itunes.js) — 策略与局限
+15 个端点统一处理：
+- VIP 画质：`/x/v2/account/myinfo` 注入 `vip.type=2, status=1`
+- 去广告：feed/dynamic/live/splash 过滤广告卡片
+- 页面净化：mine/tab/search/bangumi 移除推广入口
+- url-rewrite 层直接拦截 8 个广告请求（零开销）
 
-替代 Worker 的方法：拦截 **Apple 原始响应**（http-response），对其注入订阅数据后返回。
+## quark.js — 夸克去广告
 
-**策略**：
-1. 若 Apple 返回的 `latest_receipt_info` 已有条目 → 延长所有条目的 `expires_date` 到 2099 年，保留原始 `product_id`
-2. 若无条目 → 创建一条 fake 条目，`product_id` 提取来源：
-   - 优先取 `latest_receipt_info[0].product_id`（已有购买）
-   - 其次取 `receipt.in_app[0].product_id`
-   - 最后 fallback 为 `{bundle_id}.premium`
+**唯一策略**：拦截 `open-cms-api.quark.cn/open-cms`，删除响应中 703 条 CMS 配置 key。夸克的所有广告/弹窗/VIP推广均由这些远程配置开关控制，删除 key 等同于关闭所有广告功能。
 
-**根本局限**：无法查询 App Store API，因此对"从未有过任何 IAP 购买"的 App（Apple 返回含空 `in_app` 的合法 receipt），`{bundle_id}.premium` 是**猜测值**，不匹配真实 product_id 则解锁失败。对"曾有过购买但已过期"的 App，延长真实 product_id 的条目可直接生效。
+## premium/ — Premium 合集
 
-**修复点**：
-- `$done({})` 后追加 `return` 防止后续代码执行
-- Apple 返回错误码（21002/21006/21007 等）→ 确保 `obj.receipt` 存在后再操作，`status` 统一置 0
-- `product_id` 多级 fallback 链保证不乱猜
+源自 BOBOLAOSHIV587/Rules 的 126 个解锁脚本，已全部本地化到 `scripts/premium/`。覆盖：阿里云盘、百度网盘、ChatGPT、Spotify、WPS、剪映、迅雷、美图秀秀、GoodNotes、Notability、Picsart 等 100+ App。
+
+RevenueCat 重叠部分（Reheji.js/crack.js/Revenuecat.js 共 6 条规则）已移除，统一由 `rc-unlock.stoverride` 覆盖。
 
 ---
 
-# override.yaml 配置
+# 黑名单
 
-```yaml
-scripts:
-  - http-response:
-      name: itunes-verify
-      match: ^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt
-      script-path: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/itunes.js
-      type: response-body
-      require-body: true
+编辑 `scripts/exclude.json` 可关闭指定 App 的解锁：
 
-  - http-response:
-      name: revenuecat
-      match: ^https:\/\/api\.(revenuecat|rc-backup)\.com\/v[12]\/(receipts|subscribers\/[^/?]+)(\/.*)?$
-      script-path: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/revenuecat.js
-      type: response-body
-      require-body: true
-
-mitm:
-  hostnames:
-    - api.revenuecat.com
-    - api.rc-backup.com
-    - buy.itunes.apple.com
+```json
+{
+  "exclude": ["APTV", "com.example.app"]
+}
 ```
 
-## 正则优化说明
+- RC 脚本检查 UA 关键字 + bundle ID 双重匹配
+- iTunes 脚本检查 bundle_id
+- 修改后推送即可，脚本通过 `$persistentStore` 缓存
 
-RevenueCat 正则以 `v[12]\/(receipts|subscribers\/[^/?]+)(\/.*)?` 精确限定标准 API 路径：
-- 匹配: `/v1/receipts`, `/v2/receipts`, `/v1/subscribers/user123`, `/v1/subscribers/user123/offerings`
-- 不匹配: `/v1/diagnostics`, `/v1/health` 等无关端点
+---
 
-## 注意事项
+# 数据更新
 
-- 需在 Stash 中开启 MITM 并信任根证书
-- RevenueCat 字典需定期从上游 Reheji.js 同步新增的 App 映射
-- iTunes fallback product_id 仅为 `{bundle_id}.premium`，对无购买记录的 App 可能不匹配
+**RevenueCat 字典**：编辑 `scripts/revenuecat-data.json`，推送后脚本自动缓存加载。
+
+**Premium 脚本**：上游 `BOBOLAOSHIV587/Rules` 更新时，重新下载对应 JS 文件到 `scripts/premium/`。
+
+---
+
+# Stash 兼容性
+
+- 覆写格式：`http.script` + `script-providers`，符合 [Stash Wiki](https://stash.wiki/configuration/override) 标准
+- 脚本类型：`response` 或 `request`，按需 `require-body: true`
+- 脚本缓存：`interval: 86400`（每日检查更新）
+- 需开启 MITM 并信任根证书
