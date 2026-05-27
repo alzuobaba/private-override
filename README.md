@@ -102,9 +102,9 @@ RevenueCat 重叠部分（Reheji.js/crack.js/Revenuecat.js 共 6 条规则）已
 
 # 数据更新
 
-**RevenueCat 字典**：编辑 `scripts/revenuecat-data.json`，推送后脚本自动缓存加载。
+**RevenueCat 字典**：编辑 `scripts/revenuecat-data.json`，推送后脚本通过 `$persistentStore` 自动缓存加载。
 
-**Premium 脚本**：上游 `BOBOLAOSHIV587/Rules` 更新时，重新下载对应 JS 文件到 `scripts/premium/`。
+**Premium 脚本**：已全部本地化至 `scripts/premium/`，运行时无任何外部依赖。如需跟踪上游更新，手动对比 [BOBOLAOSHIV587/Rules](https://github.com/BOBOLAOSHIV587/Rules) 后替换对应文件。
 
 ---
 
