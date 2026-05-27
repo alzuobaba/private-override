@@ -1,8 +1,37 @@
+/**
+ * RevenueCat 订阅解锁脚本（适配 Stash）
+ * =====================================
+ * 拦截 api.revenuecat.com / api.rc-backup.com 的订阅验证请求，
+ * 根据 X-Client-Bundle-ID 或 User-Agent 匹配 App，
+ * 在原始响应体上增量修改（ddm 合并），注入永久 premium 凭证。
+ *
+ * 两个 RevenueCat API：
+ *   /v1/subscribers/{id} → RevenueCat GET subscriber → 走 mergeSJB
+ *   /v1/receipts          → RevenueCat POST receipt   → 走 mergeSJA / mergeSJC
+ *
+ * 字典字段说明：
+ *   name   = entitlements 字典键名（App 内部权限标识）
+ *   id     = product_identifier（RevenueCat 商品 ID）
+ *   cm     = 响应模式：sja(模拟 Apple 回执) / sjb(RevenueCat subscriber) / sjc(扁平化)
+ *   nameb  = 第二个 entitlement 键名（多权限 App 如 Spark、ASKAI）
+ *   idb    = 第二个 product_identifier
+ *
+ * 来源：https://raw.githubusercontent.com/chxm1023/Rewrite/main/Reheji.js
+ * 作者：@ddm1023 / Stash 适配：alzuobaba
+ */
+
 const headers = $request.headers;
 const ua = headers['User-Agent'] || headers['user-agent'] || '';
 const bundle_id = headers['X-Client-Bundle-ID'] || headers['x-client-bundle-id'] || '';
 const reqBody = $request.body || '';
 
+/*
+ * 禁止列表：这些 App 检测到 MITM 会拒绝工作。
+ * 同时检查 UA 和请求体，双重防护防止绕过。
+ * APTV 特殊：同时存在于 forbiddenApps 和 listua。
+ *   - UA 包含 APTV → 被 forbiddenApps 阻断（新版 APTV 会检测）
+ *   - UA 不含 APTV → 可通过 listua 匹配（旧版 APTV 不检测）
+ */
 const forbiddenApps = [
   'PicSeedClient', 'ReflixiOS', 'Pomodoro', 'MyHabit',
   'Rond', 'Filebar', 'Fileball', 'APTV'
@@ -13,6 +42,11 @@ const blocked = forbiddenApps.some(function(app) {
 if (blocked) {
   $done({});
 }
+
+/*
+ * bundle 字典：按请求头 X-Client-Bundle-ID 匹配（24 条）
+ * 这些 App 通过 RevenueCat SDK 传递 bundle ID，可直接精确命中。
+ */
 const bundle = {
   'com.zhang333.dd': { name: 'premium', id: 'com.zhang3.plus', cm: 'sjb' },  //系统电池分析
   'io.fadel.TeleprompterX': { name: 'io.fadel.teleprompterx.pro', id: 'io.fadel.TeleprompterX.pro.lifetime', cm: 'sjb' },  //Teleprompter-提词器和字幕
@@ -38,6 +72,11 @@ const bundle = {
   'com.valo.reader': { name: 'com.valo.reader.vip1.forever', id: 'com.valo.reader.vip1.forever', nameb: 'com.valo.reader.vip2.forever', idb: 'com.valo.reader.vip2.forever', cm: 'sjb' },  //读不舍手
   'com.skysoft.removalfree': { name: 'Pro', id: 'com.skysoft.removalfree.subscription.newyearly', cm: 'sja' }  //图片消除
 };
+/*
+ * listua 字典：按 User-Agent 匹配（~180 条）
+ * 未传递 X-Client-Bundle-ID 的 App 通过 UA 中包含的子串识别。
+ * UA 键可能包含 URL 编码（%20 等），匹配时直接做 includes 检查。
+ */
 const listua = {
   'QuietCam': { name: 'QuietCam Pro', id: 'pawelchmiel.quietcam.yearly', cm: 'sja' },  //隐形相机/黑屏录像-QuietCam
   'PixelStudio': { name: 'Pro', id: 'PixelNFT.Pro.Lifetime', cm: 'sjb' },  //像素艺术-Pixel Canvas
@@ -388,12 +427,21 @@ const listua = {
   'VSCO': { name: 'pro', id: 'vscopro_global_5999_annual_7D_free', cm: 'sja' }  //VSCO-照片与视频编辑编辑
 };
 
+/*
+ * App 匹配：先查 UA（listua），后查 bundle ID（bundle），都不命中则默认 sjb
+ */
 let appData = null;
 const uaKey = Object.keys(listua).find(function(k) { return ua.includes(k); });
 if (uaKey) appData = listua[uaKey];
 if (!appData && bundle_id && bundle[bundle_id]) appData = bundle[bundle_id];
 if (!appData) appData = { cm: 'sjb' };
 
+/*
+ * ddm (data from $response): 解析原始响应体，后续在 ddm 上将假数据就地合并。
+ * 关键：不是覆盖整个响应，而是修改 ddm 的特定字段后返回，
+ * 以保留 RevenueCat 原始响应中的辅助字段。
+ * 若 $response 不可用（request-header 上下文），ddm 为空对象 {}。
+ */
 let ddm = {};
 try {
   if (typeof $response !== 'undefined' && $response.body) {
@@ -401,6 +449,14 @@ try {
   }
 } catch (e) {}
 
+/*
+ * 时间常量：预计算所有日期格式，避免在合并函数中重复 new Date()
+ *   now     = 当前 Unix 秒
+ *   future  = 10 年后 Unix 秒（315360000 = 3650天）
+ *   ISO     = ISO 8601 格式 (Apple/RevenueCat 通用)
+ *   PST     = 美国太平洋时区字符串 (Apple 回执专用)
+ *   MS      = 毫秒时间戳字符串 (Apple 回执专用)
+ */
 const now = Math.floor(Date.now() / 1000);
 const future = now + 315360000;
 const FUTURE_ISO = (new Date(future * 1000)).toISOString();
@@ -410,10 +466,23 @@ const FUTURE_PST = (new Date(future * 1000)).toLocaleString('en-US', { timeZone:
 const FUTURE_MS = (future * 1000).toString();
 const NOW_MS = (now * 1000).toString();
 
+/*
+ * makeTID(): 生成 Apple 风格的 20 位 transaction_id
+ * 前缀 200000 确保不与真实 transaction_id 冲突
+ */
 function makeTID() {
   return '200000' + Math.random().toString().slice(2, 17);
 }
 
+/*
+ * mergeSJA: Apple verifyReceipt 回执格式
+ * 用于 RevenueCat POST /receipts 端点，模拟 Apple 的成功验证响应
+ * 注入字段：receipt.in_app, latest_receipt_info, pending_renewal_info
+ * - receipt_type: "ProductionSandbox" 覆盖生产和沙箱两种环境
+ * - is_in_intro_offer_period: "false" → 表示非试用期，已是正式订阅
+ * - is_trial_period: "false" → 表示非免费试用
+ * - auto_renew_status: "1" → 表示下一周期自动续费（Apple 标准）
+ */
 function mergeSJA(base, data, bid) {
   const tid = makeTID();
   base.status = 0;
@@ -454,6 +523,17 @@ function mergeSJA(base, data, bid) {
   }];
 }
 
+/*
+ * mergeSJB: RevenueCat subscriber 格式
+ * 用于 RevenueCat GET /subscribers/{id} 端点
+ * 注入字段：subscriber.entitlements, subscriber.subscriptions
+ * - entitlements: 权限字典（如 { "premium": {...} }），App 通过此字段判断用户等级
+ * - subscriptions: 订阅产品字典（如 { "com.x.yearly": {...} }）
+ * - ownership_type: "PURCHASED" → 表示用户直接购买（非家庭共享、非企业授权）
+ * - store: "app_store" → 表示从 Apple App Store 购买（非 Play Store / Stripe）
+ * - is_sandbox: false → 生产环境（非 TestFlight 沙箱）
+ * - nameb/idb: 双权限 App（如 Spark 同时有 premium 和 tokens 权限）
+ */
 function mergeSJB(base, data) {
   if (!base.subscriber) base.subscriber = {};
   const sub = base.subscriber;
@@ -494,6 +574,11 @@ function mergeSJB(base, data) {
   base.request_date_ms = base.request_date_ms || now * 1000;
 }
 
+/*
+ * mergeSJC: 扁平化 entitlement 格式
+ * 少数 App 使用简化版 RevenueCat 响应格式，不需要完整的 subscriber 对象
+ * 注入字段：entitlement, entitlements (两个层级同时提供以兼容不同 SDK 版本)
+ */
 function mergeSJC(base, data) {
   if (!base.entitlement) base.entitlement = {};
   if (!base.entitlements) base.entitlements = {};
@@ -506,6 +591,11 @@ function mergeSJC(base, data) {
   };
 }
 
+/*
+ * 路由：根据 URL 端点和 App 配置的 cm 字段选择合并策略
+ *   /subscribers/ → 始终 mergeSJB（RevenueCat subscriber 端点）
+ *   /receipts      → sja=mergeSJA, sjc=mergeSJC, 默认 fallback mergeSJB
+ */
 const url = $request.url;
 const isSubscriber = url.indexOf('/subscribers/') !== -1;
 
