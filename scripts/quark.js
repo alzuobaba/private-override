@@ -731,4 +731,44 @@ if (url.indexOf('open-cms-api.quark.cn/open-cms') !== -1) {
   }
 }
 
+// ============================================================
+// 夸克网盘 SVIP+ 会员注入
+// 拦截 pan.quark.cn / drive-pc.quark.cn 的会员接口，
+// 强制返回 SVIP+ 最高等级状态
+// ============================================================
+if (/quark\.cn\/.+?\/(member|vip|user\/info|user\/vip)/.test(url)) {
+  try {
+    var data = obj.data || obj;
+    if (data.member !== undefined) {
+      data.member = {
+        memberType: 'svip',
+        level: 99,
+        vipLevel: 99,
+        isVip: true,
+        isSvip: true,
+        isSvipPlus: true,
+        expireTime: 4102444800,
+        name: 'SVIP+'
+      };
+    }
+    if (data.vip !== undefined) {
+      data.vip = {
+        isVip: true,
+        isSvip: true,
+        isSvipPlus: true,
+        vipType: 'svip_plus',
+        expireTime: 4102444800,
+        level: 99
+      };
+    }
+    if (data.isVip !== undefined) {
+      data.isVip = true;
+      data.isSvip = true;
+      data.isSvipPlus = true;
+      data.vipType = 'svip_plus';
+      data.expireTime = 4102444800;
+    }
+  } catch (e) { console.log('Quark SVIP+:' + e); }
+}
+
 $done({ body: JSON.stringify(obj) });

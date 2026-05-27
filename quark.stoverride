@@ -13,6 +13,9 @@ http:
   mitm:
     - open-cms-api.quark.cn
     - stars.shuqireader.com
+    - pan.quark.cn
+    - drive-pc.quark.cn
+    - api.quark.cn
 
   # 书旗小说广告请求直接拦截
   url-rewrite:
@@ -22,6 +25,12 @@ http:
   # CMS 配置响应——删除所有广告开关
   script:
     - match: ^https:\/\/open-cms-api\.quark\.cn\/open-cms
+      name: quark
+      type: response
+      require-body: true
+      timeout: 5
+    # 网盘会员——SVIP+ 状态注入
+    - match: ^https:\/\/(pan|drive-pc|api)\.quark\.cn\/.+?\/(member|vip|user\/(info|vip))
       name: quark
       type: response
       require-body: true
