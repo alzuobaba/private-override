@@ -1047,370 +1047,370 @@ http:
 script-providers:
   JS-1_ALiCloud:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS-1_ALiCloud.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_ALiCloud.js
   JS-1_AdGuardProCrack:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS-1_AdGuardProCrack.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_AdGuardProCrack.js
   JS-1_BaiDuYun:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS-1_BaiDuYun.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_BaiDuYun.js
   JS-1_BoDianMusic:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS-1_BoDianMusic.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_BoDianMusic.js
   JS-1_Boom:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS-1_Boom.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_Boom.js
   JS-1_CamScanner:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS-1_CamScanner.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_CamScanner.js
   JS-1_ColourfulWeatherSVIP:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS-1_ColourfulWeatherSVIP.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_ColourfulWeatherSVIP.js
   JS-1_DJCSJ:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS-1_DJCSJ.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_DJCSJ.js
   JS-1_FilmicPro:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS-1_FilmicPro.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_FilmicPro.js
   JS-1_Filmix:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS-1_Filmix.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_Filmix.js
   JS-1_GDJP:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS-1_GDJP.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_GDJP.js
   JS-1_GoodNotes6:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS-1_GoodNotes6.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_GoodNotes6.js
   JS-1_IFTTT:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS-1_IFTTT.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_IFTTT.js
   JS-1_MIX:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS-1_MIX.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_MIX.js
   JS-1_MiGuMusic:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS-1_MiGuMusic.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_MiGuMusic.js
   JS-1_MiGuMusic-CK:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS-1_MiGuMusic-CK.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_MiGuMusic-CK.js
   JS-1_MuBu:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS-1_MuBu.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_MuBu.js
   JS-1_Musixmatch:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS-1_Musixmatch.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_Musixmatch.js
   JS-1_Notability:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS-1_Notability.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_Notability.js
   JS-1_Notebook:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS-1_Notebook.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_Notebook.js
   JS-1_Perfect365:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS-1_Perfect365.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_Perfect365.js
   JS-1_Picsart:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS-1_Picsart.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_Picsart.js
   JS-1_QingTu:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS-1_QingTu.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_QingTu.js
   JS-1_Snailsleep:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS-1_Snailsleep.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_Snailsleep.js
   JS-1_Spotify-Json:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS-1_Spotify-Json.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_Spotify-Json.js
   JS-1_Spotify-Proto:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS-1_Spotify-Proto.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_Spotify-Proto.js
   JS-1_WPSDocerVIPowerCrack:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS-1_WPSDocerVIPowerCrack.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_WPSDocerVIPowerCrack.js
   JS-1_WPSDocerVIPuserCrack:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS-1_WPSDocerVIPuserCrack.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_WPSDocerVIPuserCrack.js
   JS-1_WPSuperVIPowerCrack:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS-1_WPSuperVIPowerCrack.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_WPSuperVIPowerCrack.js
   JS-1_WPSuperVIPuserCrack:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS-1_WPSuperVIPuserCrack.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_WPSuperVIPuserCrack.js
   JS-1_iLovePDF:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS-1_iLovePDF.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_iLovePDF.js
   JS-1_palmestore:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS-1_palmestore.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_palmestore.js
   JS-2_zdxs:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS-2_zdxs.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-2_zdxs.js
   JS-3_KuWo:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS-3_KuWo.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-3_KuWo.js
   JS_AGC:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_AGC.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_AGC.js
   JS_AJMD:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_AJMD.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_AJMD.js
   JS_AdBlock:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_AdBlock.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_AdBlock.js
   JS_AlohaBrowser:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_AlohaBrowser.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_AlohaBrowser.js
   JS_AutoCAD:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_AutoCAD.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_AutoCAD.js
   JS_B612:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_B612.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_B612.js
   JS_BaiMiaoGoldVipCrack:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_BaiMiaoGoldVipCrack.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_BaiMiaoGoldVipCrack.js
   JS_CHSJ:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_CHSJ.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_CHSJ.js
   JS_ChatGPTPlusCrack:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_ChatGPTPlusCrack.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_ChatGPTPlusCrack.js
   JS_Craft:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_Craft.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Craft.js
   JS_Cubox:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_Cubox.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Cubox.js
   JS_DJYinYueKu:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_DJYinYueKu.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_DJYinYueKu.js
   JS_DZYJ:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_DZYJ.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_DZYJ.js
   JS_DeJianXS:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_DeJianXS.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_DeJianXS.js
   JS_DeezerHiFiProCrack:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_DeezerHiFiProCrack.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_DeezerHiFiProCrack.js
   JS_Documents:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_Documents.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Documents.js
   JS_Drafts:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_Drafts.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Drafts.js
   JS_DreamFace:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_DreamFace.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_DreamFace.js
   JS_Emby:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_Emby.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Emby.js
   JS_Endel:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_Endel.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Endel.js
   JS_Epik:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_Epik.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Epik.js
   JS_FM:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_FM.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_FM.js
   JS_FaceLab:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_FaceLab.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_FaceLab.js
   JS_FaceSwapper:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_FaceSwapper.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_FaceSwapper.js
   JS_FeeNote:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_FeeNote.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_FeeNote.js
   JS_Filmr:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_Filmr.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Filmr.js
   JS_Flightradar24:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_Flightradar24.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Flightradar24.js
   JS_FlipaClip:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_FlipaClip.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_FlipaClip.js
   JS_Flow:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_Flow.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Flow.js
   JS_FocosProCrack:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_FocosProCrack.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_FocosProCrack.js
   JS_GithubPro:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_GithubPro.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_GithubPro.js
   JS_HaiJiao:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_HaiJiao.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_HaiJiao.js
   JS_IPA-Installer:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_IPA-Installer.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_IPA-Installer.js
   JS_LanRenTS:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_LanRenTS.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_LanRenTS.js
   JS_MIX2:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_MIX2.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_MIX2.js
   JS_MTXX:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_MTXX.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_MTXX.js
   JS_MeiYanXJ:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_MeiYanXJ.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_MeiYanXJ.js
   JS_MiGuShiPin:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_MiGuShiPin.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_MiGuShiPin.js
   JS_MiGuShiPinck:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_MiGuShiPinck.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_MiGuShiPinck.js
   JS_MissAV:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_MissAV.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_MissAV.js
   JS_MoJiTianQi:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_MoJiTianQi.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_MoJiTianQi.js
   JS_Moises:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_Moises.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Moises.js
   JS_MorpholioTrace:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_MorpholioTrace.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_MorpholioTrace.js
   JS_Movavi:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_Movavi.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Movavi.js
   JS_MyFitnessPal:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_MyFitnessPal.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_MyFitnessPal.js
   JS_Nicegram:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_Nicegram.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Nicegram.js
   JS_Owlfiles:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_Owlfiles.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Owlfiles.js
   JS_PSExpress:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_PSExpress.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_PSExpress.js
   JS_PeakVisor:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_PeakVisor.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_PeakVisor.js
   JS_PikPak:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_PikPak.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_PikPak.js
   JS_PolarrXT:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_PolarrXT.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_PolarrXT.js
   JS_QobuzHiResProCrack:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_QobuzHiResProCrack.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_QobuzHiResProCrack.js
   JS_QuanBenXiaoShuo:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_QuanBenXiaoShuo.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_QuanBenXiaoShuo.js
   JS_Reddit:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_Reddit.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Reddit.js
   JS_RetouchPicsVipCrack:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_RetouchPicsVipCrack.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_RetouchPicsVipCrack.js
   JS_SMWD:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_SMWD.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_SMWD.js
   JS_SQYD:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_SQYD.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_SQYD.js
   JS_ShuQi:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_ShuQi.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_ShuQi.js
   JS_Slidebox:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_Slidebox.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Slidebox.js
   JS_Soundcloud:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_Soundcloud.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Soundcloud.js
   JS_SwiftyCompiler:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_SwiftyCompiler.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_SwiftyCompiler.js
   JS_Symbolab:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_Symbolab.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Symbolab.js
   JS_TIDALHiFiPlusCrack:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_TIDALHiFiPlusCrack.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_TIDALHiFiPlusCrack.js
   JS_Termius:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_Termius.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Termius.js
   JS_Tu-U:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_Tu-U.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Tu-U.js
   JS_UnblockURLinWeChat:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_UnblockURLinWeChat.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_UnblockURLinWeChat.js
   JS_VKMusic:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_VKMusic.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_VKMusic.js
   JS_VideoFusionVipCrack:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_VideoFusionVipCrack.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_VideoFusionVipCrack.js
   JS_VivaCutProCrack:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_VivaCutProCrack.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_VivaCutProCrack.js
   JS_VlogNowProCrack:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_VlogNowProCrack.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_VlogNowProCrack.js
   JS_WYWNDS:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_WYWNDS.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_WYWNDS.js
   JS_WallCraftFProCrack:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_WallCraftFProCrack.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_WallCraftFProCrack.js
   JS_WorkingCopy:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_WorkingCopy.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_WorkingCopy.js
   JS_XMNDXS:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_XMNDXS.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_XMNDXS.js
   JS_XXFSYJ:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_XXFSYJ.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_XXFSYJ.js
   JS_Xmind:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_Xmind.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Xmind.js
   JS_Y1:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_Y1.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Y1.js
   JS_Y2:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_Y2.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Y2.js
   JS_YandexMusic:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_YandexMusic.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_YandexMusic.js
   JS_YiSouXS:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_YiSouXS.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_YiSouXS.js
   JS_Youdao:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_Youdao.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Youdao.js
   JS_YunTing:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_YunTing.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_YunTing.js
   JS_danboai:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_danboai.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_danboai.js
   JS_danbovip:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_danbovip.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_danbovip.js
   JS_mgtk:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_mgtk.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_mgtk.js
   JS_mgtv:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_mgtv.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_mgtv.js
   JS_pixiv_premium.min:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_pixiv_premium.min.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_pixiv_premium.min.js
   JS_xunlei:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/JS_xunlei.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_xunlei.js
   bilibili:
     interval: 86400
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/bilibili.js
@@ -1431,4 +1431,4 @@ script-providers:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/revenuecat.js
   scripts_replace-body:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/premium/scripts_replace-body.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/scripts_replace-body.js

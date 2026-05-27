@@ -20,7 +20,7 @@ https://github.com/alzuobaba/private-override
     ├── itunes.js                  # iTunes 验证绕过
     ├── bilibili.js                # Bilibili 多功能脚本
     ├── quark.js                   # 夸克 CMS 去广告
-    └── premium/                   # 123 个 App 解锁脚本
+    └── apps/                   # 123 个 App 解锁脚本
 ```
 
 ## 使用方法
@@ -76,9 +76,9 @@ https://github.com/alzuobaba/private-override
 
 **唯一策略**：拦截 `open-cms-api.quark.cn/open-cms`，删除响应中 703 条 CMS 配置 key。夸克的所有广告/弹窗/VIP推广均由这些远程配置开关控制，删除 key 等同于关闭所有广告功能。
 
-## premium/ — Premium 合集
+## Premium 合集
 
-源自 BOBOLAOSHIV587/Rules 的 126 个解锁脚本，已全部本地化到 `scripts/premium/`。覆盖：阿里云盘、百度网盘、ChatGPT、Spotify、WPS、剪映、迅雷、美图秀秀、GoodNotes、Notability、Picsart 等 100+ App。
+源自 BOBOLAOSHIV587/Rules 的 126 个解锁脚本，已全部本地化到 `scripts/apps/`。覆盖：阿里云盘、百度网盘、ChatGPT、Spotify、WPS、剪映、迅雷、美图秀秀、GoodNotes、Notability、Picsart 等 100+ App。
 
 RevenueCat 重叠部分（Reheji.js/crack.js/Revenuecat.js 共 6 条规则）已移除，统一由 `rc-unlock.stoverride` 覆盖。
 
@@ -104,7 +104,7 @@ RevenueCat 重叠部分（Reheji.js/crack.js/Revenuecat.js 共 6 条规则）已
 
 **RevenueCat 字典**：编辑 `scripts/revenuecat-data.json`，推送后脚本通过 `$persistentStore` 自动缓存加载。
 
-**Premium 脚本**：已全部本地化至 `scripts/premium/`，运行时无任何外部依赖。如需跟踪上游更新，手动对比 [BOBOLAOSHIV587/Rules](https://github.com/BOBOLAOSHIV587/Rules) 后替换对应文件。
+**Premium 脚本**：已全部本地化至 `scripts/apps/`，运行时无任何外部依赖。如需跟踪上游更新，手动对比 [BOBOLAOSHIV587/Rules](https://github.com/BOBOLAOSHIV587/Rules) 后替换对应文件。
 
 ---
 
