@@ -18,6 +18,8 @@
  * 来源思路：https://reven.jsforbaby.workers.dev/reven/iTunes.sgmodule
  */
 
+var EXCLUDE_CACHE = 'exclude_v1';
+
 const url = $request.url;
 if (url.indexOf('/verifyReceipt') === -1) {
   $done({});
@@ -81,6 +83,22 @@ const bundleId =
   headers['X-Client-Bundle-ID'] ||
   headers['x-client-bundle-id'] ||
   'com.example.app';
+
+/*
+ * 黑名单检查：如果 bundle_id 在 itunes 排除列表中，直接放行不修改。
+ * 列表缓存在 $persistentStore 中，由 revenuecat.js 首次运行时加载并共享。
+ */
+var excludeCached = $persistentStore.read(EXCLUDE_CACHE);
+if (excludeCached) {
+  try {
+    var excludes = JSON.parse(excludeCached);
+    var itunesList = excludes.itunes || [];
+    if (itunesList.indexOf(bundleId) !== -1) {
+      $done({});
+      return;
+    }
+  } catch (e) {}
+}
 
 /*
  * productId: 需要注入的 IAP 商品标识符

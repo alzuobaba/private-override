@@ -13,6 +13,8 @@
 
 var CACHE_KEY = 'rc_data_v1';
 var DATA_URL = 'https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/revenuecat-data.json';
+var EXCLUDE_CACHE = 'exclude_v1';
+var EXCLUDE_URL = 'https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/exclude.json';
 
 var headers = $request.headers;
 var ua = headers['User-Agent'] || headers['user-agent'] || '';
@@ -176,18 +178,34 @@ function run(data) {
 
   // App 匹配：先查 UA（listua），后查 bundle ID（bundle），都不命中则默认 sjb
   var appData = null;
+  var matchedKey = null;
   var uaKeys = Object.keys(listua);
   for (var i = 0; i < uaKeys.length; i++) {
     if (ua.includes(uaKeys[i])) {
       appData = listua[uaKeys[i]];
+      matchedKey = uaKeys[i];
       break;
     }
   }
   if (!appData && bundle_id && bundle[bundle_id]) {
     appData = bundle[bundle_id];
+    matchedKey = bundle_id;
   }
   if (!appData) {
     appData = { cm: 'sjb' };
+  }
+
+  // 检查黑名单（匹配 UA 关键字 或 bundle ID 任一命中即放行）
+  var excludeCached = $persistentStore.read(EXCLUDE_CACHE);
+  if (excludeCached && matchedKey) {
+    try {
+      var excludes = JSON.parse(excludeCached);
+      var rcList = excludes.rc || [];
+      if (rcList.indexOf(matchedKey) !== -1 || rcList.indexOf(bundle_id) !== -1) {
+        $done({});
+        return;
+      }
+    } catch (e) {}
   }
 
   /*
@@ -242,12 +260,31 @@ $httpClient.get(
         var parsed = JSON.parse(body);
         $persistentStore.write(JSON.stringify(parsed), CACHE_KEY);
         run(parsed);
+
+        // 顺带缓存一份黑名单（异步，不影响当前请求）
+        loadExclude();
         return;
-      } catch (e) {
-        // JSON 解析失败 → 透传原响应
-      }
+      } catch (e) {}
     }
-    // 网络错误 / 解析失败 → 不修改响应，直接放行
     $done({});
   }
 );
+
+function loadExclude() {
+  var exc = $persistentStore.read(EXCLUDE_CACHE);
+  if (!exc) {
+    $httpClient.get(
+      { url: EXCLUDE_URL, timeout: 5 },
+      function(err2, resp2, body2) {
+        if (!err2 && body2) {
+          try {
+            JSON.parse(body2); // validate
+            $persistentStore.write(body2, EXCLUDE_CACHE);
+          } catch (e) {}
+        }
+      }
+    );
+  }
+}
+
+loadExclude();
