@@ -193,7 +193,9 @@ RevenueCat 重叠部分（Reheji.js/crack.js/Revenuecat.js 共 6 条规则）已
 
 > 总计覆盖 **368** 个 App
 
-### iTunes 验证绕过（itunes-unlock.stoverride / override.yaml）
+### iTunes 验证绕过（itunes-unlock.stoverride）— 兜底方案
+
+适用面窄：仅对"曾购买过但已过期"且不使用 RevenueCat 的 App 生效。绝大多数 App 已被 RC 或 Premium 覆盖，此脚本作为最后的兜底手段。
 
 所有使用 `buy.itunes.apple.com/verifyReceipt` 验证内购的 App 均可受益。
 
