@@ -840,6 +840,47 @@ if (/quark\.cn\/.+?\/(video|play|stream|player)/.test(url)) {
       }
     }
     walk(d, 0);
+
+    // 臻彩视界（Dolby Vision / HDR）强制开启
+    // 杜比音效（Dolby Audio / DDP）强制开启
+    // 遍历所有嵌套对象，将 dolby/hdr/dv 相关开关设为 true
+    function enableDolby(o, depth) {
+      if (!o || typeof o !== 'object' || depth > 4) return;
+      // Dolby Vision / 臻彩视界
+      if (o.dolby_vision !== undefined) o.dolby_vision = true;
+      if (o.dolby_vision_enable !== undefined) o.dolby_vision_enable = true;
+      if (o.nvp_dv_enable !== undefined) o.nvp_dv_enable = true;
+      if (o.dv_enable !== undefined) o.dv_enable = true;
+      if (o.hdr !== undefined) o.hdr = true;
+      if (o.hdr10 !== undefined) o.hdr10 = true;
+      if (o.hdr_enable !== undefined) o.hdr_enable = true;
+      if (o.is_hdr !== undefined) o.is_hdr = true;
+      // 杜比音效
+      if (o.dolby_audio !== undefined) o.dolby_audio = true;
+      if (o.dolby_atmos !== undefined) o.dolby_atmos = true;
+      if (o.ddp_enable !== undefined) o.ddp_enable = true;
+      if (o.ac3_enable !== undefined) o.ac3_enable = true;
+      if (o.audio_enhance !== undefined) o.audio_enhance = true;
+      // 杜比音轨注入：若 audio_tracks 中缺少 Dolby 音轨，补一条
+      if (o.audio_tracks && Array.isArray(o.audio_tracks)) {
+        var hasDolby = o.audio_tracks.some(function(t) {
+          return t.codec && /dolby|ddp|ac3|eac3|atmos/i.test(t.codec);
+        });
+        if (!hasDolby) {
+          o.audio_tracks.push({
+            codec: 'ddp',
+            name: '杜比音效',
+            channels: 6,
+            bitrate: 640000
+          });
+        }
+      }
+      var ks = Object.keys(o);
+      for (var q = 0; q < ks.length; q++) {
+        if (typeof o[ks[q]] === 'object') enableDolby(o[ks[q]], depth + 1);
+      }
+    }
+    enableDolby(d, 0);
   } catch (e) { console.log('Quark video:' + e); }
 }
 
