@@ -1413,7 +1413,7 @@ script-providers:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_xunlei.js
   bilibili:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/bilibili.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/bilibili.js
   bilibili-dyn:
     interval: 86400
     url: https://raw.githubusercontent.com/Moli-X/Resources/main/Script/Bilibili/TPBilibili.js
@@ -1425,7 +1425,7 @@ script-providers:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/itunes.js
   quark:
     interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/quark.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/quark.js
   revenuecat:
     interval: 86400
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/revenuecat.js

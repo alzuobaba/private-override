@@ -106,7 +106,7 @@ http:
 
 script-providers:
   bilibili:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/bilibili.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/bilibili.js
     interval: 86400
   bilibili-dyn:
     url: https://raw.githubusercontent.com/Moli-X/Resources/main/Script/Bilibili/TPBilibili.js

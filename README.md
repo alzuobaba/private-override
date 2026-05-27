@@ -18,9 +18,10 @@ https://github.com/alzuobaba/private-override
     ├── revenuecat.js              # RC 解锁逻辑
     ├── revenuecat-data.json       # App 字典（bundle 23 + listua 345）
     ├── itunes.js                  # iTunes 验证绕过
-    ├── bilibili.js                # Bilibili 多功能脚本
-    ├── quark.js                   # 夸克 CMS 去广告
-    └── apps/                   # 123 个 App 解锁脚本
+    ├── apps/
+    │   ├── bilibili.js            # Bilibili 多功能
+    │   ├── quark.js               # 夸克 CMS 去广告
+    │   └── ...                    # 123 个 App 解锁脚本
 ```
 
 ## 使用方法
@@ -64,7 +65,7 @@ https://github.com/alzuobaba/private-override
 - 已有购买 → 延长 `expires_date`
 - 无购买 → fallback `{bundle_id}.premium`（局限：无法查询 App Store API）
 
-## bilibili.js — Bilibili 多功能
+## Bilibili — Bilibili 多功能
 
 15 个端点统一处理：
 - VIP 画质：`/x/v2/account/myinfo` 注入 `vip.type=2, status=1`
@@ -72,11 +73,11 @@ https://github.com/alzuobaba/private-override
 - 页面净化：mine/tab/search/bangumi 移除推广入口
 - url-rewrite 层直接拦截 8 个广告请求（零开销）
 
-## quark.js — 夸克去广告
+## Quark — 夸克去广告
 
 **唯一策略**：拦截 `open-cms-api.quark.cn/open-cms`，删除响应中 703 条 CMS 配置 key。夸克的所有广告/弹窗/VIP推广均由这些远程配置开关控制，删除 key 等同于关闭所有广告功能。
 
-## Premium 合集
+## 独立 App 脚本
 
 源自 BOBOLAOSHIV587/Rules 的 126 个解锁脚本，已全部本地化到 `scripts/apps/`。覆盖：阿里云盘、百度网盘、ChatGPT、Spotify、WPS、剪映、迅雷、美图秀秀、GoodNotes、Notability、Picsart 等 100+ App。
 
