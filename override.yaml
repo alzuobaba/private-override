@@ -1,0 +1,19 @@
+scripts:
+  - http-request:
+      name: itunes-verify
+      match: ^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt
+      script-path: scripts/itunes.js
+      type: request-header
+
+  - http-response:
+      name: revenuecat
+      match: ^https:\/\/api\.(revenuecat|rc-backup)\.com\/.+\/(receipts$|subscribers\/?(.*?)*$)
+      script-path: scripts/revenuecat.js
+      type: response-body
+      require-body: true
+
+mitm:
+  hostnames:
+    - api.revenuecat.com
+    - api.rc-backup.com
+    - buy.itunes.apple.com
