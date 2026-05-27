@@ -1,0 +1,116 @@
+name: '&#x1F4FA; Bilibili 净化 + 会员画质解锁'
+desc: |-
+  哔哩哔哩多功能覆写
+  - 1080P高码率 + 4K画质（注入大会员状态）
+  - 去广告：首页/动态/直播/开屏广告过滤
+  - 页面净化：我的页/标签页/搜索/番剧页
+author: Moli-X / Stash 适配 alzuobaba
+homepage: https://github.com/alzuobaba/private-override
+category: '&#x1F513; 解锁 / 净化'
+date: '2026-05-27'
+version: '1.0.0'
+
+http:
+  mitm:
+    - '*.bilibili.com'
+    - '*.biliapi.net'
+    - app.bilibili.com
+    - api.live.bilibili.com
+    - grpc.biliapi.net
+    - i0.hdslb.com
+    - manga.bilibili.com
+
+  # 广告请求直接拦截（不需要解析响应体，性能优于脚本）
+  url-rewrite:
+    - ^https?:\/\/app\.bilibili\.com\/x\/resource\/ip reject-200
+    - ^https?:\/\/api\.bilibili\.com\/pgc\/activity\/deliver\/material\/receive reject-dict
+    - ^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.interface\.v1\.Search\/Default reject-200
+    - ^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/show reject-dict
+    - ^https:\/\/app\.bilibili\.com\/x\/v2\/search\/defaultwords reject-dict
+    - ^https?:\/\/api\.bilibili\.com\/x\/vip\/ads\/material\/report reject-dict
+    - ^https:\/\/api\.bilibili\.com\/pgc\/season\/player\/cards reject-dict
+    - ^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Comic\/(Flash|ListFlash|GetActivityTab) reject-dict
+
+  # 响应体脚本——VIP注入 + 内容净化
+  script:
+    - match: ^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/myinfo\?
+      name: bilibili
+      type: response
+      require-body: true
+      timeout: 5
+    - match: ^https?:\/\/app\.bilibili\.com\/x\/v2\/feed\/index
+      name: bilibili
+      type: response
+      require-body: true
+      timeout: 5
+    - match: ^https?:\/\/api\.live\.bilibili\.com\/xlive\/app-room\/v1\/index\/getInfoByRoom
+      name: bilibili
+      type: response
+      require-body: true
+      timeout: 5
+    - match: ^https?:\/\/api\.live\.bilibili\.com\/xlive\/app-interface\/v2\/index\/feed
+      name: bilibili
+      type: response
+      require-body: true
+      timeout: 5
+    - match: ^https?:\/\/api\.live\.bilibili\.com\/xlive\/e-commerce-interface\/v\d\/ecommerce-user\/get_shopping_info\?
+      name: bilibili
+      type: response
+      require-body: true
+      timeout: 5
+    - match: ^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/list
+      name: bilibili
+      type: response
+      require-body: true
+      timeout: 5
+    - match: ^https?:\/\/pgc\/season\/app\/related\/recommend\?
+      name: bilibili
+      type: response
+      require-body: true
+      timeout: 5
+    - match: ^https?:\/\/api\.(bilibili|biliapi)\.(com|net)\/pgc\/page\/(bangumi|cinema\/tab\?)
+      name: bilibili
+      type: response
+      require-body: true
+      timeout: 5
+    - match: ^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/mine
+      name: bilibili
+      type: response
+      require-body: true
+      timeout: 5
+    - match: ^https?:\/\/app\.bilibili\.com\/x\/resource\/show\/tab
+      name: bilibili
+      type: response
+      require-body: true
+      timeout: 5
+    - match: ^https:\/\/app\.bilibili\.com\/x\/v2\/search\/square
+      name: bilibili
+      type: response
+      require-body: true
+      timeout: 5
+    - match: ^https?:\/\/app\.bilibili\.com\/x\/resource\/top\/activity
+      name: bilibili
+      type: response
+      require-body: true
+      timeout: 5
+    - match: ^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.dynamic\.v2\.Dynamic\/DynAll$
+      name: bilibili-dyn
+      type: response
+      require-body: true
+      timeout: 10
+    - match: ^https?:\/\/i0\.hdslb\.com\/bfs\/subtitle\/.+\.json$
+      name: bilibili-sub
+      type: response
+      require-body: true
+      timeout: 5
+
+script-providers:
+  bilibili:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/bilibili.js
+    interval: 86400
+  bilibili-dyn:
+    url: https://raw.githubusercontent.com/Moli-X/Resources/main/Script/Bilibili/TPBilibili.js
+    interval: 86400
+  bilibili-sub:
+    url: https://raw.githubusercontent.com/Moli-X/Resources/main/Script/Bilibili/ZMBilibili.js
+    interval: 86400
