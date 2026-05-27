@@ -196,7 +196,11 @@ RevenueCat 重叠部分（Reheji.js/crack.js/Revenuecat.js 共 6 条规则）已
 ### iTunes 验证绕过（itunes-unlock.stoverride / override.yaml）
 
 所有使用 `buy.itunes.apple.com/verifyReceipt` 验证内购的 App 均可受益。
-已有购买记录的 App 直接生效；无购买记录的 App 需 product_id 匹配。
+
+- **已有过购买记录**（含已过期） → 直接生效。收据中已有真实 product_id，脚本将其到期日延长至 2099 年。
+- **从未有过购买** → 受限。收据中无 product_id，脚本只能猜测 `{BundleID}.premium`，若与 App 实际内购商品 ID 不符则不生效。
+
+> 实际 product_id 由开发者在 App Store Connect 自定义，无规律可循。因此对全新安装且从未购买的 App，建议搭配 rc-unlock 或 Premium 合集使用对应 App 的专用脚本。
 
 ### Premium 合集（premium.stoverride）
 
