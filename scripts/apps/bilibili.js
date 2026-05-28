@@ -3,6 +3,8 @@ var body = $response.body;
 
 if (!body) { $done({}); return; }
 
+var obj;
+try { obj = JSON.parse(body); } catch (e) { $done({}); return; }
 
 // ============================================================
 if (/\/x\/v2\/account\/myinfo\?/.test(url)) {
