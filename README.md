@@ -94,6 +94,28 @@ RevenueCat 重叠部分（Reheji.js/crack.js/Revenuecat.js 共 6 条规则）已
 - 脚本缓存：`interval: 86400`（每日检查更新）
 - 需开启 MITM 并信任根证书
 
+## 脚本规范
+
+所有核心脚本遵循 [Stash 脚本规范](https://stash.wiki/script/syntax-and-interface)：
+
+- **平铺过程式结构**：无 IIFE 包裹，无顶层 `return`
+- **严格模式**：`"use strict"` 开头
+- **`$done` 调用一次**：每个执行路径仅尾端调用一次
+- **`console.log`**：单参数 `console.log(value)`，前缀使用 `$script.name` 动态获取
+- **运行识别**：开头输出 `console.log($script.name)` 便于脚本日志定位
+
+### 日志输出
+
+脚本启动时输出识别 banner，匹配请求时输出 URL 和关键处理信息：
+```
+[Bilibili] Bilibili: VIP画质解锁 + 去广告 + 页面净化
+[Bilibili] https://app.bilibili.com/x/v2/account/myinfo?...
+[revenuecat] APTV https://api.revenuecat.com/...
+[itunes-verify] com.spotify.client https://buy.itunes.apple.com/verifyReceipt
+```
+
+脚本日志在 Stash → 设置 → 脚本日志 中查看。
+
 
 ## 统一 App 索引
 
