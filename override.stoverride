@@ -1416,10 +1416,10 @@ script-providers:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/bilibili.js
   bilibili-dyn:
     interval: 86400
-    url: https://raw.githubusercontent.com/Moli-X/Resources/main/Script/Bilibili/TPBilibili.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/TPBilibili.js
   bilibili-sub:
     interval: 86400
-    url: https://raw.githubusercontent.com/Moli-X/Resources/main/Script/Bilibili/ZMBilibili.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/ZMBilibili.js
   itunes-verify:
     interval: 86400
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/itunes.js
