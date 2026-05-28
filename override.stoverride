@@ -199,38 +199,38 @@ http:
     - xs.gdt.qq.com
 
   url-rewrite:
-    - ^https:\/\/dict\.youdao\.com\/homepage\/tile reject-dict
-    - ^http://adapi\.izuiyou\.com reject-200
-    - ^https://.*miguvideo\.com/request/sdk reject-200
-    - ^https://api.aliyundrive.com/apps/v1/users/home/news reject-200
-    - ^https://app\.c.nf\.migu\.cn/payment/watch-ad reject-200
-    - ^https://app\.c\.nf.migu\.cn/strategy/listen-url/v2.5 https://app.c.nf.migu.cn/strategy/listen-url/v2.4 302
-    - ^https://app\.c\.nf\.migu\.cn/member/api/marketing/text reject-200
-    - ^https://common-sc\.miguvideo\.com/task/v7/task-list/cmvideo/visitor reject-200
-    - ^https:\/\/api-overmind\.youdao\.com\/openapi\/get\/luna\/dict\/dict-mobile\/prod\/dictCommonConfig reject-dict
-    - ^https:\/\/api\.(aliyundrive|alipan)\.com\/apps\/v2\/users\/home\/widgets reject-dict
-    - ^https:\/\/api\.alipan\.com\/business\/v1.0\/users\/coupon\/detail reject-200
-    - ^https:\/\/api\.bilibili\.com\/pgc\/season\/player\/cards reject-dict
-    - ^https:\/\/app\.bilibili\.com\/x\/v2\/search\/defaultwords reject-dict
-    - ^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/show reject-dict
-    - ^https:\/\/cdke\.youdao\.com\/course3\/recommend\/dict\/startup reject-dict
-    - ^https:\/\/dict\.youdao\.com\/commonsearch reject-dict
-    - ^https:\/\/dict\.youdao\.com\/course\/tab\/translateTab reject-dict
-    - ^https:\/\/dict\.youdao\.com\/dictusertask\/system reject-dict
-    - ^https:\/\/dict\.youdao\.com\/vip\/activity\/couponinfo reject-dict
-    - ^https:\/\/dictvip-business\.youdao\.com\/home\/ad reject-dict
-    - ^https:\/\/member\.alipan\.com\/v1\/users\/onboard_list reject-200
-    - ^https:\/\/member\.aliyundrive\.com\/v2\/activity\/sign_in_luckyBottle reject-200
-    - ^https:\/\/stars\.shuqireader\.com\/kkios\/render\/load\/resource\/app$ reject-dict
-    - ^https:\/\/stars\.shuqireader\.com\/kkios\/render\/load\/resource\/appConfig$ reject-dict
-    - ^https?://api-shoulei-ssl\.xunlei\.com/flowhub/v1/slots:batchGet reject-200
-    - ^https?://mobile.da.mgtv.com\/m\/page reject-200
-    - ^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.interface\.v1\.Search\/Default reject-200
-    - ^https?:\/\/api\.bilibili\.com\/pgc\/activity\/deliver\/material\/receive reject-dict
-    - ^https?:\/\/api\.bilibili\.com\/x\/vip\/ads\/material\/report reject-dict
-    - ^https?:\/\/app\.bilibili\.com\/x\/resource\/ip reject-200
-    - ^https?:\/\/baimiao\.uzero\.cn\/api\/v2\.user\/c(heckLoginClient|leanAccount) reject-array
-    - ^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Comic\/(Flash|ListFlash|GetActivityTab) reject-dict
+    - ^https:\/\/dict\.youdao\.com\/homepage\/tile - reject-dict
+    - ^http://adapi\.izuiyou\.com - reject-200
+    - ^https://.*miguvideo\.com/request/sdk - reject-200
+    - ^https://api.aliyundrive.com/apps/v1/users/home/news - reject-200
+    - ^https://app\.c.nf\.migu\.cn/payment/watch-ad - reject-200
+    - ^https://app\.c\.nf.migu\.cn/strategy/listen-url/v2.5 https://app.c.nf.migu.cn/strategy/listen-url/v2.4 - 302
+    - ^https://app\.c\.nf\.migu\.cn/member/api/marketing/text - reject-200
+    - ^https://common-sc\.miguvideo\.com/task/v7/task-list/cmvideo/visitor - reject-200
+    - ^https:\/\/api-overmind\.youdao\.com\/openapi\/get\/luna\/dict\/dict-mobile\/prod\/dictCommonConfig - reject-dict
+    - ^https:\/\/api\.(aliyundrive|alipan)\.com\/apps\/v2\/users\/home\/widgets - reject-dict
+    - ^https:\/\/api\.alipan\.com\/business\/v1.0\/users\/coupon\/detail - reject-200
+    - ^https:\/\/api\.bilibili\.com\/pgc\/season\/player\/cards - reject-dict
+    - ^https:\/\/app\.bilibili\.com\/x\/v2\/search\/defaultwords - reject-dict
+    - ^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/show - reject-dict
+    - ^https:\/\/cdke\.youdao\.com\/course3\/recommend\/dict\/startup - reject-dict
+    - ^https:\/\/dict\.youdao\.com\/commonsearch - reject-dict
+    - ^https:\/\/dict\.youdao\.com\/course\/tab\/translateTab - reject-dict
+    - ^https:\/\/dict\.youdao\.com\/dictusertask\/system - reject-dict
+    - ^https:\/\/dict\.youdao\.com\/vip\/activity\/couponinfo - reject-dict
+    - ^https:\/\/dictvip-business\.youdao\.com\/home\/ad - reject-dict
+    - ^https:\/\/member\.alipan\.com\/v1\/users\/onboard_list - reject-200
+    - ^https:\/\/member\.aliyundrive\.com\/v2\/activity\/sign_in_luckyBottle - reject-200
+    - ^https:\/\/stars\.shuqireader\.com\/kkios\/render\/load\/resource\/app$ - reject-dict
+    - ^https:\/\/stars\.shuqireader\.com\/kkios\/render\/load\/resource\/appConfig$ - reject-dict
+    - ^https?://api-shoulei-ssl\.xunlei\.com/flowhub/v1/slots:batchGet - reject-200
+    - ^https?://mobile.da.mgtv.com\/m\/page - reject-200
+    - ^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.interface\.v1\.Search\/Default - reject-200
+    - ^https?:\/\/api\.bilibili\.com\/pgc\/activity\/deliver\/material\/receive - reject-dict
+    - ^https?:\/\/api\.bilibili\.com\/x\/vip\/ads\/material\/report - reject-dict
+    - ^https?:\/\/app\.bilibili\.com\/x\/resource\/ip - reject-200
+    - ^https?:\/\/baimiao\.uzero\.cn\/api\/v2\.user\/c(heckLoginClient|leanAccount) - reject-array
+    - ^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Comic\/(Flash|ListFlash|GetActivityTab) - reject-dict
 
   script:
     - match: ^https:\/\/api\.(revenuecat|rc-backup)\.com\/v[12]\/(receipts|subscribers\/[^/?]+)(\/.*)?$

@@ -15,8 +15,8 @@ http:
     - stars.shuqireader.com
 
   url-rewrite:
-    - ^https:\/\/stars\.shuqireader\.com\/kkios\/render\/load\/resource\/app$ reject-dict
-    - ^https:\/\/stars\.shuqireader\.com\/kkios\/render\/load\/resource\/appConfig$ reject-dict
+    - ^https:\/\/stars\.shuqireader\.com\/kkios\/render\/load\/resource\/app$ - reject-dict
+    - ^https:\/\/stars\.shuqireader\.com\/kkios\/render\/load\/resource\/appConfig$ - reject-dict
 
   script:
     - match: ^https:\/\/open-cms-api\.quark\.cn\/open-cms
