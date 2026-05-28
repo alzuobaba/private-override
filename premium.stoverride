@@ -458,7 +458,7 @@ http:
       type: response
       timeout: 60
       require-body: true
-    - match: ^http[s]?:\/\/dj.palmestore.com\/zyuc\/api\/user\/accountInfo
+    - match: '^http[s]?:\/\/dj.palmestore.com\/zyuc\/api\/user\/accountInfo'
       name: JS-1_palmestore
       type: response
       timeout: 60
