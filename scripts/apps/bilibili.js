@@ -23,24 +23,24 @@ return '拚繮劒讌醼汎稜崚鉋鑤厤衚麯麴陞甞裊嬝缐綫觝儹欑巖
 
 //转成繁体
 function Traditionalized(cc){
-	var str=''; 
-	for(var i=0;i<cc.length;i++){ 
-		if(charjt().indexOf(cc.charAt(i))!=-1) 
-			str+=charft().charAt(charjt().indexOf(cc.charAt(i))); 
-		
-		else 
-			str+=cc.charAt(i); } 
-		return str; 
+  var str=''; 
+  for(var i=0;i<cc.length;i++){ 
+    if(charjt().indexOf(cc.charAt(i))!=-1) 
+      str+=charft().charAt(charjt().indexOf(cc.charAt(i))); 
+    
+    else 
+      str+=cc.charAt(i); } 
+    return str; 
 }
 //转成简体
 function Simplized(cc){
-	var str=''; 
-	for(var i=0;i<cc.length;i++){ 
-		if(charft().indexOf(cc.charAt(i))!=-1) 
-		str+=charjt().charAt(charft().indexOf(cc.charAt(i))); 
-	else 
-		str+=cc.charAt(i); } 
-	return str; 
+  var str=''; 
+  for(var i=0;i<cc.length;i++){ 
+    if(charft().indexOf(cc.charAt(i))!=-1) 
+    str+=charjt().charAt(charft().indexOf(cc.charAt(i))); 
+  else 
+    str+=cc.charAt(i); } 
+  return str; 
 }
 
   try {
@@ -54,7 +54,7 @@ function Simplized(cc){
 
 // === Protobuf 端点 (TPBilibili) ===
 if (body && /Dynamic\/DynAll|View\/View|PlayURL\/PlayView/.test(url)) {
-############去广告图片############
+// 去广告图片############
 
 
 const version = 'V2.0.19';
@@ -93,23 +93,23 @@ return '拚繮劒讌醼汎稜崚鉋鑤厤衚麯麴陞甞裊嬝缐綫觝儹欑巖
 }
 //转成繁体
 function Traditionalized(cc){
-	var str=''; 
-	for(var i=0;i<cc.length;i++){ 
-		if(charjt().indexOf(cc.charAt(i))!=-1) 
-			str+=charft().charAt(charjt().indexOf(cc.charAt(i))); 
-		else 
-			str+=cc.charAt(i); } 
-		return str; 
+  var str=''; 
+  for(var i=0;i<cc.length;i++){ 
+    if(charjt().indexOf(cc.charAt(i))!=-1) 
+      str+=charft().charAt(charjt().indexOf(cc.charAt(i))); 
+    else 
+      str+=cc.charAt(i); } 
+    return str; 
 }
 //转成简体
 function Simplized(cc){
-	var str=''; 
-	for(var i=0;i<cc.length;i++){ 
-		if(charft().indexOf(cc.charAt(i))!=-1) 
-		str+=charjt().charAt(charft().indexOf(cc.charAt(i))); 
-	else 
-		str+=cc.charAt(i); } 
-	return str; 
+  var str=''; 
+  for(var i=0;i<cc.length;i++){ 
+    if(charft().indexOf(cc.charAt(i))!=-1) 
+    str+=charjt().charAt(charft().indexOf(cc.charAt(i))); 
+  else 
+    str+=cc.charAt(i); } 
+  return str; 
 }
   try {
     var obj = JSON.parse(body);
