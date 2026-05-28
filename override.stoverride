@@ -204,7 +204,7 @@ http:
     - ^https://.*miguvideo\.com/request/sdk - reject-200
     - ^https://api.aliyundrive.com/apps/v1/users/home/news - reject-200
     - ^https://app\.c.nf\.migu\.cn/payment/watch-ad - reject-200
-    - ^https://app\.c\.nf.migu\.cn/strategy/listen-url/v2.5 https://app.c.nf.migu.cn/strategy/listen-url/v2.4 - 302
+    - ^https://app\.c\.nf.migu\.cn/strategy/listen-url/v2.5 https://app.c.nf.migu.cn/strategy/listen-url/v2.4 302
     - ^https://app\.c\.nf\.migu\.cn/member/api/marketing/text - reject-200
     - ^https://common-sc\.miguvideo\.com/task/v7/task-list/cmvideo/visitor - reject-200
     - ^https:\/\/api-overmind\.youdao\.com\/openapi\/get\/luna\/dict\/dict-mobile\/prod\/dictCommonConfig - reject-dict
