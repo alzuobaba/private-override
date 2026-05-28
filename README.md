@@ -2,42 +2,20 @@
 
 https://github.com/alzuobaba/private-override
 
-## 文件结构
+## 订阅链接
 
-```
-├── override.yaml                  # RC + iTunes 合一（可选）
-├── rc-unlock.stoverride           # RevenueCat 独立覆写
-├── itunes-unlock.stoverride       # iTunes 独立覆写
-├── bilibili.stoverride            # Bilibili 净化 + 会员画质
-├── quark.stoverride               # 夸克浏览器去广告
-├── premium.stoverride             # Premium 合集（123 脚本）
-├── AGENTS.md                      # 本文档
-├── README.md
-├── exclude.json                   # 统一黑名单
-└── scripts/
-    ├── revenuecat.js              # RC 解锁逻辑
-    ├── revenuecat-data.json       # App 字典（bundle 23 + listua 345）
-    ├── itunes.js                  # iTunes 验证绕过
-    ├── apps/
-    │   ├── bilibili.js            # Bilibili 多功能
-    │   ├── quark.js               # 夸克 CMS 去广告
-    │   └── ...                    # 123 个 App 解锁脚本
-```
+在 Stash 中导入以下链接即可使用：
 
-## 使用方法
+| 文件 | 功能 | 订阅 URL |
+|------|------|----------|
+| **全功能整合版** | RC+iTunes+Bilibili+夸克+Premium 一键导入 | `https://raw.githubusercontent.com/alzuobaba/private-override/main/override.stoverride` |
+| **RevenueCat 解锁** | 内购解锁（368 App） | `https://raw.githubusercontent.com/alzuobaba/private-override/main/rc-unlock.stoverride` |
+| **iTunes 验证绕过** | 兜底方案（已过期订阅激活） | `https://raw.githubusercontent.com/alzuobaba/private-override/main/itunes-unlock.stoverride` |
+| **Bilibili 净化** | VIP画质解锁 + 去广告 + 页面净化 | `https://raw.githubusercontent.com/alzuobaba/private-override/main/bilibili.stoverride` |
+| **夸克去广告** | 浏览器去广告（703 CMS key） | `https://raw.githubusercontent.com/alzuobaba/private-override/main/quark.stoverride` |
+| **Premium 合集** | 123 个 App 解锁脚本 | `https://raw.githubusercontent.com/alzuobaba/private-override/main/premium.stoverride` |
 
-在 Stash 中导入对应的 `.stoverride` 文件：
-
-| 文件 | 功能 | 来源 |
-|------|------|------|
-| `rc-unlock.stoverride` | RevenueCat 内购解锁（200+ App） | 基于 Reheji.js @ddm1023 |
-| `itunes-unlock.stoverride` | iTunes 验证绕过（兜底方案） | 基于 iTunes.sgmodule |
-| `override.yaml` | RC + iTunes 合一 | 上述两者合并 |
-| `bilibili.stoverride` | 1080P+4K画质 / 去广告 / 页面净化 | 基于 Moli-X Bilibili |
-| `quark.stoverride` | 夸克浏览器去广告（703 CMS key） | 基于 kelee.one 可莉 |
-| `premium.stoverride` | 100+ App 解锁合集 | 基于 BOBOLAOSHIV587/Rules |
-
-**推荐组合**：导入 `rc-unlock.stoverride` + `itunes-unlock.stoverride`，再按需导入 `bilibili`、`quark`、`premium`。
+**推荐组合**：导入 `rc-unlock.stoverride` + `itunes-unlock.stoverride`，再按需导入其余覆写。
 
 ---
 
