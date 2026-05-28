@@ -60,8 +60,8 @@ http:
     - ad.tencentmusic.com
     - ai.xiuxiu.meitu.com
     - anymatch.kuwo.cn
-    - api*.faceu.mobi
-    - api-*.facereplacerext.com
+    - 'api*.faceu.mobi'
+    - 'api-*.facereplacerext.com'
     - api-drive.mypikpak.com
     - api-mobile.soundcloud.com
     - api-overmind.youdao.com
@@ -79,11 +79,11 @@ http:
     - api.github.com
     - api.ieasou.com
     - api.live.bilibili.com
-    - api.meiease.*
+    - 'api.meiease.*'
     - api.moises.ai
     - api.moosic.io
     - api.music.yandex.net
-    - api.picsart.*
+    - 'api.picsart.*'
     - api.polaxiong.com
     - api.posters.meitu.com
     - api.purchasely.io
