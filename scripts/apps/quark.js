@@ -11,20 +11,19 @@
  * 注意：此脚本仅去广告，不包含会员/VIP/清晰度解锁等功能。
  */
 
-(function() {
-console.log('[' + $script.name + '] 开始处理: ' + $request.url);
+var url = $request.url
+var body = $response.body
 
-var url = $request.url;
-var body = $response.body;
+if (body) {
+  var obj
+  try { obj = JSON.parse(body) } catch (e) {}
 
-if (!body) { $done({}); return; }
+  if (obj) {
+    console.log($script.name + ' ' + url)
 
-var obj;
-try { obj = JSON.parse(body); } catch (e) { $done({}); return; }
-
-if (url.indexOf('open-cms-api.quark.cn/open-cms') !== -1) {
-  if (obj.result) {
-    var CMS_KEYS = [
+    if (url.indexOf('open-cms-api.quark.cn/open-cms') !== -1) {
+      if (obj.result) {
+        var CMS_KEYS = [
   'cms_homepage_push_banner_config',
   'cms_as_home_capsule_entry',
   'cms_navi_category',
@@ -728,13 +727,14 @@ if (url.indexOf('open-cms-api.quark.cn/open-cms') !== -1) {
   'cms_web_accs_err_guide_config',
   'cms_link_search_direct',
   'qks_ab_paisou_sc_entry'
-    ];
-    for (var i = 0; i < CMS_KEYS.length; i++) {
-      delete obj.result[CMS_KEYS[i]];
+        ]
+        for (var i = 0; i < CMS_KEYS.length; i++) {
+          delete obj.result[CMS_KEYS[i]]
+        }
+        console.log($script.name + ' CMS keys 删除完成')
+      }
     }
-    console.log('[' + $script.name + '] CMS keys 删除完成');
   }
 }
 
-$done({ body: JSON.stringify(obj) });
-})();
+$done(obj ? { body: JSON.stringify(obj) } : {})
