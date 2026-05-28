@@ -303,17 +303,6 @@ http:
       type: response
       require-body: true
       timeout: 5
-    - match: ^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.dynamic\.v2\.Dynamic\/DynAll$
-      name: bilibili
-      type: response
-      require-body: true
-      timeout: 10
-    - match: ^https?:\/\/i0\.hdslb\.com\/bfs\/subtitle\/.+\.json$
-      name: bilibili
-      type: response
-      require-body: true
-      timeout: 5
-    - match: ^https:\/\/open-cms-api\.quark\.cn\/open-cms
       name: quark
       type: response
       require-body: true
