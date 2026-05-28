@@ -11,6 +11,7 @@
  * 作者：@ddm1023 / Stash 适配：alzuobaba
  */
 
+(function() {
 var CACHE_KEY = 'rc_data_v1';
 var DATA_URL = 'https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/revenuecat-data.json';
 var EXCLUDE_CACHE = 'exclude_v1';
@@ -288,3 +289,4 @@ function loadExclude() {
 }
 
 loadExclude();
+})();

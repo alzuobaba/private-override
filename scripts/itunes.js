@@ -18,6 +18,7 @@
  * 来源思路：https://reven.jsforbaby.workers.dev/reven/iTunes.sgmodule
  */
 
+(function() {
 var EXCLUDE_CACHE = 'exclude_v1';
 
 const url = $request.url;
@@ -245,3 +246,4 @@ if (!obj.pending_renewal_info || obj.pending_renewal_info.length === 0) {
 obj.environment = obj.environment || 'Production';
 
 $done({ body: JSON.stringify(obj) });
+})();

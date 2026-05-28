@@ -1,3 +1,4 @@
+(function() {
 var url = $request.url;
 var body = $response.body;
 
@@ -277,3 +278,4 @@ else if (/\/x\/v2\/search\/square/.test(url)) {
 }
 
 $done({ body: JSON.stringify(obj) });
+})();

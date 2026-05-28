@@ -11,6 +11,7 @@
  * 注意：此脚本仅去广告，不包含会员/VIP/清晰度解锁等功能。
  */
 
+(function() {
 var url = $request.url;
 var body = $response.body;
 
@@ -733,3 +734,4 @@ if (url.indexOf('open-cms-api.quark.cn/open-cms') !== -1) {
 }
 
 $done({ body: JSON.stringify(obj) });
+})();
