@@ -1,4 +1,4 @@
-name: '&#x1F4FA; Bilibili 净化 + 会员画质解锁'
+name: 'Bilibili 净化 + 会员画质解锁'
 desc: |-
   哔哩哔哩多功能覆写
   - 1080P高码率 + 4K画质（注入大会员状态）
@@ -6,7 +6,7 @@ desc: |-
   - 页面净化：我的页/标签页/搜索/番剧页
 author: Moli-X / Stash 适配 alzuobaba
 homepage: https://github.com/alzuobaba/private-override
-category: '&#x1F513; 解锁 / 净化'
+category: '解锁 / 净化'
 date: '2026-05-27'
 version: '1.0.0'
 

@@ -1,11 +1,11 @@
-name: '&#x1F30F; 夸克浏览器 去广告'
+name: '夸克浏览器 去广告'
 desc: |-
   移除阅读广告、各页面弹窗及横幅，精简我的页面。
   原理：删除 open-cms-api.quark.cn/open-cms 响应中 CMS 配置开关，
   客户端读取到空值从而关闭对应功能。
 author: 可莉 / Stash 适配 alzuobaba
 homepage: https://github.com/alzuobaba/private-override
-category: '&#x1F6AB; 去广告 / 净化'
+category: '去广告 / 净化'
 date: '2026-05-27'
 version: '1.0.0'
 

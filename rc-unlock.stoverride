@@ -1,4 +1,4 @@
-name: '&#x1F4B3; RevenueCat 内购解锁 (独立)'
+name: 'RevenueCat 内购解锁 (独立)'
 desc: |-
   RevenueCat 订阅验证解锁——覆盖 ~200 个 App。
   拦截 api.revenuecat.com / api.rc-backup.com 的验证请求，
@@ -7,7 +7,7 @@ desc: |-
   - 支持 /subscribers/ 和 /receipts 两个端点
 author: alzuobaba
 homepage: https://github.com/alzuobaba/private-override
-category: '&#x1F513; 解锁 / 激活'
+category: '解锁 / 激活'
 date: '2026-05-27'
 version: '1.0.0'
 

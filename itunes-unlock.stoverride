@@ -1,4 +1,4 @@
-name: '&#x1F34E; iTunes 验证绕过 (独立)'
+name: 'iTunes 验证绕过 (独立)'
 desc: |-
   iTunes verifyReceipt 验证绕过——拦截 buy.itunes.apple.com/verifyReceipt 的响应，
   在 Apple 原始回执上注入 2099 年到期的订阅记录。
@@ -7,7 +7,7 @@ desc: |-
   - 无购买记录的 App 使用 fallback product_id（{bundle_id}.premium）
 author: alzuobaba
 homepage: https://github.com/alzuobaba/private-override
-category: '&#x1F513; 解锁 / 激活'
+category: '解锁 / 激活'
 date: '2026-05-27'
 version: '1.0.0'
 
