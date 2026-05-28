@@ -199,7 +199,7 @@ http:
     - xs.gdt.qq.com
 
   url-rewrite:
-    - ^^https:\/\/dict\.youdao\.com\/homepage\/tile reject-dict
+    - ^https:\/\/dict\.youdao\.com\/homepage\/tile reject-dict
     - ^http://adapi\.izuiyou\.com reject-200
     - ^https://.*miguvideo\.com/request/sdk reject-200
     - ^https://api.aliyundrive.com/apps/v1/users/home/news reject-200
