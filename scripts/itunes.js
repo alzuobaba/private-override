@@ -2,10 +2,13 @@
  * iTunes verifyReceipt 验证绕过脚本（适配 Stash）
  * =================================================
  * 拦截 buy.itunes.apple.com/verifyReceipt 的响应，
- * 在 Apple 原始回执上注入带有永久到期日（2099年）的订阅记录。
- *
- * 来源思路：https://reven.jsforbaby.workers.dev/reven/iTunes.sgmodule
+ * 在 Apple 原始回执上注入 2099 年到期的订阅记录。
  */
+
+"use strict"
+
+console.log($script.name)
+console.log('iTunes: 验证绕过')
 
 var EXCLUDE_CACHE = 'exclude_v1'
 var url = $request.url

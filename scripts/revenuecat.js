@@ -2,11 +2,12 @@
  * RevenueCat 订阅解锁脚本（适配 Stash）— 数据分离版
  * ===================================================
  * 拦截 api.revenuecat.com / api.rc-backup.com 的订阅验证请求。
- * App 字典数据从 revenuecat-data.json 独立加载并通过 $persistentStore 缓存。
- *
- * 来源：https://raw.githubusercontent.com/chxm1023/Rewrite/main/Reheji.js
- * 作者：@ddm1023 / Stash 适配：alzuobaba
  */
+
+"use strict"
+
+console.log($script.name)
+console.log('RevenueCat: 订阅解锁')
 
 var CACHE_KEY = 'rc_data_v1'
 var DATA_URL = 'https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/revenuecat-data.json'

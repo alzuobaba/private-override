@@ -1,15 +1,14 @@
 /**
  * 夸克浏览器去广告脚本（适配 Stash）
  * ==================================
- * 来源：kelee.one/Tool/Loon/Lpx/QuarkBrowser_remove_ads.lpx
- * 作者：可莉 / Stash 适配：alzuobaba
- *
- * 原理：夸克浏览器通过 open-cms 接口下发 CMS 配置开关，
- * 控制各页面广告、弹窗、横幅、VIP 推广入口的启用/禁用。
- * 本脚本删除响应中 703 个配置 key，使客户端读取到空值从而关闭对应功能。
- *
- * 注意：此脚本仅去广告，不包含会员/VIP/清晰度解锁等功能。
+ * 原理：删除 open-cms-api.quark.cn/open-cms 响应中 CMS 配置开关，
+ * 客户端读取到空值从而关闭对应功能。
  */
+
+"use strict"
+
+console.log($script.name)
+console.log('Quark: 去广告')
 
 var url = $request.url
 var body = $response.body
@@ -731,7 +730,6 @@ if (body) {
         for (var i = 0; i < CMS_KEYS.length; i++) {
           delete obj.result[CMS_KEYS[i]]
         }
-        console.log($script.name + ' CMS keys 删除完成')
       }
     }
   }

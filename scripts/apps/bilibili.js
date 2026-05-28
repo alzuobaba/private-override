@@ -1,3 +1,8 @@
+"use strict"
+
+console.log($script.name)
+console.log('Bilibili: VIP画质解锁 + 去广告 + 页面净化')
+
 var url = $request.url
 var body = $response.body
 
@@ -15,7 +20,6 @@ if (body) {
           obj.data.vip.status = 1
           obj.data.vip.vip_pay_type = 1
           obj.data.vip.due_date = 4669824160000
-          console.log($script.name + ' VIP解锁成功')
         }
       } catch (e) {
         console.log($script.name + ' myinfo error: ' + e)
@@ -56,8 +60,7 @@ if (body) {
           obj.data.shopping_info = { is_show: 0 }
         }
         if (obj.data && obj.data.new_tab_info && obj.data.new_tab_info.outer_list && obj.data.new_tab_info.outer_list.length) {
-          var outer = obj.data.new_tab_info.outer_list
-          obj.data.new_tab_info.outer_list = outer.filter(function (o) { return o.biz_id !== 33 })
+          obj.data.new_tab_info.outer_list = obj.data.new_tab_info.outer_list.filter(function (o) { return o.biz_id !== 33 })
         }
       } catch (e) {
         console.log($script.name + ' live error: ' + e)
@@ -195,7 +198,9 @@ if (body) {
       try {
         if (obj.data) {
           obj.data.hash = 'ddgksf2013'
-          obj.data.online.icon = ''
+          if (obj.data.online) {
+            obj.data.online.icon = ''
+          }
         }
       } catch (e) {
         console.log($script.name + ' activity error: ' + e)
