@@ -12,8 +12,6 @@
  */
 
 (function() {
-console.log('[revenuecat] 开始处理: ' + $request.url);
-
 var CACHE_KEY = 'rc_data_v1';
 var DATA_URL = 'https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/revenuecat-data.json';
 var EXCLUDE_CACHE = 'exclude_v1';
@@ -197,6 +195,8 @@ function run(data) {
   if (!appData) {
     appData = { cm: 'sjb' };
   }
+
+  console.log('[revenuecat] ' + (matchedKey || 'unknown') + ' | URL: ' + $request.url + ' | UA: ' + ua);
 
   // 检查黑名单（匹配 UA 关键字 或 bundle ID 任一命中即放行）
   var excludeCached = $persistentStore.read(EXCLUDE_CACHE);
