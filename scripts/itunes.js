@@ -85,7 +85,7 @@ const bundleId =
   headers['x-client-bundle-id'] ||
   'com.example.app';
 
-console.log('[itunes] ' + bundleId + ' | URL: ' + $request.url);
+console.log('[' + $script.name + '] ' + bundleId + ' | URL: ' + $request.url);
 
 /*
  * 黑名单检查：如果 bundle_id 在 itunes 排除列表中，直接放行不修改。

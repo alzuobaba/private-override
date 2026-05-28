@@ -1,5 +1,5 @@
 (function() {
-console.log('[bilibili] 开始处理: ' + $request.url);
+console.log('[' + $script.name + '] 开始处理: ' + $request.url);
 
 var url = $request.url;
 var body = $response.body;
@@ -11,19 +11,19 @@ try { obj = JSON.parse(body); } catch (e) { $done({}); return; }
 
 // ============================================================
 if (/\/x\/v2\/account\/myinfo\?/.test(url)) {
-  console.log('[bilibili] myinfo VIP');
+  console.log('[' + $script.name + '] myinfo VIP');
   try {
     if (!obj.data.vip.status) {
       obj.data.vip.type = 2;
       obj.data.vip.status = 1;
       obj.data.vip.vip_pay_type = 1;
       obj.data.vip.due_date = 4669824160000; // 2200-01-01
-      console.log('[bilibili] myinfo VIP 注入成功');
+      console.log('[' + $script.name + '] myinfo VIP 注入成功');
     } else {
-      console.log('[bilibili] myinfo 已有VIP，跳过');
+      console.log('[' + $script.name + '] myinfo 已有VIP，跳过');
     }
   } catch(e) {
-    console.log('[bilibili] myinfo 错误: ' + e);
+    console.log('[' + $script.name + '] myinfo 错误: ' + e);
   }
 }
 
@@ -31,7 +31,7 @@ if (/\/x\/v2\/account\/myinfo\?/.test(url)) {
 // 去广告——首页 feed 信息流
 // ============================================================
 else if (/\/x\/v2\/feed\/index\?/.test(url)) {
-  console.log('[bilibili] feed 首页');
+  console.log('[' + $script.name + '] feed 首页');
   try {
     var items = [];
     for (var i = 0; i < obj.data.items.length; i++) {
@@ -45,7 +45,7 @@ else if (/\/x\/v2\/feed\/index\?/.test(url)) {
     }
     obj.data.items = items;
   } catch(e) {
-    console.log('[bilibili] feed 错误: ' + e);
+    console.log('[' + $script.name + '] feed 错误: ' + e);
   }
 }
 
@@ -63,7 +63,7 @@ else if (/\/x\/v2\/feed\/index\/story\?/.test(url)) {
     }
     obj.data.items = v2;
   } catch(e) {
-    console.log('[bilibili] Story:' + e);
+    console.log('[' + $script.name + '] Story:' + e);
   }
 }
 
@@ -81,7 +81,7 @@ else if (/xlive\/app-room\/v1\/index\/getInfoByRoom/.test(url)) {
       obj.data.new_tab_info.outer_list = outer.filter(function(o) { return o.biz_id !== 33; });
     }
   } catch(e) {
-    console.log('[bilibili] live:' + e);
+    console.log('[' + $script.name + '] live:' + e);
   }
 }
 
@@ -94,7 +94,7 @@ else if (/xlive\/app-interface\/v2\/index\/feed/.test(url)) {
       obj.data.card_list = obj.data.card_list.filter(function(c) { return c.card_type !== 'banner_v1'; });
     }
   } catch(e) {
-    console.log('[bilibili] xlive:' + e);
+    console.log('[' + $script.name + '] xlive:' + e);
   }
 }
 
@@ -111,7 +111,7 @@ else if (/ecommerce-user\/get_shopping_info\?/.test(url)) {
       h5jump_popup: []
     };
   } catch(e) {
-    console.log('[bilibili] shopping:' + e);
+    console.log('[' + $script.name + '] shopping:' + e);
   }
 }
 
@@ -129,7 +129,7 @@ else if (/\/x\/v2\/splash\/list/.test(url)) {
       }
     }
   } catch(e) {
-    console.log('[bilibili] splash:' + e);
+    console.log('[' + $script.name + '] splash:' + e);
   }
 }
 
@@ -142,7 +142,7 @@ else if (/pgc\/season\/app\/related\/recommend\?/.test(url)) {
       obj.result.cards = obj.result.cards.filter(function(c) { return c.type !== 2; });
     }
   } catch(e) {
-    console.log('[bilibili] recommend:' + e);
+    console.log('[' + $script.name + '] recommend:' + e);
   }
 }
 
@@ -166,7 +166,7 @@ else if (/pgc\/page\/(bangumi|cinema\/tab\?)/.test(url)) {
       }
     });
   } catch(e) {
-    console.log('[bilibili] bangumi:' + e);
+    console.log('[' + $script.name + '] bangumi:' + e);
   }
 }
 
@@ -177,7 +177,7 @@ else if (/\/x\/resource\/show\/skin\?/.test(url)) {
   try {
     delete obj.data.common_equip;
   } catch(e) {
-    console.log('[bilibili] skin:' + e);
+    console.log('[' + $script.name + '] skin:' + e);
   }
 }
 
@@ -188,7 +188,7 @@ else if (/\/x\/v\d\/account\/teenagers\/status\?/.test(url)) {
   try {
     obj.data.teenagers_status = 0;
   } catch(e) {
-    console.log('[bilibili] teenagers:' + e);
+    console.log('[' + $script.name + '] teenagers:' + e);
   }
 }
 
@@ -221,7 +221,7 @@ else if (/\/x\/resource\/show\/tab/.test(url)) {
       obj.data.bottom = obj.data.bottom.filter(function(b) { return keepIds.hasOwnProperty(b.id); });
     }
   } catch(e) {
-    console.log('[bilibili] tab:' + e);
+    console.log('[' + $script.name + '] tab:' + e);
   }
 }
 
@@ -255,7 +255,7 @@ else if (/\/x\/v2\/account\/mine/.test(url)) {
       obj.data.vip.due_date = 4669824160000;
     }
   } catch(e) {
-    console.log('[bilibili] mine:' + e);
+    console.log('[' + $script.name + '] mine:' + e);
   }
 }
 
@@ -269,7 +269,7 @@ else if (/\/x\/resource\/top\/activity/.test(url)) {
       obj.data.online.icon = '';
     }
   } catch(e) {
-    console.log('[bilibili] activity:' + e);
+    console.log('[' + $script.name + '] activity:' + e);
   }
 }
 
@@ -280,7 +280,7 @@ else if (/\/x\/v2\/search\/square/.test(url)) {
   try {
     obj.data = { type: 'history', title: '搜索历史', search_hotword_revision: 2 };
   } catch(e) {
-    console.log('[bilibili] search:' + e);
+    console.log('[' + $script.name + '] search:' + e);
   }
 }
 

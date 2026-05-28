@@ -196,7 +196,7 @@ function run(data) {
     appData = { cm: 'sjb' };
   }
 
-  console.log('[revenuecat] ' + (matchedKey || 'unknown') + ' | URL: ' + $request.url + ' | UA: ' + ua);
+  console.log('[' + $script.name + '] ' + (matchedKey || 'unknown') + ' | URL: ' + $request.url + ' | UA: ' + ua);
 
   // 检查黑名单（匹配 UA 关键字 或 bundle ID 任一命中即放行）
   var excludeCached = $persistentStore.read(EXCLUDE_CACHE);
@@ -229,16 +229,16 @@ function run(data) {
    */
   var isSubscriber = $request.url.indexOf('/subscribers/') !== -1;
   if (isSubscriber) {
-    console.log('[revenuecat] 模式: SJB /subscribers');
+    console.log('[' + $script.name + '] 模式: SJB /subscribers');
     mergeSJB(ddm, appData);
   } else if (appData.cm === 'sja') {
-    console.log('[revenuecat] 模式: SJA');
+    console.log('[' + $script.name + '] 模式: SJA');
     mergeSJA(ddm, appData, bundle_id);
   } else if (appData.cm === 'sjc') {
-    console.log('[revenuecat] 模式: SJC');
+    console.log('[' + $script.name + '] 模式: SJC');
     mergeSJC(ddm, appData);
   } else {
-    console.log('[revenuecat] 模式: SJB (default)');
+    console.log('[' + $script.name + '] 模式: SJB (default)');
     mergeSJB(ddm, appData);
   }
 
