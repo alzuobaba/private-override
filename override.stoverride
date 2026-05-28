@@ -901,7 +901,7 @@ http:
       type: response
       timeout: 60
       require-body: true
-    - match: ^https?:\/\/api\.tidal\.com\/v1\/(pages\/album|(user|track|page)s\/(\d+)\/(state|subscription|lyrics|onboarding|playbackinfopostpaywall)),requires-body=0
+    - match: ^https?:\/\/api\.tidal\.com\/v1\/(pages\/album|(user|track|page)s\/(\d+)\/(state|subscription|lyrics|onboarding|playbackinfopostpaywall))
       name: JS_TIDALHiFiPlusCrack
       type: request
       timeout: 10
