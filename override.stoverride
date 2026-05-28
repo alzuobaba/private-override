@@ -304,12 +304,12 @@ http:
       require-body: true
       timeout: 5
     - match: ^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.dynamic\.v2\.Dynamic\/DynAll$
-      name: bilibili-dyn
+      name: bilibili
       type: response
       require-body: true
       timeout: 10
     - match: ^https?:\/\/i0\.hdslb\.com\/bfs\/subtitle\/.+\.json$
-      name: bilibili-sub
+      name: bilibili
       type: response
       require-body: true
       timeout: 5
@@ -1414,13 +1414,6 @@ script-providers:
   bilibili:
     interval: 86400
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/bilibili.js
-  bilibili-dyn:
-    interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/TPBilibili.js
-  bilibili-sub:
-    interval: 86400
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/ZMBilibili.js
-  itunes-verify:
     interval: 86400
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/itunes.js
   quark:

@@ -94,12 +94,12 @@ http:
       require-body: true
       timeout: 5
     - match: ^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.dynamic\.v2\.Dynamic\/DynAll$
-      name: bilibili-dyn
+      name: bilibili
       type: response
       require-body: true
       timeout: 10
     - match: ^https?:\/\/i0\.hdslb\.com\/bfs\/subtitle\/.+\.json$
-      name: bilibili-sub
+      name: bilibili
       type: response
       require-body: true
       timeout: 5
@@ -107,10 +107,4 @@ http:
 script-providers:
   bilibili:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/bilibili.js
-    interval: 86400
-  bilibili-dyn:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/TPBilibili.js
-    interval: 86400
-  bilibili-sub:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/ZMBilibili.js
     interval: 86400
