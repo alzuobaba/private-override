@@ -19,6 +19,8 @@
  */
 
 (function() {
+console.log('[itunes] 开始处理: ' + $request.url);
+
 var EXCLUDE_CACHE = 'exclude_v1';
 
 const url = $request.url;
@@ -84,6 +86,8 @@ const bundleId =
   headers['X-Client-Bundle-ID'] ||
   headers['x-client-bundle-id'] ||
   'com.example.app';
+
+console.log('[itunes] bundleID: ' + bundleId);
 
 /*
  * 黑名单检查：如果 bundle_id 在 itunes 排除列表中，直接放行不修改。

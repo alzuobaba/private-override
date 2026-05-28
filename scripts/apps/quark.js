@@ -12,6 +12,8 @@
  */
 
 (function() {
+console.log('[quark] 开始处理: ' + $request.url);
+
 var url = $request.url;
 var body = $response.body;
 
@@ -730,6 +732,7 @@ if (url.indexOf('open-cms-api.quark.cn/open-cms') !== -1) {
     for (var i = 0; i < CMS_KEYS.length; i++) {
       delete obj.result[CMS_KEYS[i]];
     }
+    console.log('[quark] CMS keys 删除完成');
   }
 }
 

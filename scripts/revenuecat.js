@@ -12,6 +12,8 @@
  */
 
 (function() {
+console.log('[revenuecat] 开始处理: ' + $request.url);
+
 var CACHE_KEY = 'rc_data_v1';
 var DATA_URL = 'https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/revenuecat-data.json';
 var EXCLUDE_CACHE = 'exclude_v1';
@@ -227,12 +229,16 @@ function run(data) {
    */
   var isSubscriber = $request.url.indexOf('/subscribers/') !== -1;
   if (isSubscriber) {
+    console.log('[revenuecat] 模式: SJB /subscribers');
     mergeSJB(ddm, appData);
   } else if (appData.cm === 'sja') {
+    console.log('[revenuecat] 模式: SJA');
     mergeSJA(ddm, appData, bundle_id);
   } else if (appData.cm === 'sjc') {
+    console.log('[revenuecat] 模式: SJC');
     mergeSJC(ddm, appData);
   } else {
+    console.log('[revenuecat] 模式: SJB (default)');
     mergeSJB(ddm, appData);
   }
 
