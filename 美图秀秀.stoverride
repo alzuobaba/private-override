@@ -1,0 +1,30 @@
+name: '美图秀秀'
+desc: |-
+  脚本解锁 美图秀秀
+author: alzuobaba
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-05-29'
+version: '1.0.0'
+
+http:
+  mitm:
+    - api.posters.meitu.com
+
+  script:
+    - match: ^https?:\/\/((h5|api)\.xiuxiu|api-sub|api\.posters)\.meitu\.com\/.+\/(vip|user|h\d|center|home)
+      name: JS_MTXX
+      type: response
+      timeout: 60
+      require-body: true
+
+    - match: https?:\/\/api\.posters\.meitu\.com\/matting\/znxc\.json
+      name: JS_MTXX
+      type: response
+      timeout: 60
+      require-body: true
+
+script-providers:
+  JS_MTXX:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_MTXX.js
+    interval: 86400

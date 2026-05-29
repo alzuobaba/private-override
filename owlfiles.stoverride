@@ -1,0 +1,24 @@
+name: 'OwlFiles'
+desc: |-
+  脚本解锁 OwlFiles
+author: alzuobaba
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-05-29'
+version: '1.0.0'
+
+http:
+  mitm:
+    - www.skyjos.com
+
+  script:
+    - match: ^https?:\/\/www\.skyjos\.com(?::58080)?\/ws\/(?:validate|loadaccountinfo)\b
+      name: JS_Owlfiles
+      type: response
+      timeout: 60
+      require-body: true
+
+script-providers:
+  JS_Owlfiles:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Owlfiles.js
+    interval: 86400

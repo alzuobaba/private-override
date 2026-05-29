@@ -1,0 +1,24 @@
+name: 'B612'
+desc: |-
+  脚本解锁 B612
+author: alzuobaba
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-05-29'
+version: '1.0.0'
+
+http:
+  mitm:
+    - user-b612-api.snow.me
+
+  script:
+    - match: ^https:\/\/user-b612-api\.snow\.me\/v1\/purchase\/subscription\/subscriber\/status
+      name: JS_B612
+      type: response
+      timeout: 60
+      require-body: true
+
+script-providers:
+  JS_B612:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_B612.js
+    interval: 86400

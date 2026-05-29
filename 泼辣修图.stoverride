@@ -1,0 +1,24 @@
+name: '泼辣修图'
+desc: |-
+  脚本解锁 泼辣修图
+author: alzuobaba
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-05-29'
+version: '1.0.0'
+
+http:
+  mitm:
+    - api.polaxiong.com
+
+  script:
+    - match: ^https?:\/\/api\.polaxiong\.com\/v1\/payments\/(appleiap\/receipts\/confirmation|profiles\/@me\/subscription)
+      name: JS_PolarrXT
+      type: response
+      timeout: 60
+      require-body: true
+
+script-providers:
+  JS_PolarrXT:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_PolarrXT.js
+    interval: 86400

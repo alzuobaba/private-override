@@ -1,0 +1,35 @@
+name: 'WPS稻壳会员'
+desc: |-
+  脚本解锁 WPS稻壳会员
+author: alzuobaba
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-05-29'
+version: '1.0.0'
+
+http:
+  mitm:
+    - 'account.wps.cn'
+    - '*.wps.cn'
+    - 'vipapi.wps.cn'
+    - '*.docer.wps.cn'
+
+  script:
+    - match: ^https?:\/\/.+\.(docer.)?wps.cn\/(user\/v1\/vip|android\/mb\/buy|download\/v1\/ios|partner\/invoke\/usable|(api|rank)\/v1(\/mobile\/mb)?\/detail)
+      name: JS-1_WPSDocerVIPowerCrack
+      type: request
+      timeout: 60
+
+    - match: ^https?:\/\/account\.wps\.cn\/api\/v3\/mine\/vips
+      name: JS-1_WPSDocerVIPuserCrack
+      type: response
+      timeout: 60
+      require-body: true
+
+script-providers:
+  JS-1_WPSDocerVIPowerCrack:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_WPSDocerVIPowerCrack.js
+    interval: 86400
+  JS-1_WPSDocerVIPuserCrack:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_WPSDocerVIPuserCrack.js
+    interval: 86400

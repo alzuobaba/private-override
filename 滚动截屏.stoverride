@@ -1,0 +1,24 @@
+name: '滚动截屏'
+desc: |-
+  脚本解锁 滚动截屏
+author: alzuobaba
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-05-29'
+version: '1.0.0'
+
+http:
+  mitm:
+    - tailor.tomax.xyz
+
+  script:
+    - match: ^http:\/\/tailor\.tomax\.xyz\/api\/users\/fetch\/info
+      name: JS-1_GDJP
+      type: response
+      timeout: 60
+      require-body: true
+
+script-providers:
+  JS-1_GDJP:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_GDJP.js
+    interval: 86400

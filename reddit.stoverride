@@ -1,0 +1,24 @@
+name: 'Reddit'
+desc: |-
+  脚本解锁 Reddit
+author: alzuobaba
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-05-29'
+version: '1.0.0'
+
+http:
+  mitm:
+    - reddit.com
+
+  script:
+    - match: ^https?:\/\/gql(-fed)?\.reddit\.com
+      name: JS_Reddit
+      type: response
+      timeout: 10
+      require-body: true
+
+script-providers:
+  JS_Reddit:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Reddit.js
+    interval: 86400

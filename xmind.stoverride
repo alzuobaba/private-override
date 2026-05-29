@@ -1,0 +1,24 @@
+name: 'Xmind'
+desc: |-
+  脚本解锁 Xmind
+author: alzuobaba
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-05-29'
+version: '1.0.0'
+
+http:
+  mitm:
+    - xmind.net
+
+  script:
+    - match: ^https?:\/\/(?:www\.)?xmind\..*\/.+\/(devices|token\/.+)
+      name: JS_Xmind
+      type: response
+      timeout: 60
+      require-body: true
+
+script-providers:
+  JS_Xmind:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Xmind.js
+    interval: 86400

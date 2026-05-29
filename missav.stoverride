@@ -1,0 +1,24 @@
+name: 'MissAV'
+desc: |-
+  脚本解锁 MissAV
+author: alzuobaba
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-05-29'
+version: '1.0.0'
+
+http:
+  mitm:
+    - missav.ai
+
+  script:
+    - match: ^https?:\/\/missav\.(ws|com|ai)\/(?!(.*(api|login|cdn-cgi|verify|auth|captch|(\.(js|css|jpg|jpeg|png|webp|gif|zip|woff|woff2|m3u8|mp4|mov|m4v|avi|mkv|flv|rmvb|wmv|rm|asf|asx|mp3|json|ico|otf|ttf))))).*
+      name: JS_MissAV
+      type: response
+      timeout: 60
+      require-body: true
+
+script-providers:
+  JS_MissAV:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_MissAV.js
+    interval: 86400

@@ -1,0 +1,24 @@
+name: '幕布'
+desc: |-
+  脚本解锁 幕布
+author: alzuobaba
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-05-29'
+version: '1.0.0'
+
+http:
+  mitm:
+    - 'api2.mubu.com'
+
+  script:
+    - match: https://api2.mubu.com/v3/api/user/current_user
+      name: JS-1_MuBu
+      type: response
+      timeout: 60
+      require-body: true
+
+script-providers:
+  JS-1_MuBu:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_MuBu.js
+    interval: 86400

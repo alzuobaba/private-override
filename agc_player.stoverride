@@ -1,0 +1,24 @@
+name: 'AGC Player'
+desc: |-
+  脚本解锁 AGC Player
+author: alzuobaba
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-05-29'
+version: '1.0.0'
+
+http:
+  mitm:
+    - 'api.agcplayer.com'
+
+  script:
+    - match: https://api.agcplayer.com/
+      name: JS_AGC
+      type: response
+      timeout: 60
+      require-body: true
+
+script-providers:
+  JS_AGC:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_AGC.js
+    interval: 86400

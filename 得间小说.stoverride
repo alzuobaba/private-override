@@ -1,0 +1,24 @@
+name: '得间小说'
+desc: |-
+  脚本解锁 得间小说
+author: alzuobaba
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-05-29'
+version: '1.0.0'
+
+http:
+  mitm:
+    - dj.palmestore.com
+
+  script:
+    - match: ^https:\/\/dj\.palmestore\.com\/zyuc\/api\/user\/accountInfo
+      name: JS_DeJianXS
+      type: response
+      timeout: 60
+      require-body: true
+
+script-providers:
+  JS_DeJianXS:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_DeJianXS.js
+    interval: 86400

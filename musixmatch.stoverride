@@ -1,0 +1,24 @@
+name: 'Musixmatch'
+desc: |-
+  脚本解锁 Musixmatch
+author: alzuobaba
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-05-29'
+version: '1.0.0'
+
+http:
+  mitm:
+    - 'apic.musixmatch.com'
+
+  script:
+    - match: https://apic.musixmatch.com/ws/1.1/config.get
+      name: JS-1_Musixmatch
+      type: response
+      timeout: 10
+      require-body: true
+
+script-providers:
+  JS-1_Musixmatch:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_Musixmatch.js
+    interval: 86400

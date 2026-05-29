@@ -1,0 +1,24 @@
+name: '有道词典'
+desc: |-
+  脚本解锁 有道词典
+author: alzuobaba
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-05-29'
+version: '1.0.0'
+
+http:
+  mitm:
+    - dict.youdao.com
+
+  script:
+    - match: ^https:\/\/dict\.youdao\.com\/vip\/user\/status
+      name: JS_Youdao
+      type: response
+      timeout: 60
+      require-body: true
+
+script-providers:
+  JS_Youdao:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Youdao.js
+    interval: 86400

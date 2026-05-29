@@ -1,0 +1,23 @@
+name: '剪映'
+desc: |-
+  脚本解锁 剪映
+author: alzuobaba
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-05-29'
+version: '1.0.0'
+
+http:
+  mitm:
+    - faceu.mobi
+
+  script:
+    - match: ^https?:\/\/commerce-api-.*\.faceu\.mobi\/commerce\/v1\/(subscription\/user_info|purchase\/draft_unlock|effect\/check_effects)
+      name: JS_VideoFusionVipCrack
+      type: request
+      timeout: 60
+
+script-providers:
+  JS_VideoFusionVipCrack:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_VideoFusionVipCrack.js
+    interval: 86400

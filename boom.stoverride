@@ -1,0 +1,24 @@
+name: 'Boom'
+desc: |-
+  脚本解锁 Boom
+author: alzuobaba
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-05-29'
+version: '1.0.0'
+
+http:
+  mitm:
+    - apimboom2.globaldelight.net
+
+  script:
+    - match: ^https:\/\/apimboom2\.globaldelight\.net\/itunesreceipt_v2\.php$
+      name: JS-1_Boom
+      type: response
+      timeout: 60
+      require-body: true
+
+script-providers:
+  JS-1_Boom:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_Boom.js
+    interval: 86400

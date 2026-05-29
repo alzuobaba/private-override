@@ -1,0 +1,24 @@
+name: 'DJ音乐库'
+desc: |-
+  脚本解锁 DJ音乐库
+author: alzuobaba
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-05-29'
+version: '1.0.0'
+
+http:
+  mitm:
+    - 'app-i.dj-5.com'
+
+  script:
+    - match: ^http:\/\/app-i.dj-5.com\/api\/User\/Info
+      name: JS_DJYinYueKu
+      type: response
+      timeout: 60
+      require-body: true
+
+script-providers:
+  JS_DJYinYueKu:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_DJYinYueKu.js
+    interval: 86400

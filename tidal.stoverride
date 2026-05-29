@@ -1,0 +1,35 @@
+name: 'TIDAL'
+desc: |-
+  脚本解锁 TIDAL
+author: alzuobaba
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-05-29'
+version: '1.0.0'
+
+http:
+  mitm:
+    - api.tidal.com
+
+  script:
+    - match: ^https?:\/\/api\.tidal\.com\/v1\/(pages\/album|(user|track|page)s\/(\d+)\/(state|subscription|lyrics|onboarding|playbackinfopostpaywall))
+      name: JS_TIDALHiFiPlusCrack
+      type: request
+      timeout: 10
+
+    - match: ^https?:\/\/api\.tidal\.com\/v1\/tracks/\d+\/playbackinfopostpaywall.+
+      name: JS_TIDALHiFiPlusCrack
+      type: request
+      timeout: 60
+      require-body: true
+
+    - match: ^https?:\/\/api\.tidal\.com\/v1\/users\/\d+\/subscription.+
+      name: JS_TIDALHiFiPlusCrack
+      type: response
+      timeout: 60
+      require-body: true
+
+script-providers:
+  JS_TIDALHiFiPlusCrack:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_TIDALHiFiPlusCrack.js
+    interval: 86400

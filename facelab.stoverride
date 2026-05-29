@@ -1,0 +1,24 @@
+name: 'FaceLab'
+desc: |-
+  脚本解锁 FaceLab
+author: alzuobaba
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-05-29'
+version: '1.0.0'
+
+http:
+  mitm:
+    - subscription-api.lyrebirdstudio.net
+
+  script:
+    - match: ^https?:\/\/subscription-api\.lyrebirdstudio\.net\/subscriptions\/apple\/(verify|status|decode-apple-receipt)
+      name: JS_FaceLab
+      type: response
+      timeout: 60
+      require-body: true
+
+script-providers:
+  JS_FaceLab:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_FaceLab.js
+    interval: 86400

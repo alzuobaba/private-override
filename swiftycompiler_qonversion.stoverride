@@ -1,0 +1,24 @@
+name: 'SwiftyCompiler/Qonversion'
+desc: |-
+  脚本解锁 SwiftyCompiler/Qonversion
+author: alzuobaba
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-05-29'
+version: '1.0.0'
+
+http:
+  mitm:
+    - api.qonversion.io
+
+  script:
+    - match: ^https?:\/\/api\.qonversion\.io\/v\d\/user\/(init|purchase)
+      name: JS_SwiftyCompiler
+      type: response
+      timeout: 60
+      require-body: true
+
+script-providers:
+  JS_SwiftyCompiler:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_SwiftyCompiler.js
+    interval: 86400

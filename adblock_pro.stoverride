@@ -1,0 +1,24 @@
+name: 'AdBlock Pro'
+desc: |-
+  脚本解锁 AdBlock Pro
+author: alzuobaba
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-05-29'
+version: '1.0.0'
+
+http:
+  mitm:
+    - api.adblockpro.app
+
+  script:
+    - match: https:\/\/api\.adblockpro\.app\/verify
+      name: JS_AdBlock
+      type: response
+      timeout: 60
+      require-body: true
+
+script-providers:
+  JS_AdBlock:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_AdBlock.js
+    interval: 86400

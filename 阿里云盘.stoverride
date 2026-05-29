@@ -1,0 +1,132 @@
+name: '阿里云盘'
+desc: |-
+  脚本解锁 阿里云盘
+author: alzuobaba
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-05-29'
+version: '1.0.0'
+
+http:
+  mitm:
+    - api.aliyundrive.com
+
+  script:
+    - match: https:\/\/api\.(aliyundrive|alipan)\.com\/apps\/v1\/users\/apps\/welcome
+      name: JS-1_ALiCloud
+      type: response
+      timeout: 60
+      require-body: true
+
+    - match: https:\/\/api\.(aliyundrive|alipan)\.com\/v2\/databox\/get_personal_info
+      name: JS-1_ALiCloud
+      type: response
+      timeout: 60
+      require-body: true
+
+    - match: https:\/\/api\.(aliyundrive|alipan)\.com\/business\/v1.0\/users\/vip\/info
+      name: JS-1_ALiCloud
+      type: response
+      timeout: 60
+      require-body: true
+
+    - match: https:\/\/member\.(aliyundrive|alipan)\.com\/v1\/users\/tools
+      name: JS-1_ALiCloud
+      type: response
+      timeout: 60
+      require-body: true
+
+    - match: https:\/\/api\.(aliyundrive|alipan)\.com\/business\/v1\/users\/me\/vip\/info
+      name: JS-1_ALiCloud
+      type: response
+      timeout: 60
+      require-body: true
+
+    - match: https:\/\/api\.(aliyundrive|alipan)\.com\/business\/v1.1\/users\/me\/vip\/info
+      name: JS-1_ALiCloud
+      type: response
+      timeout: 60
+      require-body: true
+
+    - match: https:\/\/api\.(aliyundrive|alipan)\.com\/apps\/v1\/users\/home\/widgets
+      name: JS-1_ALiCloud
+      type: response
+      timeout: 60
+      require-body: true
+
+    - match: https:\/\/api\.(aliyundrive|alipan)\.com\/adrive\/v1\/app\/logos
+      name: JS-1_ALiCloud
+      type: response
+      timeout: 60
+      require-body: true
+
+    - match: https:\/\/api\.(aliyundrive|alipan)\.com\/adrive\/v2\/user\/get
+      name: JS-1_ALiCloud
+      type: response
+      timeout: 60
+      require-body: true
+
+    - match: https:\/\/api\.(aliyundrive|alipan)\.com\/business\/v1.0\/users\/feature\/list
+      name: JS-1_ALiCloud
+      type: response
+      timeout: 60
+      require-body: true
+
+    - match: https:\/\/api\.(aliyundrive|alipan)\.com\/business\/v1.0\/users\/feature\/trial
+      name: JS-1_ALiCloud
+      type: response
+      timeout: 60
+      require-body: true
+
+    - match: https:\/\/api\.(aliyundrive|alipan)\.com\/v2\/file\/get_video_preview_play_info
+      name: JS-1_ALiCloud
+      type: response
+      timeout: 60
+      require-body: true
+
+    - match: https:\/\/api\.(aliyundrive|alipan)\.com\/adrive\/v2\/batch
+      name: JS-1_ALiCloud
+      type: response
+      timeout: 60
+      require-body: true
+
+    - match: https:\/\/member\.alipan\.com\/v2\/activity\/sign_in_info
+      name: JS-1_ALiCloud
+      type: response
+      timeout: 60
+      require-body: true
+
+    - match: https:\/\/member\.aliyundrive\.com\/v2\/activity\/sign_in_list
+      name: JS-1_ALiCloud
+      type: response
+      timeout: 60
+      require-body: true
+
+    - match: https:\/\/member\.alipan\.com\/v1\/users\/me
+      name: JS-1_ALiCloud
+      type: response
+      timeout: 60
+      require-body: true
+
+    - match: https:\/\/api\.alipan\.com\/adrive\/v1\/timeline\/user\/get
+      name: JS-1_ALiCloud
+      type: response
+      timeout: 60
+      require-body: true
+
+    - match: https:\/\/api\.alipan\.com\/apps\/v1\/users\/home\/recent
+      name: JS-1_ALiCloud
+      type: response
+      timeout: 60
+      require-body: true
+
+    - match: https:\/\/api\.alipan\.com\/adrive\/v1\/user\/getUserCapacityInfo
+      name: JS-1_ALiCloud
+      type: response
+      timeout: 60
+      require-body: true
+
+script-providers:
+  JS-1_ALiCloud:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_ALiCloud.js
+    interval: 86400

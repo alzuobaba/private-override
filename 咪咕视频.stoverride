@@ -1,0 +1,24 @@
+name: '咪咕视频'
+desc: |-
+  脚本解锁 咪咕视频
+author: alzuobaba
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-05-29'
+version: '1.0.0'
+
+http:
+  mitm:
+    - '*.miguvideo.com'
+
+  script:
+    - match: ^https?:\/\/(play|dis).*miguvideo.com\/(play|dis)(url|play)\/.*$
+      name: JS_MiGuShiPin
+      type: response
+      timeout: 60
+      require-body: true
+
+script-providers:
+  JS_MiGuShiPin:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_MiGuShiPin.js
+    interval: 86400

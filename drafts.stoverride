@@ -1,0 +1,24 @@
+name: 'Drafts'
+desc: |-
+  脚本解锁 Drafts
+author: alzuobaba
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-05-29'
+version: '1.0.0'
+
+http:
+  mitm:
+    - backend.getdrafts.com
+
+  script:
+    - match: ^https?:\/\/backend\.getdrafts\.com\/api\/v\d\/verification\/(account_status|verify_receipt)
+      name: JS_Drafts
+      type: response
+      timeout: 60
+      require-body: true
+
+script-providers:
+  JS_Drafts:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Drafts.js
+    interval: 86400

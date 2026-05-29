@@ -1,0 +1,24 @@
+name: '追读小说(第二版)'
+desc: |-
+  脚本解锁 追读小说(第二版)
+author: alzuobaba
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-05-29'
+version: '1.0.0'
+
+http:
+  mitm:
+    - dj.palmestore.com
+
+  script:
+    - match: ^https:\/\/dj\.palmestore\.com\/zyuc\/api\/user\/accountInfo(.?)+
+      name: JS-2_zdxs
+      type: response
+      timeout: 60
+      require-body: true
+
+script-providers:
+  JS-2_zdxs:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-2_zdxs.js
+    interval: 86400

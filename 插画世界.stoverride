@@ -1,0 +1,24 @@
+name: '插画世界'
+desc: |-
+  脚本解锁 插画世界
+author: alzuobaba
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-05-29'
+version: '1.0.0'
+
+http:
+  mitm:
+    - api2.vilipix.com
+
+  script:
+    - match: ^https:\/\/api2\.vilipix\.com\/api\/v\d\/user\/current
+      name: JS_CHSJ
+      type: response
+      timeout: 60
+      require-body: true
+
+script-providers:
+  JS_CHSJ:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_CHSJ.js
+    interval: 86400

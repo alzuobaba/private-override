@@ -1,0 +1,24 @@
+name: 'Yandex Music'
+desc: |-
+  脚本解锁 Yandex Music
+author: alzuobaba
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-05-29'
+version: '1.0.0'
+
+http:
+  mitm:
+    - 'api.music.yandex.net'
+
+  script:
+    - match: https://api.music.yandex.net/account/status.*
+      name: JS_YandexMusic
+      type: response
+      timeout: 60
+      require-body: true
+
+script-providers:
+  JS_YandexMusic:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_YandexMusic.js
+    interval: 86400

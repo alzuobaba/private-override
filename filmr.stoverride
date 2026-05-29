@@ -1,0 +1,30 @@
+name: 'Filmr'
+desc: |-
+  脚本解锁 Filmr
+author: alzuobaba
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-05-29'
+version: '1.0.0'
+
+http:
+  mitm:
+    - 'payments.invideo.io'
+
+  script:
+    - match: https://payments.invideo.io/verify_purchase
+      name: JS_Filmr
+      type: response
+      timeout: 60
+      require-body: true
+
+    - match: https://payments.invideo.io/subscription
+      name: JS_Filmr
+      type: response
+      timeout: 60
+      require-body: true
+
+script-providers:
+  JS_Filmr:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Filmr.js
+    interval: 86400

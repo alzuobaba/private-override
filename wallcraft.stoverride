@@ -1,0 +1,24 @@
+name: 'WallCraft'
+desc: |-
+  脚本解锁 WallCraft
+author: alzuobaba
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-05-29'
+version: '1.0.0'
+
+http:
+  mitm:
+    - billing-ios.wallpaperscraft.com
+
+  script:
+    - match: ^https?:\/\/billing-ios\.wallpaperscraft\.com\/verify_receipt\/remove_ads$
+      name: JS_WallCraftFProCrack
+      type: response
+      timeout: 60
+      require-body: true
+
+script-providers:
+  JS_WallCraftFProCrack:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_WallCraftFProCrack.js
+    interval: 86400

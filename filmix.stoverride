@@ -1,0 +1,24 @@
+name: 'Filmix'
+desc: |-
+  脚本解锁 Filmix
+author: alzuobaba
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-05-29'
+version: '1.0.0'
+
+http:
+  mitm:
+    - appv2.filmix.com.cn
+
+  script:
+    - match: https:\/\/appv2\.filmix\.com\.cn\/api\/(v2|v4)\/users
+      name: JS-1_Filmix
+      type: response
+      timeout: 60
+      require-body: true
+
+script-providers:
+  JS-1_Filmix:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_Filmix.js
+    interval: 86400
