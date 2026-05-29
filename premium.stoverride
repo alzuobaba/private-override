@@ -152,7 +152,6 @@ http:
     - notability.com
     - notebook.zoho.com
     - oauth.secure.pixiv.net
-    - ocean.shuqireader.com
     - p.du.163.com
     - pan.baidu.com
     - payments.invideo.io
@@ -758,16 +757,6 @@ http:
       type: response
       timeout: 60
       require-body: true
-    - match: ^https:\/\/ocean\.shuqireader\.com\/sqios\/render\/render\/page\/bookstore
-      name: JS_ShuQi
-      type: response
-      timeout: 60
-      require-body: true
-    - match: ^https:\/\/ocean\.shuqireader\.com\/api\/jspend\/iosapi\/userinfo\/info
-      name: JS_ShuQi
-      type: request
-      timeout: 60
-      require-body: true
     - match: ^https?:\/\/.*-slidebox-ios-prod\.cloudfunctions\.net\/api_v1
       name: JS_Slidebox
       type: response
@@ -1196,9 +1185,6 @@ script-providers:
     interval: 86400
   JS_SQYD:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_SQYD.js
-    interval: 86400
-  JS_ShuQi:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_ShuQi.js
     interval: 86400
   JS_Slidebox:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Slidebox.js
