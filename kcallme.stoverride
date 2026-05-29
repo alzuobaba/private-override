@@ -19,5 +19,5 @@ http:
 
 script-providers:
   kcallme:
-    path: scripts/apps/kcallme.js
-    interval: 0
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/kcallme.js
+    interval: 86400
