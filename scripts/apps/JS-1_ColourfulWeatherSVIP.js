@@ -16,6 +16,10 @@ https?:\/\/biz\.caiyunapp\.com\/(membership_rights|v2\/user) url script-response
 hostname = biz.caiyunapp.com
 
 *************************************/
+"use strict"
+console.log($script.name)
+
+
 
 
 const SCRIPT_NAME = '彩云天气';

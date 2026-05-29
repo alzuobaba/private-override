@@ -15,6 +15,10 @@
 hostname = cubox.*
 
 *************************************/
+"use strict"
+console.log($script.name)
+
+
 
 
 var body = $response.body;

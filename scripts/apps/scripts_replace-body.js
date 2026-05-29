@@ -25,6 +25,10 @@ argument=("key")\s?:\s?"(.+?)"->$1: "new_value"
 s修饰符可以让.匹配换行符，如argument=/.+/s->hello
   
 */
+"use strict"
+console.log($script.name)
+
+
 
 function getRegexp(re_str) {
   let regParts = re_str.match(/^\/(.*?)\/([gims]*)$/)

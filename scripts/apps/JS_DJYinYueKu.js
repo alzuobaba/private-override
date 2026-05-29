@@ -13,6 +13,10 @@
 hostname = app-i.dj-5.com
 
 *******************************/
+"use strict"
+console.log($script.name)
+
+
 
 
 var body = $response.body;

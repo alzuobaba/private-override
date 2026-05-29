@@ -9,6 +9,10 @@ https://shimo.im/lizard-api/users/me url script-response-body https://raw.github
 [mitm]
 hostname = shimo.im
 */
+"use strict"
+console.log($script.name)
+
+
 
 var body = $response.body;
 

@@ -1,3 +1,6 @@
+"use strict"
+console.log($script.name)
+
 /**
  * iTunes verifyReceipt 验证绕过脚本（适配 Stash）
  * =================================================

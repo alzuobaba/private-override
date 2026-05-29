@@ -9,6 +9,10 @@ https://api.github.com/graphql url script-response-body https://raw.githubuserco
 hostname = api.github.com
 
 */
+"use strict"
+console.log($script.name)
+
+
 
 let obj = JSON.parse($response.body);
 if (obj.data && obj.data.viewer) {

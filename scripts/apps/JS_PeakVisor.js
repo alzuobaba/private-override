@@ -15,6 +15,10 @@
 hostname = peakvisor.com
 
 *************************************/
+"use strict"
+console.log($script.name)
+
+
 
 var objc = JSON.parse($response.body);
 

@@ -12,6 +12,10 @@
 [mitm]
 hostname = csj.yy-5.com
 *******************************/
+"use strict"
+console.log($script.name)
+
+
 
 
 let obj = JSON.parse($response.body);

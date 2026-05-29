@@ -6,6 +6,10 @@
 [MITM]
 hostname = api.ieasou.com
 */
+"use strict"
+console.log($script.name)
+
+
 var Rnik = JSON.parse($response.body);
 Rnik = {
  "success" : true,

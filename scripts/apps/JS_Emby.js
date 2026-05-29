@@ -1,3 +1,7 @@
+
+"use strict"
+console.log($script.name)
+
 let body = $response.body;
 if($request.url.includes("/admin/service/appstore/register"))
 {

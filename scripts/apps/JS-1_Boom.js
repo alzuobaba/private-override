@@ -21,6 +21,10 @@
 hostname=apimboom2.globaldelight.net
 
 ***********************************/
+"use strict"
+console.log($script.name)
+
+
 
 
 

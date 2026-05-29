@@ -10,6 +10,10 @@
 hostname = api.purchasely.io
 
 */
+"use strict"
+console.log($script.name)
+
+
 
 $done({
   body: JSON.stringify({

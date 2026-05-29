@@ -10,6 +10,10 @@
 hostname = gql.reddit.com, gql-fed.reddit.com
 
 *************************************/
+"use strict"
+console.log($script.name)
+
+
 
 let body;
 try {

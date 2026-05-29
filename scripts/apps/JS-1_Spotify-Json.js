@@ -1,3 +1,7 @@
+
+"use strict"
+console.log($script.name)
+
 console.log(`spotify-json-2025.06.20`);
 let url = $request.url;
 // console.log(`原始url:${url}`);

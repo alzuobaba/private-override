@@ -17,6 +17,10 @@ TG频道群：https://t.me/py996
 hostname = dj.palmestore.com
 
 *******************************/
+"use strict"
+console.log($script.name)
+
+
 
 var body = $response.body.replace(/vipType":\d/g,'vipType":1')
 .replace(/vipExpire":\d+/g,'vipExpire":32472115200')

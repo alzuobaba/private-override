@@ -9,6 +9,10 @@ https://api2.mubu.com/v3/api/user/current_user url script-response-body https://
 [mitm] 
 hostname = api2.mubu.com
 */
+"use strict"
+console.log($script.name)
+
+
 
 var body = $response.body.replace(/vipEndDate":"\d+"/g,'vipEndDate":"99991111"')
 .replace(/level":\d+/g,'level":2')

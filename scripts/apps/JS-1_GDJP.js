@@ -16,6 +16,10 @@
 hostname = tailor.tomax.xyz
 
 *************************************/
+"use strict"
+console.log($script.name)
+
+
 
 
 var obj = JSON.parse($response.body);

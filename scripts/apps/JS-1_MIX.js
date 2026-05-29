@@ -20,6 +20,10 @@ http-response https?:\/\/cdn-bm\.camera360\.com\/api\/mix\/recovery requires-bod
 hostname = cdn-bm.camera360.com
 
 **************************/
+"use strict"
+console.log($script.name)
+
+
 
 if ($response.body) {
     $done({

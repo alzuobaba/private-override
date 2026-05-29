@@ -16,6 +16,10 @@
 hostname = snailsleep.net
 
 *************************************/
+"use strict"
+console.log($script.name)
+
+
 
 var Mike = JSON.parse($response.body);
 

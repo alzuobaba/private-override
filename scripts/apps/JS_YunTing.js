@@ -17,6 +17,10 @@
 hostname = *.radio.cn, 60.205.171.165
 
 *************************************/
+"use strict"
+console.log($script.name)
+
+
 
 
 var body = $response.body;

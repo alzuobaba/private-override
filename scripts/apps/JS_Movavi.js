@@ -17,6 +17,10 @@
 hostname = *.apphud.com
 
 *************************************/
+"use strict"
+console.log($script.name)
+
+
 
 
 const chxm1023 = JSON.parse(typeof $response != "undefined" && $response.body || "{}");

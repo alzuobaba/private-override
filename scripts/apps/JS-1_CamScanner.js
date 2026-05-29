@@ -15,6 +15,10 @@
 hostname = *.camscanner.com, *.intsig.net
 
 *************************************/
+"use strict"
+console.log($script.name)
+
+
 
 
 var chxm1023 = JSON.parse($response.body);

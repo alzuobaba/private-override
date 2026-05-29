@@ -24,6 +24,10 @@ hostname = *.oracle.bendingspoonsapps.com
 
 
 ***********************************/
+"use strict"
+console.log($script.name)
+
+
 
 
 var obj=JSON.parse($response.body);-1!=$request.url.indexOf("focoslive")?obj.me.active_subscriptions_ids=["com.focoslive.1y_t100_adj"]:obj.me.active_subscriptions_ids=["com.focos.1y_t80"],$done({body:JSON.stringify(obj)});

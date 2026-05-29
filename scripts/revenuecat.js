@@ -1,3 +1,6 @@
+"use strict"
+console.log($script.name)
+
 /**
  * RevenueCat 订阅解锁脚本（适配 Stash）— 数据分离版
  * ===================================================

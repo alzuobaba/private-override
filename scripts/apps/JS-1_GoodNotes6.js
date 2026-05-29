@@ -16,6 +16,10 @@
 hostname = isi.csan.goodnotes.com
 
 *************************************/
+"use strict"
+console.log($script.name)
+
+
 
 
 const chxm1023 = {};

@@ -15,6 +15,10 @@ http:\/\/www\.kkmop\.com\/vipMsg1 url script-response-body https://raw.githubuse
 hostname = www.kkmop.com
 
 *************************************/
+"use strict"
+console.log($script.name)
+
+
 
 
 var chxm1023 = JSON.parse($response.body);

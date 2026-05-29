@@ -32,5 +32,9 @@ hostname = api.adblockpro.app
 https:\/\/api\.adblockpro\.app\/verify url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/abcp.js
 
 ********************************/
+"use strict"
+console.log($script.name)
+
+
 
 var obj=JSON.parse($response.body);changeValueToOne(obj);function changeValueToOne(obj){var keys=Object.keys(obj);for(var i=0;i<keys.length;i++){if(obj[keys[i]]===0){obj[keys[i]]=1}}}$done({body:JSON.stringify(obj)});

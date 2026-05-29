@@ -9,6 +9,10 @@ https://api.agcplayer.com/ url script-response-body https://raw.githubuserconten
 [mitm]
 hostname = api.agcplayer.com
  */
+"use strict"
+console.log($script.name)
+
+
 
 let body = $response.body;
 let obj = JSON.parse(body); 

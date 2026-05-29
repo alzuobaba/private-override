@@ -27,6 +27,10 @@ hostname = nicegram.cloud
 *
 *
 */
+"use strict"
+console.log($script.name)
+
+
 
 
 

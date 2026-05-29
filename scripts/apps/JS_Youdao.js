@@ -35,6 +35,10 @@ hostname = dict.youdao.com, business.youdao.com, api-overmind.youdao.com, cdke.y
 
 
 */
+"use strict"
+console.log($script.name)
+
+
 
 var body = JSON.parse($response.body);
 

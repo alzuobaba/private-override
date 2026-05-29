@@ -14,6 +14,10 @@
 hostname = www.qobuz.com
 
 *******************************/
+"use strict"
+console.log($script.name)
+
+
 
 var encode_version = 'hausd0rff',
     iitvd = '__0xe1e0b',

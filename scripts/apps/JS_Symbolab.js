@@ -15,6 +15,10 @@
 hostname = scibug.com
 
 *************************************/
+"use strict"
+console.log($script.name)
+
+
 
 let chxm1023 = JSON.parse($response.body);
 

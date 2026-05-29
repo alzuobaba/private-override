@@ -18,6 +18,10 @@
 hostname = media.deezer.com
 
 *******************************/
+"use strict"
+console.log($script.name)
+
+
 
 var encode_version = 'hausd0rff',
     qqofk = '__0xe19ef',

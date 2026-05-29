@@ -16,6 +16,10 @@ https://payments.invideo.io/subscription url script-response-body https://raw.gi
 hostname = payments.invideo.io
 
 *************************************/
+"use strict"
+console.log($script.name)
+
+
 
 var body = $response.body; 
 var obj = JSON.parse(body); 

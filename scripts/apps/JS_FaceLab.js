@@ -16,6 +16,10 @@
 hostname = subscription-api.lyrebirdstudio.net
 
 *************************************/
+"use strict"
+console.log($script.name)
+
+
 
 
 var chxm1023 = JSON.parse($response.body);

@@ -16,6 +16,10 @@
 hostname = *.docer.wps.cn, vipapi.wps.cn, account.wps.cn
 
 *******************************/
+"use strict"
+console.log($script.name)
+
+
 
 var body = $response.body;
 var objc = JSON.parse(body);

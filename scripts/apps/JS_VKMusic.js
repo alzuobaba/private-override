@@ -1,3 +1,7 @@
+
+"use strict"
+console.log($script.name)
+
 let body = JSON.parse($response.body)
 if($request.url.includes("info")) {
 	body.data.user.billing = {

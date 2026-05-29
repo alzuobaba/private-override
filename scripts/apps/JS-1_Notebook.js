@@ -16,6 +16,10 @@
 hostname = notebook.zoho.com
 
 *******************************/
+"use strict"
+console.log($script.name)
+
+
 
 
 var url = $request.url;

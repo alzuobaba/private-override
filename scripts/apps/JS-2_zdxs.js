@@ -12,6 +12,10 @@
 [mitm]
 hostname = dj.palmestore.com
 *******************************/
+"use strict"
+console.log($script.name)
+
+
 
 let obj = JSON.parse($response.body);
 

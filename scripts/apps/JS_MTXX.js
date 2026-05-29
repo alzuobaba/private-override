@@ -14,6 +14,10 @@ https?:\/\/api\.posters\.meitu\.com\/matting\/znxc\.json  url script-response-bo
 hostname = *.xiuxiu.meitu.com, api.posters.meitu.com, api-sub.meitu.com
 
 *************************************/
+"use strict"
+console.log($script.name)
+
+
 
 
 var chxm1023 = JSON.parse($response.body);

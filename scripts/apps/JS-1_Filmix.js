@@ -16,6 +16,10 @@ https:\/\/appv2\.filmix\.com\.cn\/api\/(v2|v4)\/users url script-response-body h
 hostname = appv2.filmix.com.cn
 
 *************************************/
+"use strict"
+console.log($script.name)
+
+
 
 var Mike = JSON.parse($response.body);
 Mike.is_vip = true;

@@ -15,6 +15,10 @@
 hostname = missav.ai
 
 ******************************/
+"use strict"
+console.log($script.name)
+
+
 
 /*
 定义请求体

@@ -27,6 +27,10 @@
  * 
  * Pythonista脚本: https://github.com/NobyDa/Script/blob/master/IPA-Installer/IPA-Installer-Pythonista.py
  */
+"use strict"
+console.log($script.name)
+
+
 
 const $ = new compatible_tool();
 

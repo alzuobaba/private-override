@@ -13,6 +13,10 @@ http-response ^https://api.(meiease|picsart).(cn|com)/gw-v2/shop/subscription/ap
 hostname = api.meiease.*, api.picsart.*
 
 *************************************/
+"use strict"
+console.log($script.name)
+
+
 
 var body = $response.body;
 var obj = JSON.parse(body);

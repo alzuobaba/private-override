@@ -10,6 +10,10 @@
 hostname = api-drive.mypikpak.com
 
 */
+"use strict"
+console.log($script.name)
+
+
 
 var url = $request.url;
 var modified = JSON.parse($response.body);

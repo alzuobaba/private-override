@@ -14,6 +14,10 @@
 hostname = www.skyjos.com
 
 *******************************/
+"use strict"
+console.log($script.name)
+
+
 
 // -------- 通知（带冷却）逻辑开始 --------
 // const cooldownMs = 10 * 60 * 1000;

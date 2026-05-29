@@ -62,6 +62,10 @@ https:\/\/api\.alipan\.com\/apps\/v1\/users\/home\/recent url script-response-bo
 https:\/\/api\.alipan\.com\/adrive\/v1\/user\/getUserCapacityInfo url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/alic.js
 
 ******************************/
+"use strict"
+console.log($script.name)
+
+
 
 function Env(name) {
   // 判断当前环境是否为 Loon

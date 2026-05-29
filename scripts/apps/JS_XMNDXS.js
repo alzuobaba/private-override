@@ -14,6 +14,10 @@
 hostname = xiaoshuo.xmxsapp.com
 
 *******************************/
+"use strict"
+console.log($script.name)
+
+
 
 
 var body = $response.body;

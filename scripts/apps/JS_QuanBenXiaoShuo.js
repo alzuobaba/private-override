@@ -16,6 +16,10 @@
 hostname = tfbook.taoyuewenhua.net, tybook.taoyuewenhua.net
 
 ********************************/
+"use strict"
+console.log($script.name)
+
+
 
 
 var body = $response.body;
