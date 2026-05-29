@@ -131,7 +131,6 @@ http:
     - haijiao.com
     - i.815616.xyz
     - ifttt.com
-    - ios.chat.openai.com
     - isi.csan.goodnotes.com
     - lcs-mobile-cops.adobe.io
     - lv-api-hl.ulikecam.com
@@ -162,7 +161,6 @@ http:
     - purchase-qingtu-api.b612kaji.com
     - rich.kuwo.cn
     - scibug.com
-    - security.wechat.com
     - service.ilovepdf.com
     - service.perfect365.com
     - shapi.lanrentingshu.com
@@ -179,7 +177,6 @@ http:
     - user-b612-api.snow.me
     - vip1.kuwo.cn
     - vipapi.wps.cn
-    - weixin110.qq.com
     - www.kkmop.com
     - www.mb3admin.com
     - www.mymorpholio.com
@@ -513,11 +510,6 @@ http:
       type: response
       timeout: 60
       require-body: true
-    - match: ^https?:\/\/ios\.chat\.openai\.com\/backend-api\/(accounts\/check\/|models)
-      name: JS_ChatGPTPlusCrack
-      type: response
-      timeout: 60
-      require-body: true
     - match: ^https?:\/\/(api|docs)\.craft\.do\/(api\/)?(auth\/v\d\/profile|subscription\/(receipt|teams\/get-subscriptions))
       name: JS_Craft
       type: response
@@ -820,11 +812,6 @@ http:
       type: response
       timeout: 60
       require-body: true
-    - match: ^https\:\/\/(weixin110\.qq|security.wechat)\.com\/cgi-bin\/mmspamsupport-bin\/newredirectconfirmcgi\?
-      name: JS_UnblockURLinWeChat
-      type: response
-      timeout: 10
-      require-body: true
     - match: https://api.moosic.io/(user/info|subscription/presentation/current_subscriptions_data)
       name: JS_VKMusic
       type: response
@@ -1066,9 +1053,6 @@ script-providers:
   JS_CHSJ:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_CHSJ.js
     interval: 86400
-  JS_ChatGPTPlusCrack:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_ChatGPTPlusCrack.js
-    interval: 86400
   JS_Craft:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Craft.js
     interval: 86400
@@ -1236,9 +1220,6 @@ script-providers:
     interval: 86400
   JS_Tu-U:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Tu-U.js
-    interval: 86400
-  JS_UnblockURLinWeChat:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_UnblockURLinWeChat.js
     interval: 86400
   JS_VKMusic:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_VKMusic.js

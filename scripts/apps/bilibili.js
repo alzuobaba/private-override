@@ -211,6 +211,29 @@ if (body) {
       } catch (e) {
         console.log($script.name + ' search error: ' + e)
       }
+    } else if (/\/x\/resource\/domain/.test(url)) {
+      try {
+        $configuration.sendMessage({ action: 'get_policy_state' }).then(function (resolve) {
+          var state = resolve.ret, target = null
+          for (var g in state) {
+            if (/bili|番剧|Bili/i.test(g)) { target = g; break }
+          }
+          if (!target) {
+            for (var g in state) {
+              if (state[g] !== 'direct') { target = g; break }
+            }
+          }
+          if (target) {
+            return $configuration.sendMessage({
+              action: 'set_policy_state',
+              content: Object.assign({}, { [target]: 'direct' })
+            })
+          }
+        }).then(function () { $done({}) }, function () { $done({}) })
+      } catch (e) {
+        console.log($script.name + ' domain error: ' + e)
+        $done({})
+      }
     }
   }
 }
