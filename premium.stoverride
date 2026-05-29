@@ -304,21 +304,6 @@ http:
       type: response
       timeout: 60
       require-body: true
-    - match: ^https?:\/\/mobile-api\.adguard\.org\/api\/.+\/ios_validate_receipt
-      name: JS-1_AdGuardProCrack
-      type: response
-      timeout: 60
-      require-body: true
-    - match: ^https?:\/\/pan.baidu.com.+(rest\/.+\/membership\/user|api\/user\/getinfo|act\/v2\/welfare\/list|api\/taskscore\/tasklist)\?
-      name: JS-1_BaiDuYun
-      type: response
-      timeout: 60
-      require-body: true
-    - match: ^https?:\/\/(?:(?:bd-api|h5app|bodianyin|ab-bodian)\.kuwo\.cn\/(?:api\/(?:ucenter\/users\/(?:pub|login)|play\/(?:music\/v2\/(?:audioUrl|checkRight)|advert\/info)|service\/(?:music\/(?:info|download\/(?:info|config))|home\/module|global\/config\/(?:scene|vipEnter)|banner\/positions|advert\/config)|search\/topic\/word\/list|pay\/(?:vip\/(?:invitation\/(?:assist\/popup|swell)|lowPriceText)|sp\/actVip|audition\/url)|advert\/free\/config|popup\/start\/info|abtest\/ui\/info|rec\/feed)|abtest\/ui\/info)|us\.l\.qq\.com\/exapp|xs\.gdt\.qq\.com\/style_factory\/template_list)
-      name: JS-1_BoDianMusic
-      type: response
-      timeout: 60
-      require-body: true
     - match: ^https:\/\/apimboom2\.globaldelight\.net\/itunesreceipt_v2\.php$
       name: JS-1_Boom
       type: response
@@ -359,29 +344,11 @@ http:
       type: response
       timeout: 60
       require-body: true
-    - match: ^https:\/\/isi\.csan\.goodnotes\.com\/.+\/(receipts$|subscribers\/?(.*?)*$)
-      name: JS-1_GoodNotes6
-      type: request
-      timeout: 60
-    - match: ^https?:\/\/ifttt\.com\/api\/v3\/graph
-      name: JS-1_IFTTT
-      type: response
-      timeout: 60
-      require-body: true
     - match: https?:\/\/cdn-bm\.camera360\.com\/api\/mix\/recovery
       name: JS-1_MIX
       type: response
       timeout: 60
       require-body: true
-    - match: ^https?:\/\/(u|c|app).(musicapp|(c|u).nf).migu.cn.+(user\/api|column\/startup|resource\/skin)
-      name: JS-1_MiGuMusic
-      type: response
-      timeout: 60
-      require-body: true
-    - match: ^https?:\/\/app.(c|pd).nf.migu.cn\/.*\/(listen-url|music\/batchQueryMusicPolicy|download-url).*$
-      name: JS-1_MiGuMusic-CK
-      type: request
-      timeout: 60
     - match: https://api2.mubu.com/v3/api/user/current_user
       name: JS-1_MuBu
       type: response
@@ -402,11 +369,6 @@ http:
       type: response
       timeout: 60
       require-body: true
-    - match: ^https?:\/\/service\.perfect365\.com\/svr\/perfect365\/services
-      name: JS-1_Perfect365
-      type: response
-      timeout: 60
-      require-body: true
     - match: ^https://api.(meiease|picsart).(cn|com)/gw-v2/shop/subscription/apple/purchases
       name: JS-1_Picsart
       type: response
@@ -421,16 +383,6 @@ http:
       type: response
       timeout: 60
       require-body: true
-    - match: ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/
-      name: JS-1_Spotify-Json
-      type: request
-      timeout: 10
-    - match: ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$
-      name: JS-1_Spotify-Proto
-      type: response
-      timeout: 10
-      require-body: true
-      binary-mode: true
     - match: ^https?:\/\/.+\.(docer.)?wps.cn\/(user\/v1\/vip|android\/mb\/buy|download\/v1\/ios|partner\/invoke\/usable|(api|rank)\/v1(\/mobile\/mb)?\/detail)
       name: JS-1_WPSDocerVIPowerCrack
       type: request
@@ -440,17 +392,8 @@ http:
       type: response
       timeout: 60
       require-body: true
-    - match: ^https?:\/\/(mobile|client|vas|download)(\.docer)?\.wps.cn\/(android\/mb\/buy_info|api\/v1\/mobile\/mb\/detail|query\/api\/v1\/list_privilege_info|download\/adapter\/v1\/mb)
-      name: JS-1_WPSuperVIPowerCrack
-      type: request
-      timeout: 60
     - match: ^https?:\/\/(account|drive|vas|userinfo.docer)\.wps\.cn\/(.*api\/(v3\/(mine\/vips|spaces)|users\/\d+\/overview|v1\/list_purchase_info)|user\/v1\/vip_dl_times)
       name: JS-1_WPSuperVIPuserCrack
-      type: response
-      timeout: 60
-      require-body: true
-    - match: ^https?:\/\/service\.ilovepdf\.com\/v\d\/user
-      name: JS-1_iLovePDF
       type: response
       timeout: 60
       require-body: true
@@ -464,28 +407,13 @@ http:
       type: response
       timeout: 60
       require-body: true
-    - match: ^https?:\/\/(?:musicpay|nmobi|vip1|audiobookpay|tingshu|anymatch|mobilebasedata|rich|mobilead|wapi)\.kuwo\.cn\/(?:music\.pay\?newver=\d+|mobi.s\?f=kwxs|vip\/(?:enc\/user\/vip\?op=ui&uid=|v2\/theme\?op=gd)|a\.p|v2\/api\/pay\/user\/info|api\/music\/info|AdService\/kaiping\/adinfo|EcomResourceServer\/adEarnGuajian\/adinfo|openapi\/v1\/operate\/homePage|commercia\/(?:vipTab\/myTab\/base|userAssets\/downloadCoupon\/reduce))
-      name: JS-3_KuWo
-      type: response
-      timeout: 60
-      require-body: true
     - match: https://api.agcplayer.com/
       name: JS_AGC
       type: response
       timeout: 60
       require-body: true
-    - match: ^https?:\/\/a\.ajmide\.com\/(v21|v29)\/get_user_(detail|home)\.php$
-      name: JS_AJMD
-      type: response
-      timeout: 60
-      require-body: true
     - match: https:\/\/api\.adblockpro\.app\/verify
       name: JS_AdBlock
-      type: response
-      timeout: 60
-      require-body: true
-    - match: ^https?:\/\/api\.alohaprofile\.com\/v1\/profile_info
-      name: JS_AlohaBrowser
       type: response
       timeout: 60
       require-body: true
@@ -539,18 +467,8 @@ http:
       type: request
       timeout: 60
       require-body: true
-    - match: https://license.pdfexpert.com/api/2.0/documents/subscription/refresh
-      name: JS_Documents
-      type: request
-      timeout: 60
-      require-body: true
     - match: ^https?:\/\/backend\.getdrafts\.com\/api\/v\d\/verification\/(account_status|verify_receipt)
       name: JS_Drafts
-      type: response
-      timeout: 60
-      require-body: true
-    - match: ^https?:\/\/dreamfaceapp\.com\/df-server\/user\/save_user_login
-      name: JS_DreamFace
       type: response
       timeout: 60
       require-body: true
@@ -566,11 +484,6 @@ http:
       require-body: true
     - match: ^https?:\/\/.*\.snow\.me\/v\d\/purchase\/subscription\/subscriber\/status
       name: JS_Epik
-      type: response
-      timeout: 60
-      require-body: true
-    - match: ^https?:\/\/tuoba.dida110.com\/(LRGetVipItem|LRGetMeCount).ashx
-      name: JS_FM
       type: response
       timeout: 60
       require-body: true
@@ -599,11 +512,6 @@ http:
       type: response
       timeout: 60
       require-body: true
-    - match: ^https?:\/\/mobile\.flightradar24\.com\/mobile\/(user-session|subscribe)
-      name: JS_Flightradar24
-      type: response
-      timeout: 60
-      require-body: true
     - match: ^https://api.purchasely.io/paab/user_purchases
       name: JS_FlipaClip
       type: response
@@ -624,20 +532,10 @@ http:
       type: response
       timeout: 60
       require-body: true
-    - match: ^https?:\/\/haijiao\.com\/api\/(topic\/\d+|banner\/banner_list)$
-      name: JS_HaiJiao
-      type: response
-      timeout: 60
-      require-body: true
     - match: ^https:\/\/nobyda.app/(install|download)
       name: JS_IPA-Installer
       type: request
       timeout: 10
-      require-body: true
-    - match: ^https?:\/\/(shapi|gzapi).(mting.info|lanrentingshu.com)\/(yyting\/userclient\/ClientGetUserInfo|lrts\/cgi\/login\/accountLogin)
-      name: JS_LanRenTS
-      type: response
-      timeout: 60
       require-body: true
     - match: https:\/\/bmall\.camera360\.com\/api\/iap\/check-receipt
       name: JS_MIX2
@@ -664,10 +562,6 @@ http:
       type: response
       timeout: 60
       require-body: true
-    - match: ^https?:\/\/play.miguvideo.com\/playurl\/v1\/play\/playurl\?2Kvivid=true?.*=true$
-      name: JS_MiGuShiPinck
-      type: request
-      timeout: 60
     - match: ^https?:\/\/missav\.(ws|com|ai)\/(?!(.*(api|login|cdn-cgi|verify|auth|captch|(\.(js|css|jpg|jpeg|png|webp|gif|zip|woff|woff2|m3u8|mp4|mov|m4v|avi|mkv|flv|rmvb|wmv|rm|asf|asx|mp3|json|ico|otf|ttf))))).*
       name: JS_MissAV
       type: response
@@ -683,18 +577,8 @@ http:
       type: response
       timeout: 60
       require-body: true
-    - match: ^https:\/\/www\.mymorpholio\.com\/api\/index\.php\/rest_iap\/receipt
-      name: JS_MorpholioTrace
-      type: response
-      timeout: 60
-      require-body: true
     - match: ^https?:\/\/.*\.apphud\.com\/v\d\/(subscriptions|customers)$
       name: JS_Movavi
-      type: response
-      timeout: 60
-      require-body: true
-    - match: ^https?:\/\/premium-api\.myfitnesspal\.com\/v\d\/subscriptions\/MFP\/*
-      name: JS_MyFitnessPal
       type: response
       timeout: 60
       require-body: true
@@ -752,16 +636,6 @@ http:
       type: response
       timeout: 60
       require-body: true
-    - match: ^https?:\/\/(((m|i)\.815616\.xyz)|175\.178\.52\.149:88)\/api\/v\d\/myinfo
-      name: JS_SQYD
-      type: response
-      timeout: 60
-      require-body: true
-    - match: ^https?:\/\/.*-slidebox-ios-prod\.cloudfunctions\.net\/api_v1
-      name: JS_Slidebox
-      type: response
-      timeout: 60
-      require-body: true
     - match: https://api-mobile.soundcloud.com/configuration/ios
       name: JS_Soundcloud
       type: response
@@ -796,11 +670,6 @@ http:
       type: response
       timeout: 60
       require-body: true
-    - match: ^https?:\/\/api.zuidie.net\/v1\/user\/info\/
-      name: JS_Tu-U
-      type: response
-      timeout: 60
-      require-body: true
     - match: https://api.moosic.io/(user/info|subscription/presentation/current_subscriptions_data)
       name: JS_VKMusic
       type: response
@@ -810,21 +679,6 @@ http:
       name: JS_VideoFusionVipCrack
       type: request
       timeout: 60
-    - match: ^https?:\/\/medi\.dxzzy321\.top\/api\/rest\/commerce\/integrate\/vip\/perform$
-      name: JS_VivaCutProCrack
-      type: response
-      timeout: 60
-      require-body: true
-    - match: ^https?:\/\/api2\.vlognow\.me\/vn-pay\/api\/v1\/public\/iap\/receipt\/status
-      name: JS_VlogNowProCrack
-      type: response
-      timeout: 60
-      require-body: true
-    - match: ^https?:\/\/p\.du\.163\.com\/gain\/readtime\/info
-      name: JS_WYWNDS
-      type: response
-      timeout: 60
-      require-body: true
     - match: ^https?:\/\/billing-ios\.wallpaperscraft\.com\/verify_receipt\/remove_ads$
       name: JS_WallCraftFProCrack
       type: response
@@ -840,23 +694,8 @@ http:
       type: response
       timeout: 60
       require-body: true
-    - match: ^https?:\/\/49.232.234.212:80\/user\/fixUserPayData
-      name: JS_XXFSYJ
-      type: response
-      timeout: 60
-      require-body: true
     - match: ^https?:\/\/(?:www\.)?xmind\..*\/.+\/(devices|token\/.+)
       name: JS_Xmind
-      type: response
-      timeout: 60
-      require-body: true
-    - match: ^https?:\/\/app-ios\.y2002\.com\/api\/v2\/User\/Info?
-      name: JS_Y1
-      type: response
-      timeout: 60
-      require-body: true
-    - match: ^https?:\/\/app-ios\.y2002\.com\/API\/V2\/Processer\.ashx?
-      name: JS_Y2
       type: response
       timeout: 60
       require-body: true
@@ -880,34 +719,10 @@ http:
       type: response
       timeout: 60
       require-body: true
-    - match: ^https://ai\.xiuxiu\.meitu\.com/v1/tool/mtlab/ai_graffiti_permission
-      name: JS_danboai
-      type: response
-      timeout: 60
-      require-body: true
-    - match: ^https://api-sub\.meitu\.com/v2/user/vip_info_by_group
-      name: JS_danbovip
-      type: response
-      timeout: 60
-      require-body: true
-    - match: ^https?:\/\/mobile-stream\.api\.mgtv\.com\/v1\/video\/source\?
-      name: JS_mgtk
-      type: request
-      timeout: 60
-    - match: ^https?:\/\/.*mgtv.com.*(GetUserInfo|module\/list\?_support|app\/bdboot|pullReleaseInfo|floor\/detail|video\/source|entry\?_support).*$
-      name: JS_mgtv
-      type: response
-      timeout: 60
-      require-body: true
     - match: ^https:\/\/oauth\.secure\.pixiv\.net\/auth\/token
       name: JS_pixiv_premium.min
       type: response
       timeout: 10
-      require-body: true
-    - match: ^https?:\/\/.+.xunlei.com\/(drive\/v1\/files|xluser.core.login\/v3\/getuserinfo)
-      name: JS_xunlei
-      type: response
-      timeout: 60
       require-body: true
     - match: https://api.funimate.com/users/*
       name: scripts_replace-body
@@ -918,15 +733,6 @@ http:
 script-providers:
   JS-1_ALiCloud:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_ALiCloud.js
-    interval: 86400
-  JS-1_AdGuardProCrack:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_AdGuardProCrack.js
-    interval: 86400
-  JS-1_BaiDuYun:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_BaiDuYun.js
-    interval: 86400
-  JS-1_BoDianMusic:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_BoDianMusic.js
     interval: 86400
   JS-1_Boom:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_Boom.js
@@ -952,17 +758,8 @@ script-providers:
   JS-1_GoodNotes6:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_GoodNotes6.js
     interval: 86400
-  JS-1_IFTTT:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_IFTTT.js
-    interval: 86400
   JS-1_MIX:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_MIX.js
-    interval: 86400
-  JS-1_MiGuMusic:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_MiGuMusic.js
-    interval: 86400
-  JS-1_MiGuMusic-CK:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_MiGuMusic-CK.js
     interval: 86400
   JS-1_MuBu:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_MuBu.js
@@ -976,9 +773,6 @@ script-providers:
   JS-1_Notebook:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_Notebook.js
     interval: 86400
-  JS-1_Perfect365:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_Perfect365.js
-    interval: 86400
   JS-1_Picsart:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_Picsart.js
     interval: 86400
@@ -991,23 +785,14 @@ script-providers:
   JS-1_Spotify-Json:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_Spotify-Json.js
     interval: 86400
-  JS-1_Spotify-Proto:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_Spotify-Proto.js
-    interval: 86400
   JS-1_WPSDocerVIPowerCrack:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_WPSDocerVIPowerCrack.js
     interval: 86400
   JS-1_WPSDocerVIPuserCrack:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_WPSDocerVIPuserCrack.js
     interval: 86400
-  JS-1_WPSuperVIPowerCrack:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_WPSuperVIPowerCrack.js
-    interval: 86400
   JS-1_WPSuperVIPuserCrack:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_WPSuperVIPuserCrack.js
-    interval: 86400
-  JS-1_iLovePDF:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_iLovePDF.js
     interval: 86400
   JS-1_palmestore:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_palmestore.js
@@ -1015,20 +800,11 @@ script-providers:
   JS-2_zdxs:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-2_zdxs.js
     interval: 86400
-  JS-3_KuWo:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-3_KuWo.js
-    interval: 86400
   JS_AGC:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_AGC.js
     interval: 86400
-  JS_AJMD:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_AJMD.js
-    interval: 86400
   JS_AdBlock:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_AdBlock.js
-    interval: 86400
-  JS_AlohaBrowser:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_AlohaBrowser.js
     interval: 86400
   JS_AutoCAD:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_AutoCAD.js
@@ -1060,14 +836,8 @@ script-providers:
   JS_DeezerHiFiProCrack:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_DeezerHiFiProCrack.js
     interval: 86400
-  JS_Documents:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Documents.js
-    interval: 86400
   JS_Drafts:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Drafts.js
-    interval: 86400
-  JS_DreamFace:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_DreamFace.js
     interval: 86400
   JS_Emby:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Emby.js
@@ -1077,9 +847,6 @@ script-providers:
     interval: 86400
   JS_Epik:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Epik.js
-    interval: 86400
-  JS_FM:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_FM.js
     interval: 86400
   JS_FaceLab:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_FaceLab.js
@@ -1093,9 +860,6 @@ script-providers:
   JS_Filmr:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Filmr.js
     interval: 86400
-  JS_Flightradar24:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Flightradar24.js
-    interval: 86400
   JS_FlipaClip:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_FlipaClip.js
     interval: 86400
@@ -1108,14 +872,8 @@ script-providers:
   JS_GithubPro:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_GithubPro.js
     interval: 86400
-  JS_HaiJiao:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_HaiJiao.js
-    interval: 86400
   JS_IPA-Installer:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_IPA-Installer.js
-    interval: 86400
-  JS_LanRenTS:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_LanRenTS.js
     interval: 86400
   JS_MIX2:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_MIX2.js
@@ -1129,9 +887,6 @@ script-providers:
   JS_MiGuShiPin:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_MiGuShiPin.js
     interval: 86400
-  JS_MiGuShiPinck:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_MiGuShiPinck.js
-    interval: 86400
   JS_MissAV:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_MissAV.js
     interval: 86400
@@ -1141,14 +896,8 @@ script-providers:
   JS_Moises:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Moises.js
     interval: 86400
-  JS_MorpholioTrace:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_MorpholioTrace.js
-    interval: 86400
   JS_Movavi:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Movavi.js
-    interval: 86400
-  JS_MyFitnessPal:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_MyFitnessPal.js
     interval: 86400
   JS_Nicegram:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Nicegram.js
@@ -1183,12 +932,6 @@ script-providers:
   JS_SMWD:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_SMWD.js
     interval: 86400
-  JS_SQYD:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_SQYD.js
-    interval: 86400
-  JS_Slidebox:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Slidebox.js
-    interval: 86400
   JS_Soundcloud:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Soundcloud.js
     interval: 86400
@@ -1204,23 +947,11 @@ script-providers:
   JS_Termius:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Termius.js
     interval: 86400
-  JS_Tu-U:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Tu-U.js
-    interval: 86400
   JS_VKMusic:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_VKMusic.js
     interval: 86400
   JS_VideoFusionVipCrack:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_VideoFusionVipCrack.js
-    interval: 86400
-  JS_VivaCutProCrack:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_VivaCutProCrack.js
-    interval: 86400
-  JS_VlogNowProCrack:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_VlogNowProCrack.js
-    interval: 86400
-  JS_WYWNDS:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_WYWNDS.js
     interval: 86400
   JS_WallCraftFProCrack:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_WallCraftFProCrack.js
@@ -1231,17 +962,8 @@ script-providers:
   JS_XMNDXS:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_XMNDXS.js
     interval: 86400
-  JS_XXFSYJ:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_XXFSYJ.js
-    interval: 86400
   JS_Xmind:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Xmind.js
-    interval: 86400
-  JS_Y1:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Y1.js
-    interval: 86400
-  JS_Y2:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Y2.js
     interval: 86400
   JS_YandexMusic:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_YandexMusic.js
@@ -1255,23 +977,8 @@ script-providers:
   JS_YunTing:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_YunTing.js
     interval: 86400
-  JS_danboai:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_danboai.js
-    interval: 86400
-  JS_danbovip:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_danbovip.js
-    interval: 86400
-  JS_mgtk:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_mgtk.js
-    interval: 86400
-  JS_mgtv:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_mgtv.js
-    interval: 86400
   JS_pixiv_premium.min:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_pixiv_premium.min.js
-    interval: 86400
-  JS_xunlei:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_xunlei.js
     interval: 86400
   scripts_replace-body:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/scripts_replace-body.js
