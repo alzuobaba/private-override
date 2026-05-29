@@ -10,7 +10,6 @@ homepage: https://github.com/alzuobaba/private-override
 category: '解锁 / 激活'
 date: '2026-05-27'
 version: '1.0.0'
-subscribe: 'https://raw.githubusercontent.com/alzuobaba/private-override/main/itunes-unlock.stoverride'
 
 http:
   mitm:

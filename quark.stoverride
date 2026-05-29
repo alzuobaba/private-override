@@ -8,7 +8,6 @@ homepage: https://github.com/alzuobaba/private-override
 category: '去广告 / 净化'
 date: '2026-05-27'
 version: '1.0.0'
-subscribe: 'https://raw.githubusercontent.com/alzuobaba/private-override/main/quark.stoverride'
 
 http:
   mitm:

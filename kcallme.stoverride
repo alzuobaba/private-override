@@ -5,7 +5,6 @@ author: alzuobaba
 category: '功能'
 date: '2026-05-29'
 version: '1.0.0'
-subscribe: 'https://raw.githubusercontent.com/alzuobaba/private-override/main/kcallme.stoverride'
 
 http:
   mitm:
