@@ -1,0 +1,23 @@
+name: 'KCallme 城市编码修改'
+desc: |-
+  拦截 KCallme 影院列表请求，强制修改 cityCode 为 469000
+author: alzuobaba
+category: '功能'
+date: '2026-05-29'
+version: '1.0.0'
+
+http:
+  mitm:
+    - openapi-server.kcallme.com
+
+  script:
+    - match: ^https:\/\/openapi-server\.kcallme\.com\/welfare-movie\/app-api\/k\/cinema\/list
+      name: kcallme
+      type: request
+      require-body: true
+      timeout: 5
+
+script-providers:
+  kcallme:
+    path: scripts/apps/kcallme.js
+    interval: 0
