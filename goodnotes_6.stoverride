@@ -6,6 +6,7 @@ homepage: https://github.com/alzuobaba/private-override
 category: '解锁'
 date: '2026-05-29'
 version: '1.0.0'
+subscribe: 'https://raw.githubusercontent.com/alzuobaba/private-override/main/goodnotes_6.stoverride'
 
 http:
   mitm:
