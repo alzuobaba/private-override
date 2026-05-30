@@ -13,6 +13,7 @@ https://github.com/alzuobaba/private-override
 | **RevenueCat 解锁** | 内购解锁（~200+ App） | `https://raw.githubusercontent.com/alzuobaba/private-override/main/rc-unlock.stoverride` |
 | **iTunes 验证绕过** | 兜底方案（过期订阅激活） | `https://raw.githubusercontent.com/alzuobaba/private-override/main/itunes-unlock.stoverride` |
 | **Bilibili 净化** | 4K/1080P高码率画质 + 去广告 + 页面净化 | `https://raw.githubusercontent.com/alzuobaba/private-override/main/bilibili.stoverride` |
+| **通用广告拦截** | 拦截穿山甲/广点通/百度/快手等广告 SDK | `https://raw.githubusercontent.com/alzuobaba/private-override/main/blockad.stoverride` |
 | **夸克去广告** | 浏览器去广告 | `https://raw.githubusercontent.com/alzuobaba/private-override/main/quark.stoverride` |
 | **KCallme 城市码** | 强制修改 cityCode | `https://raw.githubusercontent.com/alzuobaba/private-override/main/kcallme.stoverride` |
 
@@ -96,7 +97,6 @@ https://github.com/alzuobaba/private-override
 | `石墨文档.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/%E7%9F%B3%E5%A2%A8%E6%96%87%E6%A1%A3.stoverride` |
 | `soundcloud.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/soundcloud.stoverride` |
 | `书旗小说.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/%E4%B9%A6%E6%97%97%E5%B0%8F%E8%AF%B4.stoverride` |
-| `书旗小说去广告.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/%E4%B9%A6%E6%97%97%E5%B0%8F%E8%AF%B4%E5%8E%BB%E5%B9%BF%E5%91%8A.stoverride` |
 | `Spotify.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/Spotify.stoverride` |
 | `swiftycompiler_qonversion.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/swiftycompiler_qonversion.stoverride` |
 | `symbolab.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/symbolab.stoverride` |

@@ -1,0 +1,64 @@
+name: '广告拦截（通用）'
+desc: |-
+  通用广告 SDK 请求拦截
+  - 穿山甲(Pangle/CSJ) 广告
+  - 广点通(GDT) 广告
+  - 百度广告/百度联盟
+  - 快手广告
+  - 阿里 Tanx 广告
+  - 京东广告
+  - 小米广告
+  - 神马搜索广告
+  - 各类第三方广告联盟
+author: alzuobaba
+homepage: https://github.com/alzuobaba/private-override
+category: '去广告 / 净化'
+date: '2026-05-31'
+version: '1.0.0'
+
+http:
+  url-rewrite:
+    # 穿山甲 / Pangle
+    - ^https?:\/\/api-access\.pangolin-sdk-toutiao\d?\.com\/ - reject-200
+    - ^https?:\/\/log-api\.pangolin-sdk-toutiao\d?\.com\/ - reject-200
+    - ^https?:\/\/isub\.pangolin-sdk-toutiao\d?\.com\/ - reject-200
+    - ^https?:\/\/ssp\.iytcdn\.com\/ - reject-200
+
+    # 广点通 / GDT
+    - ^https?:\/\/sdk\.e\.qq\.com\/ - reject-200
+    - ^https?:\/\/mi\.gdt\.qq\.com\/ - reject-200
+    - ^https?:\/\/win\.gdt\.qq\.com\/ - reject-200
+    - ^https?:\/\/et\.tanx\.com\/ - reject-200
+    - ^https?:\/\/sdk-config\.tanx\.com\/ - reject-200
+
+    # 百度广告
+    - ^https?:\/\/mobads\.baidu\.com\/ - reject-200
+    - ^https?:\/\/ms\.baidu\.com\/ - reject-200
+    - ^https?:\/\/sp0\.baidu\.com\/ - reject-200
+
+    # 快手广告
+    - ^https?:\/\/open\.e\.kuaishou\.com\/ - reject-200
+    - ^https?:\/\/ad\.e\.kuaishou\.com\/ - reject-200
+
+    # 京东广告
+    - ^https?:\/\/dsp-x\.jd\.com\/ - reject-200
+    - ^https?:\/\/xlog\.jd\.com\/ - reject-200
+
+    # 小米/神马/第三方
+    - ^https?:\/\/sdk-log\.partner\.sm\.cn\/ - reject-200
+    - ^https?:\/\/hc-ssp\.sm\.cn\/ - reject-200
+    - ^https?:\/\/ssp-api\.dmrtb\.com\/ - reject-200
+    - ^https?:\/\/sdk\.1rtb\.net\/ - reject-200
+
+    # FancyAPI / Yunxish
+    - ^https?:\/\/t\d?\.fancyapi\.com\/ - reject-200
+    - ^https?:\/\/g\.fancyapi\.com\/ - reject-200
+    - ^https?:\/\/api\.yunxish\.com\/ - reject-200
+    - ^https?:\/\/logrcv\.yunxish\.com\/ - reject-200
+    - ^https?:\/\/cpc-service-square\.(yunxish|iggrowth)\.cn\/ - reject-200
+
+    # 其他广告联盟
+    - ^https?:\/\/api\.adpad\.cn\/ - reject-200
+    - ^https?:\/\/api-fc\.dutils\.com\/ - reject-200
+    - ^https?:\/\/api-fd\.dutils\.com\/ - reject-200
+    - ^https?:\/\/partner\.uc\.cn\/ - reject-200
