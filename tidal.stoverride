@@ -31,5 +31,5 @@ http:
 
 script-providers:
   JS_TIDALHiFiPlusCrack:
-    path: scripts/apps/JS_TIDALHiFiPlusCrack.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_TIDALHiFiPlusCrack.js
     interval: 0

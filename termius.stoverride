@@ -20,5 +20,5 @@ http:
 
 script-providers:
   JS_Termius:
-    path: scripts/apps/JS_Termius.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Termius.js
     interval: 0

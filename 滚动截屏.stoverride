@@ -20,5 +20,5 @@ http:
 
 script-providers:
   JS-1_GDJP:
-    path: scripts/apps/JS-1_GDJP.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_GDJP.js
     interval: 0

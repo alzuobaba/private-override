@@ -20,5 +20,5 @@ http:
 
 script-providers:
   JS-1_Notability:
-    path: scripts/apps/JS-1_Notability.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_Notability.js
     interval: 0

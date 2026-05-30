@@ -128,5 +128,5 @@ http:
 
 script-providers:
   JS-1_ALiCloud:
-    path: scripts/apps/JS-1_ALiCloud.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_ALiCloud.js
     interval: 0

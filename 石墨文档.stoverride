@@ -20,5 +20,5 @@ http:
 
 script-providers:
   JS_SMWD:
-    path: scripts/apps/JS_SMWD.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_SMWD.js
     interval: 0

@@ -20,5 +20,5 @@ http:
 
 script-providers:
   JS_PikPak:
-    path: scripts/apps/JS_PikPak.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_PikPak.js
     interval: 0

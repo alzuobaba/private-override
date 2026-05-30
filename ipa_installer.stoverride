@@ -20,5 +20,5 @@ http:
 
 script-providers:
   JS_IPA-Installer:
-    path: scripts/apps/JS_IPA-Installer.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_IPA-Installer.js
     interval: 0

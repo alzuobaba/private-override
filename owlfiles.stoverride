@@ -20,5 +20,5 @@ http:
 
 script-providers:
   JS_Owlfiles:
-    path: scripts/apps/JS_Owlfiles.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Owlfiles.js
     interval: 0

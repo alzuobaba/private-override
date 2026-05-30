@@ -20,5 +20,5 @@ http:
 
 script-providers:
   JS-1_FilmicPro:
-    path: scripts/apps/JS-1_FilmicPro.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_FilmicPro.js
     interval: 0

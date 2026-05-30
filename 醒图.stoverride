@@ -19,5 +19,5 @@ http:
 
 script-providers:
   JS_RetouchPicsVipCrack:
-    path: scripts/apps/JS_RetouchPicsVipCrack.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_RetouchPicsVipCrack.js
     interval: 0

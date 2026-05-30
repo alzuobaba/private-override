@@ -20,5 +20,5 @@ http:
 
 script-providers:
   scripts_replace-body:
-    path: scripts/apps/scripts_replace-body.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/scripts_replace-body.js
     interval: 0

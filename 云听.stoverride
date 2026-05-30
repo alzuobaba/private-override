@@ -20,5 +20,5 @@ http:
 
 script-providers:
   JS_YunTing:
-    path: scripts/apps/JS_YunTing.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_YunTing.js
     interval: 0

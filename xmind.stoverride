@@ -20,5 +20,5 @@ http:
 
 script-providers:
   JS_Xmind:
-    path: scripts/apps/JS_Xmind.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Xmind.js
     interval: 0

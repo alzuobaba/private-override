@@ -20,5 +20,5 @@ http:
 
 script-providers:
   JS_Nicegram:
-    path: scripts/apps/JS_Nicegram.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Nicegram.js
     interval: 0

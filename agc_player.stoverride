@@ -20,5 +20,5 @@ http:
 
 script-providers:
   JS_AGC:
-    path: scripts/apps/JS_AGC.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_AGC.js
     interval: 0

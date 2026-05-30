@@ -20,5 +20,5 @@ http:
 
 script-providers:
   JS_Cubox:
-    path: scripts/apps/JS_Cubox.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Cubox.js
     interval: 0

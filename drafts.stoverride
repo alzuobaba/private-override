@@ -20,5 +20,5 @@ http:
 
 script-providers:
   JS_Drafts:
-    path: scripts/apps/JS_Drafts.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Drafts.js
     interval: 0

@@ -20,5 +20,5 @@ http:
 
 script-providers:
   JS_WallCraftFProCrack:
-    path: scripts/apps/JS_WallCraftFProCrack.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_WallCraftFProCrack.js
     interval: 0

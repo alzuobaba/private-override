@@ -20,5 +20,5 @@ http:
 
 script-providers:
   JS_VKMusic:
-    path: scripts/apps/JS_VKMusic.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_VKMusic.js
     interval: 0

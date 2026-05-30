@@ -20,5 +20,5 @@ http:
 
 script-providers:
   JS_Reddit:
-    path: scripts/apps/JS_Reddit.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Reddit.js
     interval: 0

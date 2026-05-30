@@ -20,5 +20,5 @@ http:
 
 script-providers:
   JS_BaiMiaoGoldVipCrack:
-    path: scripts/apps/JS_BaiMiaoGoldVipCrack.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_BaiMiaoGoldVipCrack.js
     interval: 0

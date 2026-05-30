@@ -20,5 +20,5 @@ http:
 
 script-providers:
   JS_Movavi:
-    path: scripts/apps/JS_Movavi.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Movavi.js
     interval: 0

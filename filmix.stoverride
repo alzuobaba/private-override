@@ -20,5 +20,5 @@ http:
 
 script-providers:
   JS-1_Filmix:
-    path: scripts/apps/JS-1_Filmix.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_Filmix.js
     interval: 0

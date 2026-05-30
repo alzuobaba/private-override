@@ -20,5 +20,5 @@ http:
 
 script-providers:
   JS_MeiYanXJ:
-    path: scripts/apps/JS_MeiYanXJ.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_MeiYanXJ.js
     interval: 0

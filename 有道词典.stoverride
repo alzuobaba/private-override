@@ -20,5 +20,5 @@ http:
 
 script-providers:
   JS_Youdao:
-    path: scripts/apps/JS_Youdao.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Youdao.js
     interval: 0

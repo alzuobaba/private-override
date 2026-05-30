@@ -20,5 +20,5 @@ http:
 
 script-providers:
   JS_B612:
-    path: scripts/apps/JS_B612.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_B612.js
     interval: 0

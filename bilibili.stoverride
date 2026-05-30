@@ -100,5 +100,5 @@ http:
       timeout: 5
 script-providers:
   bilibili:
-    path: scripts/apps/bilibili.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/bilibili.js
     interval: 0

@@ -19,5 +19,5 @@ http:
 
 script-providers:
   JS-1_QingTu:
-    path: scripts/apps/JS-1_QingTu.js
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_QingTu.js
     interval: 0
