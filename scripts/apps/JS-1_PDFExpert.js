@@ -24,7 +24,6 @@ body.inAppStates[0].entitlements = [
   "ios.pe.ai-features",
   "ios.pe.subscription.pdf-features"
 ];
-body.inAppStates[0].productId = "com.readdle.PDFExpert5.subscription.year50BMI_rollout";
 
 console.log($script.name + ": modified entitlements = " + JSON.stringify(body.inAppStates[0].entitlements));
 console.log($script.name + ": modified productId = " + body.inAppStates[0].productId);
