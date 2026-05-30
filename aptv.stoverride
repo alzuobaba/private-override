@@ -13,7 +13,7 @@ http:
     - api.revenuecat.com
 
   script:
-    - match: ^https:\/\/api\.(revenuecat|rc-backup)\.com\/v1\/subscribers\/(?!.*offerings)[^\/?]+$
+    - match: ^https:\/\/api\.(revenuecat|rc-backup)\.com\/v1\/(subscribers\/(?!.*offerings)[^\/?]+$|receipts)
       name: JS_APTV
       type: response
       require-body: true

@@ -22,7 +22,7 @@ try {
   if (!sub.entitlements) sub.entitlements = {}
   if (!sub.subscriptions) sub.subscriptions = {}
 
-  sub.entitlements['Pro'] = {
+  sub.entitlements['pro'] = {
     expires_date: FUTURE_ISO,
     product_identifier: pid,
     purchase_date: NOW_ISO,
