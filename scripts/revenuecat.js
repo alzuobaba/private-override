@@ -92,28 +92,35 @@ if (!doneCalled) {
     if (!sub.entitlements) sub.entitlements = {}
     if (!sub.subscriptions) sub.subscriptions = {}
 
+    var subKey = data.id || 'com.rc.unlock'
     var key = data.name || 'premium'
+
     sub.entitlements[key] = {
       expires_date: FUTURE_ISO,
-      product_identifier: data.id || 'com.rc.unlock',
-      purchase_date: NOW_ISO
+      product_identifier: subKey,
+      purchase_date: NOW_ISO,
+      verified_product_id: subKey
     }
     if (data.nameb && data.idb) {
       sub.entitlements[data.nameb] = {
         expires_date: FUTURE_ISO,
         product_identifier: data.idb,
-        purchase_date: NOW_ISO
+        purchase_date: NOW_ISO,
+        verified_product_id: data.idb
       }
     }
 
-    var subKey = data.id || 'com.rc.unlock'
     sub.subscriptions[subKey] = {
       expires_date: FUTURE_ISO,
       original_purchase_date: NOW_ISO,
       purchase_date: NOW_ISO,
       is_sandbox: false,
       ownership_type: 'PURCHASED',
-      store: 'app_store'
+      store: 'app_store',
+      storefront_country_code: 'USA',
+      verified_product_id: subKey,
+      store_transaction_id: makeTID(),
+      verified_state: 'VERIFIED'
     }
 
     sub.first_seen = sub.first_seen || NOW_ISO
