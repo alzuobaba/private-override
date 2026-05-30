@@ -8,25 +8,23 @@
 
 var body = JSON.parse($response.body);
 
-var proEntitlements = [
-  "macos.pe.pro",
-  "macos.pe.pdf-editor",
-  "macos.pe.convert",
-  "macos.pe.ocr",
-  "macos.pe.scan",
-  "macos.pe.fill-sign",
-  "macos.pe.ai-features",
-  "macos.pe.export"
-];
-
 body.inAppStates.push({
-  "entitlements": proEntitlements,
   "type": "subscription",
-  "productId": "pdfexpert-pro-yearly",
-  "state": "active",
-  "originalPurchaseDate": "2022-09-09T09:09:09Z",
-  "purchaseDate": "2022-09-09T09:09:09Z",
-  "expirationDate": "2099-09-09T09:09:09Z"
+  "productId": "com.readdle.PDFExpert5.subscription.year50BMI_rollout",
+  "originalTransactionId": 300001771036219,
+  "subscriptionGroupId": "20537380",
+  "productName": "subscription",
+  "isEligibleForIntroPeriod": false,
+  "subscriptionExpirationDate": "12:44 20/03/2099",
+  "subscriptionExpirationTimestamp": 4077088262,
+  "subscriptionState": "trial",
+  "subscriptionAutoRenewStatus": "autoRenewOn",
+  "isInGracePeriod": false,
+  "isInBillingRetryPeriod": false,
+  "entitlements": [
+    "ios.pe.ai-features",
+    "ios.pe.subscription.pdf-features"
+  ]
 });
 
 $done({ body: JSON.stringify(body) });
