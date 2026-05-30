@@ -8,23 +8,10 @@
 
 var body = JSON.parse($response.body);
 
-body.inAppStates = [{
-  "type": "subscription",
-  "productId": "com.readdle.PDFExpert5.subscription.year50BMI_rollout",
-  "originalTransactionId": 300001771036219,
-  "subscriptionGroupId": "20537380",
-  "productName": "subscription",
-  "isEligibleForIntroPeriod": false,
-  "subscriptionExpirationDate": "12:44 20/03/2099",
-  "subscriptionExpirationTimestamp": 4077088262,
-  "subscriptionState": "trial",
-  "subscriptionAutoRenewStatus": "autoRenewOn",
-  "isInGracePeriod": false,
-  "isInBillingRetryPeriod": false,
-  "entitlements": [
-    "ios.pe.ai-features",
-    "ios.pe.subscription.pdf-features"
-  ]
-}];
+body.inAppStates[0].entitlements = [
+  "ios.pe.ai-features",
+  "ios.pe.subscription.pdf-features"
+];
+body.inAppStates[0].productId = "com.readdle.PDFExpert5.subscription.year50BMI_rollout";
 
 $done({ body: JSON.stringify(body) });
