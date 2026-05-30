@@ -27,5 +27,5 @@ http:
 
 script-providers:
   quark:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/quark.js
-    interval: 86400
+    path: scripts/apps/quark.js
+    interval: 0

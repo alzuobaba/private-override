@@ -24,5 +24,5 @@ http:
 
 script-providers:
   revenuecat:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/revenuecat.js
-    interval: 86400
+    path: scripts/revenuecat.js
+    interval: 0

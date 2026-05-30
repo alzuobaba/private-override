@@ -28,8 +28,8 @@ http:
 
 script-providers:
   JS-1_WPSDocerVIPowerCrack:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_WPSDocerVIPowerCrack.js
-    interval: 86400
+    path: scripts/apps/JS-1_WPSDocerVIPowerCrack.js
+    interval: 0
   JS-1_WPSDocerVIPuserCrack:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_WPSDocerVIPuserCrack.js
-    interval: 86400
+    path: scripts/apps/JS-1_WPSDocerVIPuserCrack.js
+    interval: 0

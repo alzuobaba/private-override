@@ -23,5 +23,5 @@ http:
 
 script-providers:
   itunes-verify:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/itunes.js
-    interval: 86400
+    path: scripts/itunes.js
+    interval: 0

@@ -1,16 +1,13 @@
 "use strict"
+
 console.log($script.name)
+console.log('RevenueCat: 订阅解锁')
 
 /**
  * RevenueCat 订阅解锁脚本（适配 Stash）— 数据分离版
  * ===================================================
  * 拦截 api.revenuecat.com / api.rc-backup.com 的订阅验证请求。
  */
-
-"use strict"
-
-console.log($script.name)
-console.log('RevenueCat: 订阅解锁')
 
 var CACHE_KEY = 'rc_data_v1'
 var DATA_URL = 'https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/revenuecat-data.json'

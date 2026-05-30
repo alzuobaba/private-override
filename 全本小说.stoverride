@@ -21,5 +21,5 @@ http:
 
 script-providers:
   JS_QuanBenXiaoShuo:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_QuanBenXiaoShuo.js
-    interval: 86400
+    path: scripts/apps/JS_QuanBenXiaoShuo.js
+    interval: 0

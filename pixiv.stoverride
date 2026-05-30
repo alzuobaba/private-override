@@ -20,5 +20,5 @@ http:
 
 script-providers:
   JS_pixiv_premium.min:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_pixiv_premium.min.js
-    interval: 86400
+    path: scripts/apps/JS_pixiv_premium.min.js
+    interval: 0

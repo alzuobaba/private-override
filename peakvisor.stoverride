@@ -20,5 +20,5 @@ http:
 
 script-providers:
   JS_PeakVisor:
-    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_PeakVisor.js
-    interval: 86400
+    path: scripts/apps/JS_PeakVisor.js
+    interval: 0
