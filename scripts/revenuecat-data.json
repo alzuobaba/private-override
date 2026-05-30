@@ -116,11 +116,6 @@
       "name": "Pro",
       "id": "com.skysoft.removalfree.subscription.newyearly",
       "cm": "sja"
-    },
-    "com.lukilabs.lukiapp": {
-      "name": "pro",
-      "id": "com.lukilabs.lukiapp.v2_team_2.sub.yearly_test",
-      "cm": "sjb"
     }
   },
   "listua": {
@@ -1851,11 +1846,6 @@
       "name": "pro",
       "id": "vscopro_global_5999_annual_7D_free",
       "cm": "sja"
-    },
-    "Craft": {
-      "name": "pro",
-      "id": "com.lukilabs.lukiapp.v2_team_2.sub.yearly_test",
-      "cm": "sjb"
     }
   }
 }

@@ -151,6 +151,79 @@ https://github.com/alzuobaba/private-override
 
 ---
 
+# RevenueCat 可解锁 App 列表
+
+`rc-unlock.stoverride` 通过匹配 UA 关键字或 Bundle ID 识别 App。日志显示 `unknown` 表示未匹配到该 App。
+
+## UA 关键字匹配（345 个）
+
+```
+1Blocker, A Widget, AI Chat, AICalculator, AIChat, AIKeyboard, APTV, ASKAI,
+Accountit, AccuFind, Airmail, Aisten, Alpenglow, AnimeArt, AnkiPro, Anybox,
+Ape, Aphrodite, AppBox, ArchiveList, ArtStage, Assembly, Atomic, Authenticator,
+Awake, BORD, BabyCare, BeetleADB, Bg Remover, Binsoo, Boar, Brass, Browser,
+Calflow, CallAnnie, Carbon-iOS, CardPhoto, CharingCrossRoad, ChatBot, ChatGPTApp,
+ChatLLM, ChatPub, Chatty, ClevCalc, Clipboard, CodeScanner, CollageMaker, Collect,
+Color Widgets, Context, Cookie, CountdownWidget, CountDuck, CPUMonitor, Currency,
+Dailyart, DarkLooker, Darkroom, DataCalc, DayPoem, Decision, DHWaterMarkManager,
+Dotly, Drops, Drowsy, dtdvibe, Dumb Phone, easy_chart, EasyClicker, Echo,
+ElementNote, ElonAI, Email Me, EncryptNote, Endel, EraseIt, Facebook, Falendar,
+fastdiet, fengling, Flourish, FocusFour, FoJiCam, Fontsify, Food-Diary, Free,
+FretTrainer, FRMD, FruitMinder, FujiLifeStyle, Gear, Gentler, GradientMusic,
+GrowthPath, Habitor, Happy:Days, Harukong, Heal Clock, HRZN, HTTPBot, HurtYou,
+iBody, IDM, ig-bookmarker, image_upscaler, ImageX, ImagineAI, Infltr,
+intervalFlow, ip_tv_react_native, IPCams, iplayTV, IPTVUltra, iRead, Jellycuts,
+Journal_iOS, Joy, kiddztube, knowme-storage, Kylin, Langster, Language Learning,
+LaunchTrans, Law, LazyBoard, LazyReply, Ledger, Leica LUX, LemonKeepAccounts,
+Liftbear, Lightune, Linearity Curve, Lito, LiveCaption, LiveWallpaper, LockFlow,
+Loopsie, Loora, LUTCamera, MagicTiles3, MallocVPN, maple_mobile, MatrixClock,
+MaxWallpaper, Meal Planner, Medication List, metaslip, MinimalDiary, mizframa,
+Mockview, Mojo, money_manager, MoneyThings, Moonlitt, Morphose, moss-ios, MOZE,
+MuCase, multitimer_app, muoyu, MusicMate, MusicPutty, My Diary, My Time,
+MyPianist, MySticker, MyThings, nbcamera, No Fusion, NotePlan, nPtt,
+ObjectRemoval, OffScreen, One4WallSwiftUI, OneClear, OneFlag, OneGrow, OneMockup,
+OneScreen, OneTap, OneTodo, OneWidget, opusvpn, OrbitFast, Overdue, Packr,
+Pantry Check, Paper, PDF Viewer, PDF_convertor, pdfai_app, Percento, Persona,
+Personal Best, Photo Cleaner, photography, PhotoMapper, Photomator, Photon,
+Photoooo, PhotoRoom, PhotoVault, Phtoto Swiper, PianoTrainer, PicLoom, Pigment,
+Pillow, PinPaper, Pins, PipDoc, PixelStudio, PixImagine, PM4, PrivateBrowser,
+ProCam, Project Delta, PwDrawingPad, QingLong, QuietCam, quitnow, Readle, Rec,
+remoteMouse, rewritingText, Ricoh Recipes, Rootd, Saifs Ai, SalesCat,
+ScannerPro, Scelta, ScreenRecordCase, SCRL, Seamless, server_bee, Sex Actions,
+Shapy, Shared Family Shopping List, SharkSMS, ShellBean, ShellBoxKit, shipian-ios,
+ShouChong, simple-timer, simple-weather, SleepDown, SleepSounds, SmartAIChat,
+smscat, SnapWords, Snipd, Spark, StarDiary, StarFocus, Startodo, StayOff,
+StockPlus, stopwatch, Storage Cleaner, streaks, Stress, Structured, StudyAI,
+Subtrack, Sunlitt, Taio, Tangerine, TeleprompterX, tetrify, TextMask, TheGreatMe,
+Themy, Thiro, Tide Guide, tiimo, TimeFinder, timetrack.io, totowallet,
+TouchRetouchBasic, TQBrowser, Tracepad-iOS, Transfer, Translate - Talk Translator,
+transmission_ui, TripMemo, TruthOrDare, TuneTally, Unfold, UTC, Utiful,
+VibeCamera, vibes, VidCap, Video Teleprompter, Vinyls, Vision, VoiceAI, VSCO,
+WallShift, Watchly, WeNote, Whisper, WhiteCloud, widget_art, WidgetSmith, Wishy,
+wordswag, Worrydolls, Wozi, Yosum, YubePiP, Yummi, Zen Flip Clock, Zettelbox
+```
+
+以及 URL 编码的中文 App 名（事线、人生清单、萌客AI 等）。
+
+## Bundle ID 匹配（23 个）
+
+```
+TeleprompterX, app.imone.OneWidget, camp.user.penbook, com.OfflineMusic.www,
+com.ausoco.umai, com.exoplanet.chatme, com.flexicalc.app,
+com.laser-focused.focus-ios, com.reader.book, com.reku.Counter,
+com.roehl, com.runbuddy.prod, com.skysoft.removalfree,
+com.trainfitness.Train, com.valo.reader, com.voicedream.Voic,
+com.zhang333.dd, design.yugen.Flow, io.fadel.TeleprompterX,
+io.innerpeace.yiye, moonbox.co.il.grow, net.tengl.powertimer,
+tech.miidii.MDClock
+```
+
+## 如果日志显示 `unknown`
+
+说明该 App 不在字典中。可抓包获取其 UA 或 Bundle ID 后添加到 `scripts/revenuecat-data.json`，或使用对应的单 App 专属覆写文件。
+
+---
+
 # 黑名单
 
 编辑 `scripts/exclude.json` 可关闭指定 App 的解锁：
@@ -208,7 +281,7 @@ https://github.com/alzuobaba/private-override
 
 | 覆写 | App 数量 |
 |------|---------|
-| RevenueCat（rc-unlock） | ~200+ |
+| RevenueCat（rc-unlock） | 368 |
 | iTunes（itunes-unlock） | 通用（所有 verifyReceipt App） |
 | 单 App 覆写 | 82 |
-| **合计** | **~300+** |
+| **合计** | **~450+** |
