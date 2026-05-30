@@ -24,6 +24,8 @@ https://github.com/alzuobaba/private-override
 
 | 文件 | 订阅 URL |
 |------|----------|
+| `AccuWeather.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/AccuWeather.stoverride` |
+| `Adobe.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/Adobe.stoverride` |
 | `阿里云盘.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98.stoverride` |
 | `boom.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/boom.stoverride` |
 | `扫描全能王.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/%E6%89%AB%E6%8F%8F%E5%85%A8%E8%83%BD%E7%8E%8B.stoverride` |
@@ -48,6 +50,7 @@ https://github.com/alzuobaba/private-override
 | `adblock_pro.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/adblock_pro.stoverride` |
 | `autocad_360.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/autocad_360.stoverride` |
 | `b612.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/b612.stoverride` |
+| `CamScanner.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/CamScanner.stoverride` |
 | `白描.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/%E7%99%BD%E6%8F%8F.stoverride` |
 | `插画世界.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/%E6%8F%92%E7%94%BB%E4%B8%96%E7%95%8C.stoverride` |
 | `craft.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/craft.stoverride` |
@@ -62,12 +65,14 @@ https://github.com/alzuobaba/private-override
 | `snow_epik.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/snow_epik.stoverride` |
 | `facelab.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/facelab.stoverride` |
 | `faceswapper.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/faceswapper.stoverride` |
+| `FlightRadar24.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/FlightRadar24.stoverride` |
 | `随手写.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/%E9%9A%8F%E6%89%8B%E5%86%99.stoverride` |
 | `filmr.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/filmr.stoverride` |
 | `flipaclip.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/flipaclip.stoverride` |
 | `flow_vn.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/flow_vn.stoverride` |
 | `focos.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/focos.stoverride` |
 | `github.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/github.stoverride` |
+| `Grammarly.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/Grammarly.stoverride` |
 | `ipa_installer.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/ipa_installer.stoverride` |
 | `滤镜相机mix.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/%E6%BB%A4%E9%95%9C%E7%9B%B8%E6%9C%BAmix.stoverride` |
 | `美图秀秀.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/%E7%BE%8E%E5%9B%BE%E7%A7%80%E7%A7%80.stoverride` |
@@ -90,15 +95,18 @@ https://github.com/alzuobaba/private-override
 | `醒图.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/%E9%86%92%E5%9B%BE.stoverride` |
 | `石墨文档.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/%E7%9F%B3%E5%A2%A8%E6%96%87%E6%A1%A3.stoverride` |
 | `soundcloud.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/soundcloud.stoverride` |
+| `Spotify.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/Spotify.stoverride` |
 | `swiftycompiler_qonversion.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/swiftycompiler_qonversion.stoverride` |
 | `symbolab.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/symbolab.stoverride` |
 | `tidal.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/tidal.stoverride` |
+| `Truecaller.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/Truecaller.stoverride` |
 | `termius.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/termius.stoverride` |
 | `vk_music.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/vk_music.stoverride` |
 | `剪映.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/%E5%89%AA%E6%98%A0.stoverride` |
 | `wallcraft.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/wallcraft.stoverride` |
 | `working_copy.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/working_copy.stoverride` |
 | `熊猫脑洞小说.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/%E7%86%8A%E7%8C%AB%E8%84%91%E6%B4%9E%E5%B0%8F%E8%AF%B4.stoverride` |
+| `微博VIP.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/%E5%BE%AE%E5%8D%9AVIP.stoverride` |
 | `xmind.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/xmind.stoverride` |
 | `yandex_music.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/yandex_music.stoverride` |
 | `宜搜小说.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/%E5%AE%9C%E6%90%9C%E5%B0%8F%E8%AF%B4.stoverride` |
@@ -284,5 +292,5 @@ tech.miidii.MDClock
 |------|---------|
 | RevenueCat（rc-unlock） | 368 |
 | iTunes（itunes-unlock） | 通用（所有 verifyReceipt App） |
-| 单 App 覆写 | 83 |
+| 单 App 覆写 | 86 |
 | **合计** | **~450+** |

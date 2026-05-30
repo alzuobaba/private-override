@@ -1,0 +1,24 @@
+name: '微博 VIP'
+desc: |-
+  解锁微博会员图标
+author: fmz200
+homepage: https://github.com/fmz200/wool_scripts
+category: '解锁'
+date: '2026-05-30'
+version: '1.0.0'
+
+http:
+  mitm:
+    - new.vip.weibo.cn
+
+  script:
+    - match: ^https?:\/\/new\.vip\.weibo\.cn\/aj\/appicon\/list
+      name: JS-1_WeiboVIP
+      type: response
+      require-body: true
+      timeout: 60
+
+script-providers:
+  JS-1_WeiboVIP:
+    url: https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/weibo/weibo_vip.js
+    interval: 86400

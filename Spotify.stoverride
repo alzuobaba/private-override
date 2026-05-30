@@ -1,0 +1,34 @@
+name: 'Spotify'
+desc: |-
+  部分解锁 Spotify Premium（iOS 15+）
+  - 去除播放广告
+  - 歌手/专辑列表正常展示
+  - 去除随机播放
+author: app2smile
+homepage: https://github.com/app2smile/rules
+category: '解锁'
+date: '2026-05-30'
+version: '1.0.0'
+
+http:
+  mitm:
+    - spclient.wg.spotify.com
+    - '*-spclient.spotify.com'
+
+  script:
+    - match: ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/
+      name: JS-1_Spotify_json
+      type: request
+    - match: ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$
+      name: JS-1_Spotify_proto
+      type: response
+      require-body: true
+      timeout: 60
+
+script-providers:
+  JS-1_Spotify_json:
+    url: https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json.js
+    interval: 86400
+  JS-1_Spotify_proto:
+    url: https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js
+    interval: 86400

@@ -1,0 +1,24 @@
+name: 'Adobe'
+desc: |-
+  解锁 Adobe Creative Cloud 订阅
+author: SubTek
+homepage: https://github.com/SubTek/Script
+category: '解锁'
+date: '2026-05-30'
+version: '1.0.0'
+
+http:
+  mitm:
+    - api.adobe.com
+
+  script:
+    - match: ^https:\/\/api\.adobe\.com\/prime\/adobe\/.+\/mobileprofile
+      name: JS-1_Adobe
+      type: response
+      require-body: true
+      timeout: 60
+
+script-providers:
+  JS-1_Adobe:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_Adobe.js
+    interval: 86400

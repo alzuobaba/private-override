@@ -1,0 +1,34 @@
+name: 'CamScanner'
+desc: |-
+  解锁 CamScanner SVIP 订阅
+author: SubTek
+homepage: https://github.com/SubTek/Script
+category: '解锁'
+date: '2026-05-30'
+version: '1.0.0'
+
+http:
+  mitm:
+    - api.camscanner.com
+
+  script:
+    - match: ^https:\/\/api\.camscanner\.com\/purchase\/cs\/query_property
+      name: JS-1_CamScanner_INT
+      type: response
+      require-body: true
+      timeout: 60
+    - match: ^https:\/\/api\.camscanner\.com\/queryProperty
+      name: JS-1_CamScanner_INT
+      type: response
+      require-body: true
+      timeout: 60
+    - match: ^https:\/\/api\.camscanner\.com\/getPrivilegeItem
+      name: JS-1_CamScanner_INT
+      type: response
+      require-body: true
+      timeout: 60
+
+script-providers:
+  JS-1_CamScanner_INT:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_CamScanner_INT.js
+    interval: 86400
