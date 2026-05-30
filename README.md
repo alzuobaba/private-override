@@ -96,6 +96,7 @@ https://github.com/alzuobaba/private-override
 | `石墨文档.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/%E7%9F%B3%E5%A2%A8%E6%96%87%E6%A1%A3.stoverride` |
 | `soundcloud.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/soundcloud.stoverride` |
 | `书旗小说.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/%E4%B9%A6%E6%97%97%E5%B0%8F%E8%AF%B4.stoverride` |
+| `书旗小说去广告.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/%E4%B9%A6%E6%97%97%E5%B0%8F%E8%AF%B4%E5%8E%BB%E5%B9%BF%E5%91%8A.stoverride` |
 | `Spotify.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/Spotify.stoverride` |
 | `swiftycompiler_qonversion.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/swiftycompiler_qonversion.stoverride` |
 | `symbolab.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/symbolab.stoverride` |
