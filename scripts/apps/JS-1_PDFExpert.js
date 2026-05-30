@@ -27,4 +27,22 @@ body.inAppStates.push({
   ]
 });
 
+body.inAppStates.push({
+  "type": "subscription",
+  "productId": "com.readdle.PDFExpert5.subscription.year50_pe6",
+  "originalTransactionId": 20000618444996,
+  "productName": "subscription",
+  "isEligibleForIntroPeriod": false,
+  "subscriptionExpirationDate": "13:15 03/11/2099",
+  "subscriptionExpirationTimestamp": 4097243700,
+  "subscriptionState": "active",
+  "subscriptionAutoRenewStatus": "autoRenewOn",
+  "isInGracePeriod": false,
+  "isInBillingRetryPeriod": false,
+  "entitlements": [
+    "ios.pe.ai-features",
+    "ios.pe.subscription.pdf-features"
+  ]
+});
+
 $done({ body: JSON.stringify(body) });
