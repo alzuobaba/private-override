@@ -1,0 +1,25 @@
+name: 'APTV'
+desc: |-
+  脚本解锁 APTV Pro
+author: alzuobaba
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-05-30'
+version: '1.0.0'
+
+http:
+  mitm:
+    - api.rc-backup.com
+    - api.revenuecat.com
+
+  script:
+    - match: ^https:\/\/api\.(revenuecat|rc-backup)\.com\/v1\/subscribers\/(?!.*offerings)[^\/?]+$
+      name: JS_APTV
+      type: response
+      require-body: true
+      timeout: 60
+
+script-providers:
+  JS_APTV:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_APTV.js
+    interval: 86400
