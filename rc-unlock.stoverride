@@ -16,7 +16,7 @@ http:
     - api.revenuecat.com
     - api.rc-backup.com
   script:
-    - match: ^https:\/\/api\.(revenuecat|rc-backup)\.com\/v[12]\/(receipts|subscribers\/[^/?]+)(\/.*)?$
+    - match: ^https:\/\/api\.(revenuecat|rc-backup)\.com\/v[12]\/(receipts|subscribers\/(?!.*offerings)[^/?]+)(\/.*)?$
       name: revenuecat
       type: response
       require-body: true
