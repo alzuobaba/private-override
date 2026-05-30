@@ -14,8 +14,9 @@ version: '1.0.0'
 http:
   mitm:
     - buy.itunes.apple.com
+    - inappcheck.itunes.apple.com
   script:
-    - match: ^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt
+    - match: ^https:\/\/(buy|inappcheck)\.itunes\.apple\.com\/verifyReceipt
       name: itunes-verify
       type: response
       require-body: true
