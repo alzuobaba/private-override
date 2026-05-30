@@ -1,18 +1,20 @@
 name: '宜搜小说'
 desc: |-
-  脚本解锁 宜搜小说
+  宜搜小说 VIP解锁 + 去广告
+  - 解锁 VIP / SVIP 会员
+  - 全场免费读
+  - 去除广告
 author: alzuobaba
 homepage: https://github.com/alzuobaba/private-override
-category: '解锁'
-date: '2026-05-29'
+category: '解锁 / 去广告 / 净化'
+date: '2026-05-31'
 version: '1.0.0'
 
 http:
   mitm:
     - api.ieasou.com
-
   script:
-    - match: ^https?:\/\/api\.ieasou\.com\/api\/bookapp\/balance\.m?
+    - match: ^https?:\/\/api\.ieasou\.com\/api\/bookapp\/balance\.m\?
       name: JS_YiSouXS
       type: response
       timeout: 60
