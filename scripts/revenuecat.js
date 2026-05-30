@@ -22,7 +22,7 @@ var doneCalled = false
 
 var forbiddenApps = [
   'PicSeedClient', 'ReflixiOS', 'Pomodoro', 'MyHabit',
-  'Rond', 'Filebar', 'Fileball', 'APTV'
+  'Rond', 'Filebar', 'Fileball'
 ]
 
 if (forbiddenApps.some(function (app) {
