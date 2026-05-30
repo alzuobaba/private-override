@@ -21,4 +21,4 @@ http:
 script-providers:
   JS_Flow:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Flow.js
-    interval: 0
+    interval: 86400

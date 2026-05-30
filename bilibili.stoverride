@@ -101,4 +101,4 @@ http:
 script-providers:
   bilibili:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/bilibili.js
-    interval: 0
+    interval: 86400

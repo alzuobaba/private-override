@@ -9,16 +9,17 @@ version: '1.0.0'
 
 http:
   mitm:
-    - craft.do
+    - api.craft.do
+    - docs.craft.do
 
   script:
-    - match: ^https?:\/\/(api|docs)\.craft\.do\/(api\/)?(auth\/v\d\/profile|subscription\/(receipt|teams\/get-subscriptions))
+    - match: ^https?:\/\/(api|docs)\.craft\.do\/
       name: JS_Craft
       type: response
-      timeout: 60
       require-body: true
+      timeout: 60
 
 script-providers:
   JS_Craft:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_Craft.js
-    interval: 0
+    interval: 86400

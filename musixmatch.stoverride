@@ -21,4 +21,4 @@ http:
 script-providers:
   JS-1_Musixmatch:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_Musixmatch.js
-    interval: 0
+    interval: 86400

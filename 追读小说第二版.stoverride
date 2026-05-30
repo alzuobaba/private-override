@@ -21,4 +21,4 @@ http:
 script-providers:
   JS-2_zdxs:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-2_zdxs.js
-    interval: 0
+    interval: 86400

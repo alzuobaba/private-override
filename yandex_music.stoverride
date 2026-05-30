@@ -21,4 +21,4 @@ http:
 script-providers:
   JS_YandexMusic:
     url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS_YandexMusic.js
-    interval: 0
+    interval: 86400
