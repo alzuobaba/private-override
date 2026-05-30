@@ -14,11 +14,6 @@ http:
   mitm:
     - ocean.shuqireader.com
   script:
-    - match: ^https:\/\/ocean\.shuqireader\.com\/api\/jspend\/iosapi\/userinfo\/info
-      name: JS-1_Shuqi
-      type: request
-      require-body: true
-      timeout: 60
     - match: ^https:\/\/ocean\.shuqireader\.com\/sqios\/render\/render\/page\/bookstore
       name: JS-1_Shuqi
       type: response
