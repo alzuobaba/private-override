@@ -9,7 +9,9 @@
 *************************************/
 "use strict"
 
+console.log($script.name + ": 书旗小说脚本启动");
 var url = $request.url;
+console.log($script.name + ": URL = " + url);
 
 // ===== type: request - 替换 userinfo 请求体 =====
 if (url.indexOf('userinfo/info') !== -1) {
@@ -21,6 +23,7 @@ if (url.indexOf('userinfo/info') !== -1) {
 }
 
 // ===== 以下为 type: response 处理 =====
+console.log($script.name + ": 开始处理响应");
 var body = JSON.parse($response.body);
 
 // 页面商店 - 注入 VIP 会员卡片
@@ -64,7 +67,7 @@ if (url.indexOf("/adV2") !== -1) {
       body.data.userInfo.userFreeAdTime = 999999;
     }
   }
-  console.log($script.name + ": ads disabled");
+  console.log($script.name + ": 阅读页广告已去除");
 }
 
 // 跳过看广告解锁章节
@@ -77,7 +80,7 @@ if (url.indexOf("/adTurnChapter") !== -1) {
       "freeTime": 999999
     };
   }
-  console.log($script.name + ": ad turn chapter bypassed");
+  console.log($script.name + ": 看广告解锁已跳过");
 }
 
 // VIP 定价显示为 0
@@ -93,4 +96,5 @@ if (url.indexOf("/commodityInfoV3") !== -1) {
   console.log($script.name + ": VIP pricing modified");
 }
 
+console.log($script.name + ": 处理完成");
 $done({ body: JSON.stringify(body) });

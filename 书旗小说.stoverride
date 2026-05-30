@@ -1,18 +1,18 @@
-name: '书旗小说'
+name: "书旗小说"
 desc: |-
   书旗小说 超级会员特权 + 去广告
   - 解锁任意付费及会员章节
   - 去除阅读页广告
   - 跳过看广告解锁章节
-author: alzuobaba
-homepage: https://github.com/alzuobaba/private-override
-category: '解锁 / 去广告 / 净化'
-date: '2026-05-30'
-version: '1.0.0'
+author: "alzuobaba"
+homepage: "https://github.com/alzuobaba/private-override"
+category: "解锁 / 去广告 / 净化"
+date: "2026-05-30"
+version: "1.0.0"
 
 http:
   mitm:
-    - ocean.shuqireader.com
+    - "ocean.shuqireader.com"
 
   script:
     - match: ^https:\/\/ocean\.shuqireader\.com\/api\/jspend\/iosapi\/userinfo\/info
@@ -20,26 +20,31 @@ http:
       type: request
       require-body: true
       timeout: 60
+      argument:
     - match: ^https:\/\/ocean\.shuqireader\.com\/sqios\/render\/render\/page\/bookstore
       name: JS-1_Shuqi
       type: response
       require-body: true
       timeout: 60
+      argument:
     - match: ^https:\/\/ocean\.shuqireader\.com\/api\/route\/iosReadPage\/adV2
       name: JS-1_Shuqi
       type: response
       require-body: true
       timeout: 60
+      argument:
     - match: ^https:\/\/ocean\.shuqireader\.com\/api\/route\/iosReadPage\/adTurnChapter
       name: JS-1_Shuqi
       type: response
       require-body: true
       timeout: 60
+      argument:
     - match: ^https:\/\/ocean\.shuqireader\.com\/api\/route\/month\/commodityInfoV3
       name: JS-1_Shuqi
       type: response
       require-body: true
       timeout: 60
+      argument:
 
 script-providers:
   JS-1_Shuqi:
