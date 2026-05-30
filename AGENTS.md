@@ -98,7 +98,7 @@ script-providers:
 ```javascript
 "use strict"
 
-console.log($script.name)           // 启动时输出一次，用于日志定位
+console.log($script.name)
 console.log($script.name + ' 描述')
 
 var url = $request.url
@@ -155,16 +155,29 @@ if (body) {
 ### 3.3 日志规范
 
 ```javascript
-// 文件启动时输出 ScriptName
+// 启动时输出一次，用于日志定位
 console.log($script.name)
 
-// 匹配请求时输出 URL 或关键信息
-console.log($script.name + ' ' + url)
-console.log($script.name + ' vip updated')
+// 匹配请求时输出 URL 和关键信息
+console.log($script.name + ' URL = ' + $request.url)
+console.log($script.name + ' method = ' + $request.method)
+
+// 调试时打印原始响应结构
+console.log($script.name + ' original inAppStates = ' + JSON.stringify(body.inAppStates))
+
+// 关键操作日志
+console.log($script.name + ' entitlements updated')
+console.log($script.name + ' productId changed to xxx')
 
 // 错误日志
 console.log($script.name + ' parse error: ' + e)
 ```
+
+**调试日志最佳实践：**
+- 所有日志用 `$script.name` 做前缀，方便在 Stash 脚本日志中过滤
+- 调试时打印 **修改前后的关键字段**，便于定位问题
+- 修复问题后保留少量关键日志便于后续排查
+- 查看日志：Stash → 设置 → 脚本日志
 
 ### 3.4 `$done()` 调用方式
 
@@ -295,3 +308,92 @@ Commit 类型前缀：
 - `remove:` — 删除
 - `docs:` — 文档
 - `revert:` — 回退
+
+## 9. HAR 抓包分析流程
+
+### 9.1 分析步骤
+
+1. 用 ProxyPin 抓取目标 App 的订阅/验证相关请求
+2. 导出 HAR 文件，用 JSON 解析工具分析
+3. 定位关键接口（通常含 `subscription`、`receipt`、`verify`、`profile`、`user` 等关键词）
+4. 记录请求 URL、方法、请求体、响应体的完整结构
+
+### 9.2 常见订阅接口
+
+| 类型 | 端点特征 | 响应关键字段 |
+|------|---------|-------------|
+| RevenueCat | `api.revenuecat.com` | `subscriber.subscriptions`、`subscriber.entitlements` |
+| 自定义订阅 | `license.*.com`、`*.subscription.*` | `inAppStates`、`entitlements`、`productId` |
+| iTunes | `buy.itunes.apple.com/verifyReceipt` | `receipt.in_app`、`latest_receipt_info` |
+| 苹果 StoreKit | `amp-api-edge.apps.apple.com` | StoreKit 2 响应 |
+
+### 9.3 从 HAR 提取完整 JSON
+
+```python
+# 提取 HAR 中指定请求的完整响应
+import json
+with open('capture.har') as f:
+    data = json.load(f)
+for entry in data['log']['entries']:
+    if 'subscription/refresh' in entry['request']['url']:
+        print(json.dumps(json.loads(entry['response']['content']['text']), indent=2))
+```
+
+## 10. 订阅类 App 解锁策略
+
+### 10.1 策略选择
+
+| 策略 | 说明 | 适用场景 |
+|------|------|---------|
+| **修改 entitlements** | 仅修改现有条目的 `entitlements` 数组 | 原始响应结构完整，只需提权 |
+| **追加 inAppState** | 在 `inAppStates` 数组推入新条目 | 需要保留原始免费条目作 fallback |
+| **替换 inAppStates** | 整个数组替换为 PRO 条目 | 需完全覆盖，避免 App 识别到免费条目 |
+| **替换整个响应体** | 整个响应体硬编码替换 | 响应结构简单，需完全控制（风险高） |
+
+### 10.2 修改 entitlements（最安全）
+
+```javascript
+// 仅修改权限列表，保留其他所有字段不变
+body.inAppStates[0].entitlements = [
+  "ios.pe.ai-features",
+  "ios.pe.subscription.pdf-features"
+];
+body.inAppStates[0].productId = "com.readdle.PDFExpert5.subscription.year50BMI_rollout";
+```
+
+### 10.3 追加条目（带 fallback）
+
+```javascript
+// 保留原始免费条目，追加 PRO 条目
+body.inAppStates.push({
+  "type": "subscription",
+  "productId": "com.readdle.PDFExpert5.subscription.year50BMI_rollout",
+  "subscriptionExpirationDate": "12:44 20/03/2099",
+  "subscriptionState": "active",
+  "subscriptionAutoRenewStatus": "autoRenewOn",
+  "entitlements": ["ios.pe.ai-features", "ios.pe.subscription.pdf-features"]
+});
+```
+
+### 10.4 替换整个数组
+
+```javascript
+body.inAppStates = [{
+  "type": "subscription",
+  "productId": "com.readdle.PDFExpert5.subscription.year50BMI_rollout",
+  "subscriptionState": "active",
+  "entitlements": ["ios.pe.ai-features", "ios.pe.subscription.pdf-features"]
+}];
+```
+
+### 10.5 调试步骤（当出现"服务器发生错误"时）
+
+1. **添加详细日志**，打印原始响应结构：
+   ```javascript
+   console.log($script.name + ' original inAppStates = ' + JSON.stringify(body.inAppStates));
+   console.log($script.name + ' original bundleId = ' + body.bundleId);
+   ```
+2. **逐步简化修改**：先只改 entitlements，再改 productId，每次确认结果
+3. **在 Stash → 设置 → 脚本日志** 中查看日志输出
+4. 如果持续报错，说明 App 可能有**服务端验证**，单纯改响应无效
+5. 尝试不同的 productId（同一个 App 可能有多个有效的订阅 productId）
