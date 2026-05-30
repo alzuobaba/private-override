@@ -10,9 +10,15 @@ version: '1.0.0'
 http:
   mitm:
     - license.pdfexpert.com
+    - buy.itunes.apple.com
 
   script:
     - match: ^https:\/\/license\.pdfexpert\.com\/api\/2\.0\/pdfexpert6\/subscription\/refresh
+      name: JS-1_PDFExpert
+      type: response
+      timeout: 60
+      require-body: true
+    - match: ^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt
       name: JS-1_PDFExpert
       type: response
       timeout: 60
