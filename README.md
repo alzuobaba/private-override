@@ -80,6 +80,7 @@ https://github.com/alzuobaba/private-override
 | `nicegram.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/nicegram.stoverride` |
 | `owlfiles.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/owlfiles.stoverride` |
 | `ps_express.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/ps_express.stoverride` |
+| `PDF Expert.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/PDF%20Expert.stoverride` |
 | `peakvisor.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/peakvisor.stoverride` |
 | `pikpak.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/pikpak.stoverride` |
 | `泼辣修图.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/%E6%B3%BC%E8%BE%A3%E4%BF%AE%E5%9B%BE.stoverride` |
@@ -283,5 +284,5 @@ tech.miidii.MDClock
 |------|---------|
 | RevenueCat（rc-unlock） | 368 |
 | iTunes（itunes-unlock） | 通用（所有 verifyReceipt App） |
-| 单 App 覆写 | 82 |
+| 单 App 覆写 | 83 |
 | **合计** | **~450+** |
