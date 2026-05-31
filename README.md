@@ -42,6 +42,7 @@ https://github.com/alzuobaba/private-override
 | `notability.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/notability.stoverride` |
 | `notebookzoho.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/notebookzoho.stoverride` |
 | `picsart.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/picsart.stoverride` |
+| `番薯小说.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/%E7%95%AA%E8%96%AF%E5%B0%8F%E8%AF%B4.stoverride` |
 | `轻图.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/%E8%BD%BB%E5%9B%BE.stoverride` |
 | `蜗牛睡眠.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/%E8%9C%97%E7%89%9B%E7%9D%A1%E7%9C%A0.stoverride` |
 | `wps稻壳会员.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/wps%E7%A8%BB%E5%A3%B3%E4%BC%9A%E5%91%98.stoverride` |
