@@ -3,12 +3,12 @@ desc: |-
   通用广告 SDK 请求拦截
   - 穿山甲(Pangle/CSJ) 广告
   - 广点通(GDT) 广告
-  - 百度广告/百度联盟
+  - 百度广告/百度统计
   - 快手广告
   - 阿里 Tanx 广告
   - 京东广告
-  - 小米广告
-  - 神马搜索广告
+  - 小米广告/神马搜索
+  - 头条/CDN 广告资源
   - 各类第三方广告联盟
 author: alzuobaba
 homepage: https://github.com/alzuobaba/private-override
@@ -23,18 +23,24 @@ http:
     - ^https?:\/\/log-api\.pangolin-sdk-toutiao\d?\.com\/ - reject-200
     - ^https?:\/\/isub\.pangolin-sdk-toutiao\d?\.com\/ - reject-200
     - ^https?:\/\/ssp\.iytcdn\.com\/ - reject-200
+    - ^https?:\/\/[\w-]+\.pglstatp-toutiao\.com\/ - reject-200
+    - ^https?:\/\/[\w-]+\.pstatp\.com\/ - reject-200
+    - ^https?:\/\/[\w-]+\.pglstatp\.com\/ - reject-200
 
     # 广点通 / GDT
     - ^https?:\/\/sdk\.e\.qq\.com\/ - reject-200
     - ^https?:\/\/mi\.gdt\.qq\.com\/ - reject-200
     - ^https?:\/\/win\.gdt\.qq\.com\/ - reject-200
+    - ^https?:\/\/qzs\.gdtimg\.com\/ - reject-200
+    - ^https?:\/\/qzs\.qq\.com\/ - reject-200
     - ^https?:\/\/et\.tanx\.com\/ - reject-200
     - ^https?:\/\/sdk-config\.tanx\.com\/ - reject-200
 
-    # 百度广告
+    # 百度广告 / 统计
     - ^https?:\/\/mobads\.baidu\.com\/ - reject-200
     - ^https?:\/\/ms\.baidu\.com\/ - reject-200
     - ^https?:\/\/sp0\.baidu\.com\/ - reject-200
+    - ^https?:\/\/hm\.baidu\.com\/ - reject-200
 
     # 快手广告
     - ^https?:\/\/open\.e\.kuaishou\.com\/ - reject-200
@@ -57,8 +63,12 @@ http:
     - ^https?:\/\/logrcv\.yunxish\.com\/ - reject-200
     - ^https?:\/\/cpc-service-square\.(yunxish|iggrowth)\.cn\/ - reject-200
 
-    # 其他广告联盟
+    # 其他广告/统计 SDK
     - ^https?:\/\/api\.adpad\.cn\/ - reject-200
     - ^https?:\/\/api-fc\.dutils\.com\/ - reject-200
     - ^https?:\/\/api-fd\.dutils\.com\/ - reject-200
     - ^https?:\/\/partner\.uc\.cn\/ - reject-200
+    - ^https?:\/\/tjlog\.busydata\.cn(?::\d+)?\/ - reject-200
+    - ^https?:\/\/toblog\.ctobsnssdk\.com\/ - reject-200
+    - ^https?:\/\/sdk\.sdkupgrade\.com\/ - reject-200
+    - ^https?:\/\/log-verify\.mob\.com\/ - reject-200
