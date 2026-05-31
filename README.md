@@ -295,5 +295,5 @@ tech.miidii.MDClock
 |------|---------|
 | RevenueCat（rc-unlock） | 368 |
 | iTunes（itunes-unlock） | 通用（所有 verifyReceipt App） |
-| 单 App 覆写 | 87 |
+| 单 App 覆写 | 88 |
 | **合计** | **~450+** |
