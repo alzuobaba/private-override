@@ -1,0 +1,90 @@
+name: '七猫小说去广告'
+desc: |-
+  七猫小说 去广告
+  - 移除阅读页广告、开屏广告、各类弹窗推广
+  - 拦截穿山甲/快手/京东等广告 SDK
+  - 屏蔽福利任务、红包入口
+  - 移除我的页面推广区域
+author: alzuobaba
+homepage: https://github.com/alzuobaba/private-override
+category: '去广告 / 净化'
+date: '2026-06-02'
+version: '1.0.0'
+
+http:
+  mitm:
+    - api-cfg.wtzw.com
+    - api-bc.wtzw.com
+    - api-gw.wtzw.com
+    - cdn.wtzw.com
+    - xiaoshuo.wtzw.com
+    - cdn-ad.wtzw.com
+    - cdn-new-ad.wtzw.com
+    - sf3-fe-tos.pglstatp-toutiao.com
+    - open.e.kuaishou.cn
+    - api-access.pangolin-sdk-toutiao.com
+    - api-access.pangolin-sdk-toutiao-b.com
+    - api-access.pangolin-sdk-toutiao1.com
+    - dsp-x.jd.com
+    - p1-lm.adukwai.com
+    - lf-cdn-tos.bytescm.com
+
+  url-rewrite:
+    # 七猫专用广告 CDN
+    - ^https:\/\/cdn-ad\.wtzw\.com\/ - reject-200
+    - ^https:\/\/cdn-new-ad\.wtzw\.com\/ - reject-200
+
+    # 穿山甲广告素材
+    - ^https?:\/\/sf3-fe-tos\.pglstatp-toutiao\.com\/obj\/ad-pattern\/ - reject-200
+
+    # 七猫奖励/广告/运营接口
+    - ^https:\/\/api-cfg\.wtzw\.com\/v\d\/reward\/ - reject-200
+    - ^https:\/\/api-cfg\.wtzw\.com\/v\d\/adv\/ - reject-200
+
+    # 七猫配置类接口 -> 返回空 JSON
+    - ^https:\/\/api-cfg\.wtzw\.com\/v\d\/splash\/ - reject-dict
+    - ^https:\/\/api-cfg\.wtzw\.com\/v\d\/offline-adv\/index - reject-dict
+    - ^https:\/\/api-cfg\.wtzw\.com\/v\d\/operation\/index - reject-dict
+
+    # 七猫搜索/书城/运营配置
+    - ^https:\/\/api-bc\.wtzw\.com\/api\/v4\/search\/dispose - reject-dict
+    - ^https:\/\/api-bc\.wtzw\.com\/api\/v\d\/book-store\/config - reject-dict
+    - ^https:\/\/api-bc\.wtzw\.com\/api\/v\d\/book-store\/push-book - reject-dict
+    - ^https:\/\/api-bc\.wtzw\.com\/api\/v\d\/operation - reject-dict
+
+    # 七猫福利/红包任务
+    - ^https:\/\/api-gw\.wtzw\.com\/welf\/app\/v\d\/task\/red-packet - reject-dict
+
+    # 阅读免费广告相关
+    - ^https:\/\/cdn\.wtzw\.com\/bookimg\/free\/api\/v\d\/reader\/reader-copy-paragraph-all\.json - reject-dict
+
+    # 提现页广告
+    - ^https:\/\/xiaoshuo\.wtzw\.com\/api\/v\d\/withdraw\/init - reject-dict
+
+    # 快手广告 SDK
+    - ^https?:\/\/open\.e\.kuaishou\.cn\/rest\/e\/v3\/open\/univ - reject-200
+
+    # 穿山甲 SDK 广告请求
+    - ^https?:\/\/api-access\.pangolin-sdk-toutiao-b\.com\/api\/ad\/union\/sdk\/get_ads - reject-200
+    - ^https?:\/\/api-access\.(pangolin-sdk-toutiao|pangolin-sdk-toutiao1)\.com\/api\/ad - reject-200
+
+    # 京东广告 SDK
+    - ^https?:\/\/dsp-x\.jd\.com\/adx\/sdk - reject-200
+
+    # 快手广告联盟视频
+    - ^https?:\/\/p1-lm\.adukwai\.com\/bs2\/adUnionVideo - reject-200
+
+    # 字节广告静态资源
+    - ^https?:\/\/lf-cdn-tos\.bytescm\.com\/obj\/static\/ad - reject-200
+
+  script:
+    - match: ^https:\/\/xiaoshuo\.wtzw\.com\/api\/v\d\/user\/my-center\?
+      name: JS-1_Qimao
+      type: response
+      require-body: true
+      timeout: 60
+
+script-providers:
+  JS-1_Qimao:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_Qimao.js
+    interval: 86400
