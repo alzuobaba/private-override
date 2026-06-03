@@ -15,8 +15,6 @@ http:
     - default.ixigua.com
     - novelapp.ixigua.com
     - v6-novelapp.ixigua.com
-    - fqnovel.com
-    - fqnovelpic.com
     - fqnovelvod.com
     - sf3-ttcdn-tos.pstatp.com
     - i-lq.snssdk.com
@@ -116,8 +114,7 @@ http:
     - ^https?:\/\/[^/]*\.bytegoofy\.com\/ - reject-200
     - ^https?:\/\/[^/]*\.byteorge\.com\/ - reject-200
     - ^https?:\/\/activity-ag\.awemeughun\.com\/ - reject-200
-    - ^https?:\/\/[^/]*\.fqnovel\.com\/ - reject-200
-    - ^https?:\/\/[^/]*\.fqnovelpic\.com\/ - reject-200
+
 
     # 快手广告
     - ^https?:\/\/open\.e\.kuaishou\.com\/rest\/ - reject-200
