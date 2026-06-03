@@ -1,0 +1,31 @@
+name: '阅友去广告'
+desc: |-
+  阅友 去广告
+  - 移除开屏广告、弹窗广告、阅读页面广告
+  - 移除底栏福利按钮
+  - 移除下载弹窗、游戏入口、任务、签到等推广
+author: alzuobaba
+homepage: https://github.com/alzuobaba/private-override
+category: '去广告 / 净化'
+date: '2026-06-02'
+version: '1.0.0'
+
+http:
+  mitm:
+    - goway.reader.yueyouxs.com
+    - ads.reader.yueyouxs.com
+
+  url-rewrite:
+    - ^https?:\/\/ads\.reader\.yueyouxs\.com\/ - reject-200
+
+  script:
+    - match: ^https:\/\/goway\.reader\.yueyouxs\.com\/assemble\/app\/basic\/getAppInfo\?
+      name: JS-1_Yueyou
+      type: response
+      require-body: true
+      timeout: 60
+
+script-providers:
+  JS-1_Yueyou:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_Yueyou.js
+    interval: 86400
