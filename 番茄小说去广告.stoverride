@@ -1,14 +1,16 @@
 name: '番茄小说去广告'
 desc: |-
-  番茄免费小说 去广告
-  - 移除阅读页广告、开屏广告、各类弹窗推广
-  - 拦截穿山甲/快手/京东/拼多多/百度等广告 SDK
-  - 屏蔽运营活动、任务入口
+  番茄免费小说 去广告（字节系完整版）
+  - 移除阅读页广告、开屏广告、弹窗推广、底栏/章节页电商广告
+  - 拦截穿山甲/头条/快手/京东/拼多多/百度等广告 SDK
+  - 屏蔽运营活动、任务入口、开屏配置、激励视频
+  - 拦截字节跳动埋点/日志/监控上报
+  - 兼容蛋花小说（共享字节系广告基础设施）
 author: alzuobaba
 homepage: https://github.com/alzuobaba/private-override
 category: '去广告 / 净化'
 date: '2026-06-02'
-version: '1.0.0'
+version: '2.0.0'
 
 http:
   mitm:
@@ -65,6 +67,28 @@ http:
     - gw-w.jiaoliuqu.com
     - googleads.g.doubleclick.net
     - apd-pcdnwxlogin.teg.tencent-cloud.net
+    # ByteDance.lpx 补充
+    - ad.toutiao.com
+    - ads.toutiao.com
+    - adbyte.bytedance.com
+    - data.bytedance.com
+    - ibytedapm.com
+    - log.toutiao.com
+    - mon.toutiao.com
+    - rtlog.snssdk.com
+    - va.toutiao.com
+    - partner.toutiao.com
+    - pangolin.snssdk.com
+    - toutiaocloud.com
+    - sinfonlinec.fqnovel.com
+    - frontier100-toutiao-lf.fqnovel.com
+    - bytedcdn.com
+    - syzagk.com
+    - vc-brain.ndcpp.com
+    - zjurl.cn
+    - tr.byteurl.cn
+    - p26-item.ecombdimg.com
+    - p3-aio.ecombdimg.com
 
   url-rewrite:
     # 番茄小说核心域名拦截
@@ -84,6 +108,14 @@ http:
     - ^https?:\/\/tnc3-alisc1\.snssdk\.com\/ - reject-200
     - ^https?:\/\/frontier-toutiao\.snssdk\.com\/ - reject-200
     - ^https?:\/\/toutiao-frontier\.snssdk\.com\/ - reject-200
+    # ByteDance.lpx 补充：snssdk 特定路径
+    - ^https?:\/\/[^/]+\.snssdk\.com\/api\/(launch|startup)\/(open_ad|ad)\b - reject-200
+    - ^https?:\/\/[^/]+\.(toutiao|snssdk)\.com\/api\/ad\/ - reject-200
+    - ^https?:\/\/pangolin\.snssdk\.com\/ - reject-200
+    # snssdk 关键词匹配（vas-lf / open_ad / mon 关键字）
+    - ^https?:\/\/[^/]*vas-lf[^/]*\.snssdk\.com\/ - reject-200
+    - ^https?:\/\/[^/]*open_ad[^/]*\.snssdk\.com\/ - reject-200
+    - ^https?:\/\/[^/]*\.snssdk\.com\/api\/(launch|startup)\/ - reject-200
 
     # zijieapi 广告接口
     - ^https?:\/\/[^/]*\.zijieapi\.com\/ - reject-200
@@ -115,6 +147,51 @@ http:
     - ^https?:\/\/[^/]*\.byteorge\.com\/ - reject-200
     - ^https?:\/\/activity-ag\.awemeughun\.com\/ - reject-200
 
+    # ByteDance.lpx 补充：头条广告
+    - ^https?:\/\/ad\.toutiao\.com\/ - reject-200
+    - ^https?:\/\/[^/]*\.ads\.toutiao\.com\/ - reject-200
+    - ^https?:\/\/adbyte\.bytedance\.com\/ - reject-200
+    - ^https?:\/\/partner\.toutiao\.com\/ - reject-200
+
+    # ByteDance.lpx 补充：fqnovel 特定广告子域
+    - ^https?:\/\/[^/]*misc-lf[^/]*\.fqnovel\.com\/ - reject-200
+    - ^https?:\/\/[^/]*mon[^/]*\.fqnovel\.com\/ - reject-200
+    - ^https?:\/\/[^/]*frontier100[^/]*\.fqnovel\.com\/ - reject-200
+    - ^https?:\/\/frontier100-toutiao-lf\.fqnovel\.com\/ - reject-200
+    - ^https?:\/\/sinfonlinec\.fqnovel\.com\/ - reject-200
+    - ^https?:\/\/tnc0-alisc1\.zijieapi\.com\/ - reject-200
+
+    # ByteDance.lpx 补充：电商广告图片
+    - ^https?:\/\/[^/]*\.ecombdimg\.com\/ - reject-200
+    - ^https?:\/\/p26-item\.ecombdimg\.com\/ - reject-200
+    - ^https?:\/\/p3-aio\.ecombdimg\.com\/ - reject-200
+    - ^https?:\/\/[^/]*\.ecombdapi\.com\/ - reject-200
+
+    # ByteDance.lpx 补充：日志/埋点/监控
+    - ^https?:\/\/log\.toutiao\.com\/ - reject-200
+    - ^https?:\/\/[^/]*\.log\.snssdk\.com\/ - reject-200
+    - ^https?:\/\/mon\.toutiao\.com\/ - reject-200
+    - ^https?:\/\/data\.bytedance\.com\/ - reject-200
+    - ^https?:\/\/ibytedapm\.com\/ - reject-200
+    - ^https?:\/\/rtlog\.snssdk\.com\/ - reject-200
+    - ^https?:\/\/va\.toutiao\.com\/ - reject-200
+    - ^https?:\/\/toutiaocloud\.com\/ - reject-200
+
+    # ByteDance.lpx 补充：激励视频 CDN
+    - ^https?:\/\/[^/]*\.bytedcdn\.com\/ - reject-200
+    - ^https?:\/\/[^/]*reward-video[^/]*\.bytedcdn\.com\/ - reject-200
+
+    # ByteDance.lpx 补充：短剧广告素材 CDN
+    - ^https?:\/\/[^/]*\.syzagk\.com\/ - reject-200
+
+    # ByteDance.lpx 补充：广告决策/中控
+    - ^https?:\/\/vc-brain\.ndcpp\.com\/ - reject-200
+    - ^https?:\/\/[^/]*\.toutiaoapi\.com\/ - reject-200
+
+    # ByteDance.lpx 补充：跳转短链追踪
+    - ^https?:\/\/[^/]*\.bdurl\.net\/ - reject-200
+    - ^https?:\/\/[^/]*\.zjurl\.cn\/ - reject-200
+    - ^https?:\/\/tr\.byteurl\.cn\/ - reject-200
 
     # 快手广告
     - ^https?:\/\/open\.e\.kuaishou\.com\/rest\/ - reject-200
