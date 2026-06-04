@@ -1,0 +1,25 @@
+name: '消灭病毒 (微信小程序) 修改金币、钻石、'
+desc: |-
+  从 WeiGiegie/666 仓库转换。MITM: wx-bingdu.lanfeitech.com
+  拦截 1 个接口。
+author: alzuobaba (converted)
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-06-04'
+version: '1.0.0'
+
+http:
+  mitm:
+    - 'wx-bingdu.lanfeitech.com'
+
+  script:
+    - match: '^https?:\/\/wx-bingdu\.lanfeitech\.com\/api\/archive\/get$'
+      name: WEI_xmbd.js
+      type: response
+      require-body: true
+      timeout: 5
+
+script-providers:
+  WEI_xmbd.js:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/WEI_xmbd.js
+    interval: 86400

@@ -1,0 +1,25 @@
+name: 'Retouch'
+desc: |-
+  从 WeiGiegie/666 仓库转换。MITM: api.revenuecat.com
+  拦截 1 个接口。
+author: alzuobaba (converted)
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-06-04'
+version: '1.0.0'
+
+http:
+  mitm:
+    - api.revenuecat.com
+
+  script:
+    - match: '^https?:\\/\\/api.revenuecat.com\\/v1\\/receipts'
+      name: WEI_Retouch.js
+      type: response
+      require-body: true
+      timeout: 5
+
+script-providers:
+  WEI_Retouch.js:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/WEI_Retouch.js
+    interval: 86400

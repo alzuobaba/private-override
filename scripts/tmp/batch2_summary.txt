@@ -1,0 +1,71 @@
+=== Batch 2 Processing Summary ===
+Total files in batch: 66
+Files converted: 54
+Converted:
+  - 豆花阅读-耽美言情百合小说大全 解锁金币章节购买 (douhuayuedu.js)
+  - 读手表-insight (dsb.js)
+  - 短视频剪辑-vlog视频剪辑裁剪软件 vip (dspjj.js)
+  - 地铁跑酷 微信小程序 修改金币钥匙等货币 (dtpk.js)
+  - 电子请柬制作 - 婚礼宝宝满月邀请函视频制作 (dzqj.js)
+  - 番薯小说阅读器百万正版小说听书看书神器解锁会员 (fanshu.js)
+  - 帆书-原樊登读书 解锁樊登讲书课程电子书 (fdds.js)
+  - 帆书-原樊登读书 解锁樊登讲书课程 (fdtk.js)
+  - felo实时翻译-同传与语音字幕 解锁免费时长 (felo.js)
+  - 实时翻译-同传与语音字幕 解锁免费时长 (felossfy.js)
+  - felo实时翻译-同传与语音字幕 (felotk.js)
+  - 风行视频 解锁影视会员 (fengxingshipin.js)
+  - 方弗相机恢复购买 (ffxj.js)
+  - filmix-ai影视库重命名整理刮削 (filmix.js)
+  - 疯狂背单词-英语学习常备软件 (fkbdc.js)
+  - 女性日记flo-大姨妈助手排卵期安全期日历 (flo.js)
+  - 番茄短剧 (fqdj.js)
+  - 番茄助眠  随意账号密码登录即是24h会员到期重新登 (fqzm.js)
+  - 翻译软件-实时语音翻译中英互译永久会员 (fyrj.js)
+  - 风云扫描王-文件转pdf证件扫描文档管理和ocr文字识别 永久会员 (fysmw.js)
+  - 解锁会员 (game4play.js)
+  - 高定素材大师永久会员 (gdscds.js)
+  - get笔记-你只管说-ai-帮你记下来 (getbiji.js)
+  - 稿好语文-硬核学习备考 (ghyw.js)
+  - gps工具箱 (gps.js)
+  - 格式转换工具永久会员 (gszhgj.js)
+  - 话本小说去广告无限阅读权 (hbxs.js)
+  - 汇播学堂 会员付费课 (hbxt.js)
+  - 红豆看看-热门抢先看海量资源 (hdkk.js)
+  - 画眈漫画VIP (hdmh.js)
+  - 忙豆听书 解锁付费听书购买下载 (hdts.js)
+  - 好芳法课堂 (hffkt.js)
+  - 嘿嘿漫画 (hhmh.js)
+  - 喜马拉雅国际版VIP音频解析  课程授权解锁  页面广告清理 (himalaya.js)
+  - 喜马拉雅国际版himalaya 会员调试 (himalayaapp.js)
+  - himalaya vip (himalayaui.js)
+  - 哈梨冥想-heartly lab冥想减压安眠白噪音 (hlmx.js)
+  - 红杏视频 解锁VIP (hongxingshipin.js)
+  - 环球翻译官-拍照实时语音文字翻译器永久会员 (hqfyg.js)
+  - 幻休永久会员 (huanxiu.js)
+  - 解锁vip课程付费课程无限观看 (hundun.js)
+  - itranscreen-屏幕翻译游戏漫画和视频实时翻译 (iTranscreen.js)
+  - 剪播台 (jbt.js)
+  - 精点相机 (jdxj.js)
+  - 江湖小说 (jhxs.js)
+  - 锦鲤聚合 解锁会员视频 (jinli.js)
+  - 极简汇率 - 让货币流通更简单永久会员 (jjhl.js)
+  - 挤挤挤巴士微信小程序游戏 (jjjbs.js)
+  - 狙击外星人 微信小程序 (jjwxr.js)
+  - 识日jlpt-最新jlpt历年真题全覆盖 (jlpt.js)
+  - 金牌翻译官 (jpfyg.js)
+  - 今日水印拍照相机 Pro (jrsypzxj.js)
+  - 加藤视频vip解锁付费视频下载会员线路去广告 (jtsp.js)
+  - 句读 (judu.js)
+Files skipped: 12
+  - fanqdj.js: no MITM hostname
+  - fengxingshipintk.js: already exists: 风行视频 解锁影视会员.stoverride
+  - fqzmtoken.js: no header comments
+  - fqzmtoken1.js: empty or too short
+  - hdtsck.js: already exists: 忙豆听书 解锁付费听书购买下载.stoverride
+  - himalayaapps.js: no header comments
+  - himalayack.js: no header comments
+  - himalayaviptab.js: JSON data file
+  - jiaomujun.js: no MITM hostname
+  - jmshe.js: no URL rewrite patterns
+  - jpfygloon.js: already exists: 金牌翻译官.stoverride
+  - jttk.js: already exists: 加藤视频vip解锁付费视频下载会员线路去广告.stoverride

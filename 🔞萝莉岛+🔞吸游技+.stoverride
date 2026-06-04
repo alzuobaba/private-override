@@ -1,0 +1,39 @@
+name: '🔞萝莉岛+🔞吸游技+'
+desc: |-
+  从 WeiGiegie/666 仓库转换。MITM: *.cloudfront.net, dag29jmgma1g.site, *site, d1no17eycutrsi.cloudfront.net, lldajbfyobffkbg288-api.com, lasdasdgapi.cc, las23gsapi.cc
+  拦截 2 个接口。
+author: alzuobaba (converted)
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-06-04'
+version: '1.0.0'
+
+http:
+  mitm:
+    - '*.cloudfront.net'
+    - 'dag29jmgma1g.site'
+    - '*site'
+    - 'd1no17eycutrsi.cloudfront.net'
+    - 'lldajbfyobffkbg288-api.com'
+    - 'lasdasdgapi.cc'
+    - 'las23gsapi.cc'
+
+  script:
+    - match: '^https?:\/\/.+/api\/setapp.php'
+      name: WEI_lldad
+      type: response
+      require-body: true
+      timeout: 5
+    - match: '^https?:\/\/.+\/api\/(userinfo|setapp|newstartad|newreg|Get_vod_list|dongtais).php'
+      name: WEI_luolidao
+      type: response
+      require-body: true
+      timeout: 5
+
+script-providers:
+  WEI_lldad:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/WEI_lldad.js
+    interval: 86400
+  WEI_luolidao:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/WEI_luolidao.js
+    interval: 86400

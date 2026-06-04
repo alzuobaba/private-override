@@ -1,0 +1,25 @@
+name: 'picma'
+desc: |-
+  从 WeiGiegie/666 仓库转换。MITM: api.magictiger.ai
+  拦截 1 个接口。
+author: alzuobaba (converted)
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-06-04'
+version: '1.0.0'
+
+http:
+  mitm:
+    - api.magictiger.ai
+
+  script:
+    - match: '^https?://api.magictiger.ai/api/v1/uservip/getMemberInfo$'
+      name: WEI_picma
+      type: response
+      require-body: true
+      timeout: 5
+
+script-providers:
+  WEI_picma:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/picma.js
+    interval: 86400

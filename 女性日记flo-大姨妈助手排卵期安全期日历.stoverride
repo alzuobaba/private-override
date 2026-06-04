@@ -1,0 +1,25 @@
+name: '女性日记flo-大姨妈助手排卵期安全期日历'
+desc: |-
+  从 WeiGiegie/666 仓库转换。MITM: api.owhealth.com
+  拦截 1 个接口。
+author: alzuobaba (converted)
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-06-04'
+version: '1.0.0'
+
+http:
+  mitm:
+    - api.owhealth.com
+
+  script:
+    - match: '^https?:\/\/api.owhealth.com\/subscriptions\/v1\/apple.*$'
+      name: WEI_flo.js
+      type: response
+      require-body: true
+      timeout: 5
+
+script-providers:
+  WEI_flo.js:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/WEI_flo.js
+    interval: 86400

@@ -1,0 +1,21 @@
+name: '139fm'
+desc: |-
+  139fm 🔞
+  MITM: 139fm.bond, 139fm.cfd, 139fm.click, 139fm.cyou, 139fm.fun
+  从 Quantumult X 格式转换为 Stash 覆写。
+  原始脚本来源: WeiGiegie/666
+author: alzuobaba (converted)
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-06-04'
+version: '1.0.0'
+
+http:
+  mitm:
+    - 139fm.bond
+    - 139fm.cfd
+    - 139fm.click
+    - 139fm.cyou
+    - 139fm.fun
+
+script-providers:

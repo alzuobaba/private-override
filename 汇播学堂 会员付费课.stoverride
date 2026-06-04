@@ -1,0 +1,26 @@
+name: '汇播学堂 会员付费课'
+desc: |-
+  从 WeiGiegie/666 仓库转换。MITM: app.666syh.com, huibo.hcbnjy.com
+  拦截 1 个接口。
+author: alzuobaba (converted)
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-06-04'
+version: '1.0.0'
+
+http:
+  mitm:
+    - app.666syh.com
+    - huibo.hcbnjy.com
+
+  script:
+    - match: '^https?:\/\/(huibo.hcbnjy.com\/api\/huibo-gzh\/(course\/getCourseItem\?id|my\/getUserInfoResult)|app.666syh.com\/cloud\/api-mall\/huibo\/learnDetail).*$'
+      name: WEI_hbxt.js
+      type: response
+      require-body: true
+      timeout: 5
+
+script-providers:
+  WEI_hbxt.js:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/WEI_hbxt.js
+    interval: 86400

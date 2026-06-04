@@ -1,0 +1,270 @@
+{
+  "processed": [],
+  "skipped": [
+    [
+      "junwang",
+      "stoverride already exists for '恢复购买会员'"
+    ],
+    [
+      "jyh",
+      "stoverride already exists for '鸡乐盒'"
+    ],
+    [
+      "jzj",
+      "stoverride already exists for '节奏酱'"
+    ],
+    [
+      "jzlx",
+      "Empty app name"
+    ],
+    [
+      "kada",
+      "stoverride already exists for 'kada阅读-儿童绘本故事启蒙大全'"
+    ],
+    [
+      "kaokaoya",
+      "stoverride already exists for '考考鸭'"
+    ],
+    [
+      "keep",
+      "No hostname in MITM section"
+    ],
+    [
+      "kgr",
+      "stoverride already exists for '凯格尔运动pro-pc肌-盆底肌修复锻炼'"
+    ],
+    [
+      "kjwsp",
+      "stoverride already exists for '看鉴微视频-纪录片和短视频社区'"
+    ],
+    [
+      "kkxt",
+      "stoverride already exists for '可可修图（永久会员）'"
+    ],
+    [
+      "klbsq",
+      "stoverride already exists for '快聊变声器（永久会员）'"
+    ],
+    [
+      "kttx",
+      "stoverride already exists for '卡通头像-漫画头像制作（永久会员）'"
+    ],
+    [
+      "kuaikanmanhua",
+      "No hostname in MITM section"
+    ],
+    [
+      "kuaiy",
+      "stoverride already exists for '快影'"
+    ],
+    [
+      "kuqueshuiyin",
+      "stoverride already exists for '酷雀水印管家-图片加水印-一键去消除马赛克-试卷擦除图片还原'"
+    ],
+    [
+      "kuwo",
+      "No hostname in MITM section"
+    ],
+    [
+      "kuwobata1",
+      "No hostname in MITM section"
+    ],
+    [
+      "kyxq",
+      "stoverride already exists for '口语星球'"
+    ],
+    [
+      "leshi",
+      "Empty MITM hostnames"
+    ],
+    [
+      "leshi1",
+      "Empty MITM hostnames"
+    ],
+    [
+      "linecamera",
+      "stoverride already exists for 'line camera - 照片编辑器'"
+    ],
+    [
+      "lispod",
+      "stoverride already exists for 'lispod分级播客-无痛英语听力自由'"
+    ],
+    [
+      "listenleap",
+      "stoverride already exists for 'listenleap-帮你听懂英语播客-通过播客学英语'"
+    ],
+    [
+      "lldad",
+      "No header comment block"
+    ],
+    [
+      "lrts",
+      "stoverride already exists for '懒人听书 解锁vip'"
+    ],
+    [
+      "lryyyd",
+      "stoverride already exists for '懒人英语阅读-英语文章-英文原版小说-外刊阅读'"
+    ],
+    [
+      "lsnl",
+      "stoverride already exists for '历史年轮'"
+    ],
+    [
+      "luolidao",
+      "No hostname in MITM section"
+    ],
+    [
+      "luping",
+      "stoverride already exists for '录屏-屏幕录制神器（永久会员）'"
+    ],
+    [
+      "lxcs",
+      "stoverride already exists for '脸型测试-测脸型配发型小助手（永久会员）'"
+    ],
+    [
+      "manhuadaquan",
+      "Empty MITM hostnames"
+    ],
+    [
+      "mankezhan",
+      "stoverride already exists for '漫客宅,会员漫画小说解锁'"
+    ],
+    [
+      "manxiong",
+      "stoverride already exists for '漫熊（美区商店下载）'"
+    ],
+    [
+      "mbfm",
+      "stoverride already exists for '面包fm 解锁vip，付费讲书'"
+    ],
+    [
+      "mbpt",
+      "stoverride already exists for '面包拼图（永久会员）'"
+    ],
+    [
+      "mdtv",
+      "stoverride already exists for '美队tv（永久会员+去广告）18+'"
+    ],
+    [
+      "meiwu",
+      "No hostname in MITM section"
+    ],
+    [
+      "memo",
+      "stoverride already exists for '便签小组件-备忘录笔记本手机widget vip'"
+    ],
+    [
+      "mgsp",
+      "No hostname in MITM section"
+    ],
+    [
+      "mgspck",
+      "Empty app name"
+    ],
+    [
+      "mgtk",
+      "Empty app name"
+    ],
+    [
+      "mgtv",
+      "No hostname in MITM section"
+    ],
+    [
+      "mhlz",
+      "stoverride already exists for '魔幻粒子 - 游戏货币修改'"
+    ],
+    [
+      "mhy",
+      "Empty MITM hostnames"
+    ],
+    [
+      "migu",
+      "No hostname in MITM section"
+    ],
+    [
+      "miguyinyue",
+      "No hostname in MITM section"
+    ],
+    [
+      "mimu",
+      "stoverride already exists for '你推陪你背单词练口语'"
+    ],
+    [
+      "mjgsad",
+      "No hostname in MITM section"
+    ],
+    [
+      "mjgshd",
+      "No hostname in MITM section"
+    ],
+    [
+      "mkztk",
+      "stoverride already exists for '漫客宅,会员漫画小说解锁'"
+    ],
+    [
+      "motu",
+      "stoverride already exists for '摩途-摩托车骑行导航路书轨迹地图'"
+    ],
+    [
+      "mozhai",
+      "stoverride already exists for '墨摘-金句摘抄阅读 永久会员'"
+    ],
+    [
+      "mozhaitk",
+      "stoverride already exists for '墨摘-金句摘抄阅读 永久会员'"
+    ],
+    [
+      "mp3zh",
+      "stoverride already exists for 'mp3转换助手-视频提取音频编辑制作手机铃声'"
+    ],
+    [
+      "mpy",
+      "stoverride already exists for '萌配音-实时游戏语音包变声器软件（永久会员）'"
+    ],
+    [
+      "mrdtbz",
+      "stoverride already exists for '每日动态壁纸-动态高清手机壁纸'"
+    ],
+    [
+      "mrsyxj",
+      "stoverride already exists for '每日水印相机-时间地点打卡、工程记录、团队打卡（永久会员）'"
+    ],
+    [
+      "msdj",
+      "stoverride already exists for '漫森短剧'"
+    ],
+    [
+      "mtddgs",
+      "stoverride already exists for '每天读点故事-原生、奇崛、动人（解锁音频节目）'"
+    ],
+    [
+      "muogushipin",
+      "stoverride already exists for '🔞蘑菇视频'"
+    ],
+    [
+      "mybsq",
+      "stoverride already exists for '魔音变声器-聊天变声软件（永久会员）'"
+    ],
+    [
+      "mydj",
+      "stoverride already exists for '蜜柚短剧-触手可及的短剧世界'"
+    ],
+    [
+      "myt",
+      "stoverride already exists for '（漫芽糖指绘1.26.11） + （漫芽糖简笔画1.13.5）（永久会员）'"
+    ],
+    [
+      "mzxj",
+      "stoverride already exists for '美妆相机 - 上新多款睫毛（永久会员）'"
+    ],
+    [
+      "namibox",
+      "stoverride already exists for '纳米盒-中小学课本同步辅导提分必备'"
+    ],
+    [
+      "nanguadianying",
+      "stoverride already exists for '南瓜电影🎬'"
+    ]
+  ],
+  "errors": []
+}

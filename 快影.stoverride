@@ -1,0 +1,27 @@
+name: '快影'
+desc: |-
+  从 WeiGiegie/666 仓库转换。MITM: api.kmovie.gifshow.com, id.kwaiying.com, mi.gdt.qq.com
+  拦截 1 个接口。
+author: alzuobaba (converted)
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-06-04'
+version: '1.0.0'
+
+http:
+  mitm:
+    - 'api.kmovie.gifshow.com'
+    - 'id.kwaiying.com'
+    - 'mi.gdt.qq.com'
+
+  script:
+    - match: '^https?:\/\/(id\.kwaiying|api\.kmovie\.gifshow)\.com.*$'
+      name: WEI_kuaiy
+      type: response
+      require-body: true
+      timeout: 5
+
+script-providers:
+  WEI_kuaiy:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/WEI_kuaiy.js
+    interval: 86400

@@ -1,0 +1,25 @@
+name: 'get笔记-你只管说-ai-帮你记下来'
+desc: |-
+  从 WeiGiegie/666 仓库转换。MITM: get-notes.luojilab.com
+  拦截 1 个接口。
+author: alzuobaba (converted)
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-06-04'
+version: '1.0.0'
+
+http:
+  mitm:
+    - get-notes.luojilab.com
+
+  script:
+    - match: '^https:\/\/get-notes\.luojilab\.com\/voicenotes\/app\/v1\/user'
+      name: WEI_getbiji.js
+      type: response
+      require-body: true
+      timeout: 5
+
+script-providers:
+  WEI_getbiji.js:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/WEI_getbiji.js
+    interval: 86400

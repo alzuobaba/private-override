@@ -1,0 +1,25 @@
+name: '汤姆猫英雄跑酷(微信小程序) - 仅修改货币'
+desc: |-
+  从 WeiGiegie/666 仓库转换。MITM: h5-tthd-server.jinkejoy.com
+  拦截 1 个接口。
+author: alzuobaba (converted)
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-06-04'
+version: '1.0.0'
+
+http:
+  mitm:
+    - 'h5-tthd-server.jinkejoy.com'
+
+  script:
+    - match: '^https?:\/\/h5-tthd-server.jinkejoy.com\/user\/login$'
+      name: WEI_tmmyxpk.js
+      type: response
+      require-body: true
+      timeout: 5
+
+script-providers:
+  WEI_tmmyxpk.js:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/WEI_tmmyxpk.js
+    interval: 86400

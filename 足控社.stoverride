@@ -1,0 +1,40 @@
+name: '足控社'
+desc: |-
+  从 WeiGiegie/666 仓库转换。MITM: 1zher0st.504824.xyz, s1jyc4asdr14nsa.504824.xyz, suning.679134.xyz, b8u1lvlb.504867.xyz, umcuy46v9yr3gn4.504843.xyz
+  拦截 1 个接口。
+author: alzuobaba (converted)
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-06-04'
+version: '1.0.0'
+
+http:
+  mitm:
+    - 1zher0st.504824.xyz
+    - s1jyc4asdr14nsa.504824.xyz
+    - suning.679134.xyz
+    - b8u1lvlb.504867.xyz
+    - umcuy46v9yr3gn4.504843.xyz
+    - .504*.xyz
+    - 5sfc4hgy.504832.xyz
+    - core.*.xyz
+    - v1a.*.xyz
+    - file.*.xyz
+    - data.*.xyz
+    - stream.*.xyz
+    - svc.core*.xyz
+    - test.*.xyz
+    - doc.lum*.xyz
+    - apiv1.*.xyz
+
+  script:
+    - match: '^https?:\/\/.+\/appapi\/(detail|buyPicture|getUserInfo|goldBuyVideo)\/'
+      name: WEI_zukong
+      type: response
+      require-body: true
+      timeout: 5
+
+script-providers:
+  WEI_zukong:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/WEI_zukong.js
+    interval: 86400

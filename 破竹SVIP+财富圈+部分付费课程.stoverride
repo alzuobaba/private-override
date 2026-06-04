@@ -1,0 +1,25 @@
+name: '破竹SVIP+财富圈+部分付费课程'
+desc: |-
+  从 WeiGiegie/666 仓库转换。MITM: www.pozhu.com
+  拦截 1 个接口。
+author: alzuobaba (converted)
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-06-04'
+version: '1.0.0'
+
+http:
+  mitm:
+    - www.pozhu.com
+
+  script:
+    - match: '^https?://www\.pozhu\.com/(v1|v2)/(package/playinfo\?|notes/index|notes/notes|notes/audio|notes/video|package/subart|package/artlist2|video/show|college/chapter2|member/userinfo|home/startimg|deep/course|notes/secret_lives).*$$'
+      name: WEI_pozhu
+      type: response
+      require-body: true
+      timeout: 5
+
+script-providers:
+  WEI_pozhu:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/pozhu.js
+    interval: 86400

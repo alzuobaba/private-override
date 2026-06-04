@@ -1,0 +1,26 @@
+name: '悟饭触悦'
+desc: |-
+  从 WeiGiegie/666 仓库转换。MITM: iosv2.cjapi.5fun.com, iosv2.cjapi.wufan88.com
+  拦截 1 个接口。
+author: alzuobaba (converted)
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-06-04'
+version: '1.0.0'
+
+http:
+  mitm:
+    - 'iosv2.cjapi.5fun.com'
+    - 'iosv2.cjapi.wufan88.com'
+
+  script:
+    - match: '^https?:\/\/iosv2.cjapi.*\/user\/ios_store_pay_edition\/members_login\/get_member_info$'
+      name: WEI_wfcy.js
+      type: response
+      require-body: true
+      timeout: 5
+
+script-providers:
+  WEI_wfcy.js:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/WEI_wfcy.js
+    interval: 86400

@@ -1,0 +1,26 @@
+name: '神户直播'
+desc: |-
+  从 WeiGiegie/666 仓库转换。MITM: gameapi.mma.dstor.cc,.flare.com.51kuajing.net
+  拦截 1 个接口。
+author: alzuobaba (converted)
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-06-04'
+version: '1.0.0'
+
+http:
+  mitm:
+    - gameapi.mma.dstor.cc
+    - .flare.com.51kuajing.net
+
+  script:
+    - match: '^https?:\\/\\/(gameapi.mma.dstor.cc|(pop|push).flare.com.51kuajing.net)\\/index.php\\/App\\/(Account\\/Login|User\\/Info|Index\\/Update).*$'
+      name: WEI_Shzb.js
+      type: response
+      require-body: true
+      timeout: 5
+
+script-providers:
+  WEI_Shzb.js:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/WEI_Shzb.js
+    interval: 86400

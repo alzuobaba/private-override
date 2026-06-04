@@ -1,0 +1,25 @@
+name: '考考鸭'
+desc: |-
+  从 WeiGiegie/666 仓库转换。MITM: kky.logtk.com
+  拦截 1 个接口。
+author: alzuobaba (converted)
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-06-04'
+version: '1.0.0'
+
+http:
+  mitm:
+    - 'kky.logtk.com'
+
+  script:
+    - match: '^https?:\/\/kky.logtk.com\/userLogin'
+      name: WEI_kaokaoya
+      type: response
+      require-body: true
+      timeout: 5
+
+script-providers:
+  WEI_kaokaoya:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/WEI_kaokaoya.js
+    interval: 86400

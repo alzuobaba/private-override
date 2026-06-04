@@ -1,0 +1,26 @@
+name: '抖看小剧场'
+desc: |-
+  从 WeiGiegie/666 仓库转换。MITM: mv-ps.xdplt.com,videohub.xdplt.com
+  拦截 1 个接口。
+author: alzuobaba (converted)
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-06-04'
+version: '1.0.0'
+
+http:
+  mitm:
+    - mv-ps.xdplt.com
+    - videohub.xdplt.com
+
+  script:
+    - match: '^https?:\\/\\/(videohub.xdplt|mv-ps.xdplt).com\\/api\\/v1\\/(short\\/play|payment\\/apple\\/pay\\/verify\\/info|user\\/info)'
+      name: WEI_dkxjc.js
+      type: response
+      require-body: true
+      timeout: 5
+
+script-providers:
+  WEI_dkxjc.js:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/WEI_dkxjc.js
+    interval: 86400

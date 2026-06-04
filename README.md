@@ -162,6 +162,14 @@ https://github.com/alzuobaba/private-override
 
 拦截影院列表请求，强制修改 cityCode 为 469000。内置 `$configuration.sendMessage` 策略控制，确保规则模式生效。
 
+## WeiGiegie/666 批量转换
+
+从 [WeiGiegie/666](https://github.com/WeiGiegie/666) 批量转换 **235 个** Quantumult X 脚本为 Stash 覆写格式。每个覆写引用原仓库 obfuscated 脚本，保持功能不变。
+
+所有转换脚本以 `WEI_` 前缀存储在 `scripts/apps/`，对应的 .stoverride 文件按 App 中文名命名在根目录。
+
+**如需重新分析具体 App 的 API 字段，请抓包 HAR 后提 Issues。**
+
 ## 666书友会 — 会员 + 付费课
 
 拦截 `app.666syh.com` 的会员与课程 API，覆写 JSON 响应：
@@ -307,4 +315,5 @@ tech.miidii.MDClock
 | RevenueCat（rc-unlock） | 368 |
 | iTunes（itunes-unlock） | 通用（所有 verifyReceipt App） |
 | 单 App 覆写 | 89 |
-| **合计** | **~451+** |
+| WeiGiegie/666 批量转换 | 235 |
+| **合计** | **~692+** |

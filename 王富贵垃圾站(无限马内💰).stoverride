@@ -1,0 +1,25 @@
+name: '王富贵垃圾站(无限马内💰)'
+desc: |-
+  从 WeiGiegie/666 仓库转换。MITM: www.icgame.top
+  拦截 1 个接口。
+author: alzuobaba (converted)
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-06-04'
+version: '1.0.0'
+
+http:
+  mitm:
+    - 'www.icgame.top'
+
+  script:
+    - match: '^https?:\/\/www.icgame.top.*\/getGameUserData$'
+      name: WEI_wfgljz.js
+      type: response
+      require-body: true
+      timeout: 5
+
+script-providers:
+  WEI_wfgljz.js:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/WEI_wfgljz.js
+    interval: 86400

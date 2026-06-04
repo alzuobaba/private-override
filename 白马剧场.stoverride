@@ -1,0 +1,25 @@
+name: '白马剧场'
+desc: |-
+  从 WeiGiegie/666 仓库转换。MITM: theater-api.sylangyue.xyz
+  拦截 1 个接口。
+author: alzuobaba (converted)
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-06-04'
+version: '1.0.0'
+
+http:
+  mitm:
+    - theater-api.sylangyue.xyz
+
+  script:
+    - match: '^https?:\\/\\/theater-api.sylangyue.xyz\\/api\\/(playlet\\/episode|user\\/info)'
+      name: WEI_baimaduanju.js
+      type: response
+      require-body: true
+      timeout: 5
+
+script-providers:
+  WEI_baimaduanju.js:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/WEI_baimaduanju.js
+    interval: 86400

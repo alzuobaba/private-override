@@ -1,0 +1,31 @@
+name: '🔞蘑菇视频'
+desc: |-
+  从 WeiGiegie/666 仓库转换。MITM: 118.31.70.61, wapi.koudailc.net
+  拦截 2 个接口。
+author: alzuobaba (converted)
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-06-04'
+version: '1.0.0'
+
+http:
+  mitm:
+    - '118.31.70.61'
+    - 'wapi.koudailc.net'
+
+  script:
+    - match: '^https?:\/\/.+\/api\/(ads|user\/info)'
+      name: WEI_muogushipin
+      type: response
+      require-body: true
+      timeout: 5
+    - match: '^https?:\/\/.+\/api\/vod\/vip\/'
+      name: WEI_muogushipin
+      type: request
+      require-body: true
+      timeout: 5
+
+script-providers:
+  WEI_muogushipin:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/WEI_muogushipin.js
+    interval: 86400

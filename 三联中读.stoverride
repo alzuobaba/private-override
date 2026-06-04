@@ -1,0 +1,26 @@
+name: '三联中读'
+desc: |-
+  从 WeiGiegie/666 仓库转换。MITM: apis.lifeweek.com.cn, apis.lifeweek.com.cn:443
+  拦截 1 个接口。
+author: alzuobaba (converted)
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-06-04'
+version: '1.0.0'
+
+http:
+  mitm:
+    - apis.lifeweek.com.cn
+    - apis.lifeweek.com.cn:443
+
+  script:
+    - match: '^https?://apis.lifeweek.com.cn/reg/vistorRegister.do$'
+      name: WEI_slzd
+      type: response
+      require-body: true
+      timeout: 5
+
+script-providers:
+  WEI_slzd:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/slzd.js
+    interval: 86400

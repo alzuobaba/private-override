@@ -1,0 +1,25 @@
+name: '闪电水印'
+desc: |-
+  从 WeiGiegie/666 仓库转换。MITM: watershandiana.yunxiaoguo.cn
+  拦截 1 个接口。
+author: alzuobaba (converted)
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-06-04'
+version: '1.0.0'
+
+http:
+  mitm:
+    - watershandiana.yunxiaoguo.cn
+
+  script:
+    - match: '^https?://watershandiana.yunxiaoguo.cn/user/info$'
+      name: WEI_sdsy
+      type: response
+      require-body: true
+      timeout: 5
+
+script-providers:
+  WEI_sdsy:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/sdsy.js
+    interval: 86400

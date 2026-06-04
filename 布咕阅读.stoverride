@@ -1,0 +1,30 @@
+name: '布咕阅读'
+desc: |-
+  从 WeiGiegie/666 仓库转换。MITM: app.api.bgwxc.com
+  拦截 2 个接口。
+author: alzuobaba (converted)
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-06-04'
+version: '1.0.0'
+
+http:
+  mitm:
+    - app.api.bgwxc.com
+
+  script:
+    - match: '^https:\\/\\/app.api.bgwxc.com\\/app\\/user\\/getUserGold'
+      name: WEI_buguyuedu.js
+      type: response
+      require-body: true
+      timeout: 5
+    - match: '^https?:\\/\\/app.api.bgwxc.com\\/app\\/novel\\/(contentV2|sub)'
+      name: WEI_buguyuedu.js
+      type: request
+      require-body: true
+      timeout: 5
+
+script-providers:
+  WEI_buguyuedu.js:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/WEI_buguyuedu.js
+    interval: 86400

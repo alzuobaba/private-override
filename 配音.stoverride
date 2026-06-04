@@ -1,0 +1,25 @@
+name: '配音'
+desc: |-
+  从 WeiGiegie/666 仓库转换。MITM: xihongshi.dicallapp.com
+  拦截 1 个接口。
+author: alzuobaba (converted)
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-06-04'
+version: '1.0.0'
+
+http:
+  mitm:
+    - xihongshi.dicallapp.com
+
+  script:
+    - match: '^https?://xihongshi.dicallapp.com/SDGetMeCount.ashx$'
+      name: WEI_py
+      type: response
+      require-body: true
+      timeout: 5
+
+script-providers:
+  WEI_py:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/py.js
+    interval: 86400

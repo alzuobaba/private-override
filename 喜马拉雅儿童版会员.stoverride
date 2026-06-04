@@ -1,0 +1,33 @@
+name: '喜马拉雅儿童版会员'
+desc: |-
+  从 WeiGiegie/666 仓库转换。MITM: xxm.ximalaya.com, ximalaya, 180.153.255.123 等
+  拦截 2 个接口。
+author: alzuobaba (converted)
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-06-04'
+version: '1.0.0'
+
+http:
+  mitm:
+    - 'xxm.ximalaya.com'
+    - 'ximalaya'
+    - '180.153.255.123'
+    - '61.172.194.187'
+
+  script:
+    - match: '^https?:\/\/((.+ximalaya.+)|(.+xmcdn.+))(album\/v2\/trackRecord\/queryTrackRecordsByAlbumIdAndUid|queryByParentId|mobile\/user).*$$'
+      name: WEI_xmet.js
+      type: response
+      require-body: true
+      timeout: 5
+    - match: '^https?:\/\/((.+ximalaya.+)|(.+xmcdn.+))(queryTrackRecordsByAlbumIdAndUid|album\/trackRecord\/querySampleTrack|album\/trackRecord\/palyTrack).*$$'
+      name: WEI_xmet.js
+      type: request
+      require-body: false
+      timeout: 5
+
+script-providers:
+  WEI_xmet.js:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/WEI_xmet.js
+    interval: 86400

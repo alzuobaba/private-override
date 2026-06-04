@@ -1,0 +1,25 @@
+name: '牛牛短剧'
+desc: |-
+  从 WeiGiegie/666 仓库转换。MITM: new.tianjinzhitongdaohe.com
+  拦截 1 个接口。
+author: alzuobaba (converted)
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-06-04'
+version: '1.0.0'
+
+http:
+  mitm:
+    - new.tianjinzhitongdaohe.com
+
+  script:
+    - match: '^https?://new.tianjinzhitongdaohe.com/api/v1/app/user/visitorInfo$'
+      name: WEI_nndj
+      type: response
+      require-body: true
+      timeout: 5
+
+script-providers:
+  WEI_nndj:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/nndj.js
+    interval: 86400

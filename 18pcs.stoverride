@@ -1,0 +1,19 @@
+name: '18pcs'
+desc: |-
+  18品茶社 查看野🐔资料🔓
+  MITM: 18pcs.bond, 18pcs.cfd, 18pcs.fun
+  从 Quantumult X 格式转换为 Stash 覆写。
+  原始脚本来源: WeiGiegie/666
+author: alzuobaba (converted)
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-06-04'
+version: '1.0.0'
+
+http:
+  mitm:
+    - 18pcs.bond
+    - 18pcs.cfd
+    - 18pcs.fun
+
+script-providers:

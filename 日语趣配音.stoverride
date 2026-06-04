@@ -1,0 +1,25 @@
+name: '日语趣配音'
+desc: |-
+  从 WeiGiegie/666 仓库转换。MITM: japaneselar.qupeiyin.com
+  拦截 1 个接口。
+author: alzuobaba (converted)
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-06-04'
+version: '1.0.0'
+
+http:
+  mitm:
+    - japaneselar.qupeiyin.com
+
+  script:
+    - match: '^https?://japaneselar.qupeiyin.com/$'
+      name: WEI_ryqpy
+      type: response
+      require-body: true
+      timeout: 5
+
+script-providers:
+  WEI_ryqpy:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/ryqpy.js
+    interval: 86400

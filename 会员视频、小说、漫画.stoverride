@@ -1,0 +1,35 @@
+name: '会员视频、小说、漫画'
+desc: |-
+  从 WeiGiegie/666 仓库转换。MITM: gnjk.*.com, mfjk.*.com, gnjk*.com
+  拦截 2 个接口。
+author: alzuobaba (converted)
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-06-04'
+version: '1.0.0'
+
+http:
+  mitm:
+    - 'gnjk.*.com'
+    - 'mfjk.*.com'
+    - 'gnjk*.com'
+
+  script:
+    - match: '^https:\/\/.+\.com\/(playerinfo|api\/get_advert|api\/home\/popup)'
+      name: WEI_mjgsad
+      type: response
+      require-body: true
+      timeout: 5
+    - match: '^https?:\/\/.+\.com\/api\/(comic|video|short_movie_info|novel)'
+      name: WEI_mjgshd
+      type: request
+      require-body: true
+      timeout: 5
+
+script-providers:
+  WEI_mjgsad:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/WEI_mjgsad.js
+    interval: 86400
+  WEI_mjgshd:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/WEI_mjgshd.js
+    interval: 86400

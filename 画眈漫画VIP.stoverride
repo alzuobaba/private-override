@@ -1,0 +1,52 @@
+name: '画眈漫画VIP'
+desc: |-
+  从 WeiGiegie/666 仓库转换。MITM: www.shutiaomh.com, mobads.baidu.com, bgg.baidu.com, sf3-fe-tos.pglstatp-toutiao.com, cmyd-10-88.getui.com, open.e.kuaishou.com, api-access.pangolin-sdk-toutiao.com, toblog.ctobsnssdk.com, log-api.pangolin-sdk-toutiao.com, api-access.pangolin-sdk-toutiao1.com, log-api.pangolin-sdk-toutiao-b.com, api-access.pangolin-sdk-toutiao-b.com, b-gy.getui.net, gy.gepush.com, mssdk.volces.com, sdk.open.talk.getui.net, gromore.pangolin-sdk-toutiao.com, sdk.open.talk.gepush.com, adservice.sigmob.cn, sdk.open.talk.getui.com, yun.tuitiger.com, mobads-pre-config.cdn.bcebos.com, mobads-logs.baidu.com
+  拦截 2 个接口。
+author: alzuobaba (converted)
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-06-04'
+version: '1.0.0'
+
+http:
+  mitm:
+    - www.shutiaomh.com
+    - mobads.baidu.com
+    - bgg.baidu.com
+    - sf3-fe-tos.pglstatp-toutiao.com
+    - cmyd-10-88.getui.com
+    - open.e.kuaishou.com
+    - api-access.pangolin-sdk-toutiao.com
+    - toblog.ctobsnssdk.com
+    - log-api.pangolin-sdk-toutiao.com
+    - api-access.pangolin-sdk-toutiao1.com
+    - log-api.pangolin-sdk-toutiao-b.com
+    - api-access.pangolin-sdk-toutiao-b.com
+    - b-gy.getui.net
+    - gy.gepush.com
+    - mssdk.volces.com
+    - sdk.open.talk.getui.net
+    - gromore.pangolin-sdk-toutiao.com
+    - sdk.open.talk.gepush.com
+    - adservice.sigmob.cn
+    - sdk.open.talk.getui.com
+    - yun.tuitiger.com
+    - mobads-pre-config.cdn.bcebos.com
+    - mobads-logs.baidu.com
+
+  script:
+    - match: '^https?:\/\/www.shutiaomh.com\/api\/\/getSysUserInfo'
+      name: WEI_hdmh.js
+      type: response
+      require-body: true
+      timeout: 5
+    - match: '^https?:\/\/www.shutiaomh.com\/api\/\/(novel|cartoon)Chapter\/info\/size\/'
+      name: WEI_hdmh.js
+      type: request
+      require-body: true
+      timeout: 5
+
+script-providers:
+  WEI_hdmh.js:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/WEI_hdmh.js
+    interval: 86400

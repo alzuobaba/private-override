@@ -1,0 +1,25 @@
+name: '爱爱网'
+desc: |-
+  从 WeiGiegie/666 仓库转换。MITM: aawapi-v3.trh999.com
+  拦截 1 个接口。
+author: alzuobaba (converted)
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-06-04'
+version: '1.0.0'
+
+http:
+  mitm:
+    - aawapi-v3.trh999.com
+
+  script:
+    - match: '^https?:\\/\\/aawapi-v3\\.trh999\\.com\\/msg_demo\\/v\\/(video\\/(mayAlsoLike|index|getVideoInfoNew)|vip\\/(VIPVideos|suggestVideo)|index(\\/(getAdvertiseList|getIndexCarouselList))?)'
+      name: WEI_aiaiwang.js
+      type: response
+      require-body: true
+      timeout: 5
+
+script-providers:
+  WEI_aiaiwang.js:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/WEI_aiaiwang.js
+    interval: 86400

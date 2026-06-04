@@ -1,0 +1,25 @@
+name: '有心跳-舞蹈-跳舞-学舞神器'
+desc: |-
+  从 WeiGiegie/666 仓库转换。MITM: api.train2win.cn
+  拦截 1 个接口。
+author: alzuobaba (converted)
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-06-04'
+version: '1.0.0'
+
+http:
+  mitm:
+    - 'api.train2win.cn'
+
+  script:
+    - match: '^https:\/\/api\.train2win\.cn\/v1\/users\/myInfo$'
+      name: WEI_xintiao.js
+      type: response
+      require-body: true
+      timeout: 5
+
+script-providers:
+  WEI_xintiao.js:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/WEI_xintiao.js
+    interval: 86400

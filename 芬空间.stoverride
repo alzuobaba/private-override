@@ -1,0 +1,25 @@
+name: '芬空间'
+desc: |-
+  从 WeiGiegie/666 仓库转换。MITM: api.zhangdefenspace.com
+  拦截 1 个接口。
+author: alzuobaba (converted)
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-06-04'
+version: '1.0.0'
+
+http:
+  mitm:
+    - api.zhangdefenspace.com
+
+  script:
+    - match: '^https?:\\/\\/api\\.zhangdefenspace\\.com\\/api\\/(course\\/getCoursePeriodList|course\\/getCourseDetails|user\\/getIndexUser|v2\\/live\\/getLiveDetails).*$'
+      name: WEI_Fkj.js
+      type: response
+      require-body: true
+      timeout: 5
+
+script-providers:
+  WEI_Fkj.js:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/WEI_Fkj.js
+    interval: 86400

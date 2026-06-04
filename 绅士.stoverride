@@ -1,0 +1,25 @@
+name: '绅士'
+desc: |-
+  从 WeiGiegie/666 仓库转换。MITM: gentlemanapp
+  拦截 1 个接口。
+author: alzuobaba (converted)
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-06-04'
+version: '1.0.0'
+
+http:
+  mitm:
+    - gentlemanapp
+
+  script:
+    - match: '^https?://gentlemanapp.lingdu2019.cn/ios_api/(my_home/my_detail|portrait/goods_detail|publish/yuepai_detail)$'
+      name: WEI_shenshi
+      type: response
+      require-body: true
+      timeout: 5
+
+script-providers:
+  WEI_shenshi:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/shenshi.js
+    interval: 86400
