@@ -164,13 +164,13 @@ https://github.com/alzuobaba/private-override
 
 ## 666书友会 — 会员 + 付费课
 
-拦截 `app.666syh.com` 的 3 个接口并直接覆写响应 JSON：
+拦截 `app.666syh.com` 的会员与课程 API，覆写 JSON 响应：
 
-- `cloud/api-mall/member/user/memberDetail`：会员信息，`isVip=true, level=5, endTime=9999999999999 (~2287 年), auto_renew=true`
-- `cloud/api-mall/book/online/getOnlineLearnDel`：在线学习，同样的 VIP 字段覆盖
+- `cloud/api-member/user/memberDetail`：**核心**会员接口，`hasVip=true, level=5, levelName="VIP年卡", agent=5, newPeopleVip=1, deadline=4092599349(2099-09-09)`。基于 2026-06-04 ProxyPin 抓包 HAR 校准，原混淆脚本写入的 `isVip/endTime/auto_renew` 均为旧版字段名
+- `cloud/api-mall/book/online/getOnlineLearnDel`：在线学习（向后兼容）
 - `cloud/api-mall/book/book/getVideoDel`：视频课，`payStatus="1", isPay=true, read[0].status=1`
 
-纯前端改包：需开启 MITM 并信任根证书。仅在客户端本地把校验标志位改写为“已付费/已开通”，服务端是否真正解锁取决于 App 是否仅做前端校验。
+纯前端改包：需开启 MITM 并信任根证书。仅在客户端本地改写校验标志位。
 
 ---
 

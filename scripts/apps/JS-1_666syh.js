@@ -1,7 +1,7 @@
 "use strict"
 
 console.log($script.name)
-console.log($script.name + ' 666书友会 会员+在线课/视频课解锁')
+console.log($script.name + ' 666书友会 会员解锁')
 
 var url = $request.url
 var body = $response.body
@@ -18,23 +18,30 @@ if (!obj || !obj.data) { $done({}) }
 
 var data = obj.data
 
-var MEMBER_DETAIL   = /\/member\/user\/memberDetail/
-var ONLINE_LEARN    = /\/book\/online\/getOnlineLearnDel/
-var VIDEO_DEL       = /\/book\/book\/getVideoDel/
-
-if (MEMBER_DETAIL.test(url) || ONLINE_LEARN.test(url)) {
-  data.isVip      = true
-  data.level      = 5
-  data.endTime    = 9999999999999
-  data.auto_renew = true
-  console.log($script.name + ' VIP 注入完成,expire=2287')
-} else if (VIDEO_DEL.test(url)) {
+if (/\/member\/user\/memberDetail/.test(url)) {
+  data.hasVip       = true
+  data.level        = 5
+  data.levelName    = 'VIP年卡'
+  data.agent        = 5
+  data.agentName    = 'VIP年卡'
+  data.newPeopleVip = 1
+  data.deadline     = 4092599349
+  data.deadlineStr  = '2099-09-09 09:09:09'
+  console.log($script.name + ' memberDetail VIP 注入完成')
+} else if (/\/book\/online\/getOnlineLearnDel/.test(url)) {
+  data.hasVip       = true
+  data.level        = 5
+  data.levelName    = 'VIP年卡'
+  data.deadline     = 4092599349
+  data.deadlineStr  = '2099-09-09 09:09:09'
+  console.log($script.name + ' getOnlineLearnDel VIP 注入完成')
+} else if (/\/book\/book\/getVideoDel/.test(url)) {
   data.payStatus = '1'
   data.isPay     = true
   if (data.read && data.read.length > 0) {
     data.read[0].status = 1
   }
-  console.log($script.name + ' 视频课解锁完成')
+  console.log($script.name + ' getVideoDel 视频课解锁完成')
 } else {
   $done({})
 }

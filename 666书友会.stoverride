@@ -1,12 +1,13 @@
 name: '666书友会'
 desc: |-
-  解锁 666书友会 iOS 客户端会员 + 在线课 / 视频课付费内容。
-  拦截 app.666syh.com 的三个接口并篡改响应：
-  - member/user/memberDetail: 会员信息（isVip / level / endTime / auto_renew）
-  - book/online/getOnlineLearnDel: 在线学习（isVip / level / endTime）
+  解锁 666书友会 iOS/Android 客户端会员 + 在线课 / 视频课付费内容。
+  拦截 app.666syh.com 的会员 API：
+  - member/user/memberDetail: 会员信息（hasVip / level / deadline）
+  - book/online/getOnlineLearnDel: 在线学习（hasVip / level / deadline）
   - book/book/getVideoDel: 视频课（payStatus / isPay / read[0].status）
-  端到期时间戳 9999999999999(公元 2287 年),理论上永久。
-  纯前端改包,需开启 MITM 并信任根证书;仅在客户端本地生效,服务端课程是否真正解锁取决于 App 是否仅做前端校验。
+  所有会员到期时间设为 2099-09-09，理论上永久。
+  纯前端改包，需开启 MITM 并信任根证书；仅在客户端本地生效。
+  基于 2026-06-04 ProxyPin 抓包 HAR 校准字段名。
 author: alzuobaba
 homepage: https://github.com/alzuobaba/private-override
 category: '解锁'
