@@ -1,3 +1,9 @@
+> **免责声明**  
+> 本仓库所有脚本均收集自 GitHub 其他开源仓库(包括但不限于 WeiGiegie/666、app2smile、chxm1023 等)。  
+> 仅供学习与交流，请在下载后 24 小时内删除。  
+> 请勿用于商业用途或违法用途，侵权请联系删除。  
+> 使用本仓库脚本所产生的任何后果由使用者自行承担。
+
 # Stash 覆写脚本仓库
 
 https://github.com/alzuobaba/private-override
