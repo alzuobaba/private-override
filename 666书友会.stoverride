@@ -1,0 +1,30 @@
+name: '666书友会'
+desc: |-
+  解锁 666书友会 iOS 客户端会员 + 在线课 / 视频课付费内容。
+  拦截 app.666syh.com 的三个接口并篡改响应：
+  - member/user/memberDetail: 会员信息（isVip / level / endTime / auto_renew）
+  - book/online/getOnlineLearnDel: 在线学习（isVip / level / endTime）
+  - book/book/getVideoDel: 视频课（payStatus / isPay / read[0].status）
+  端到期时间戳 9999999999999(公元 2287 年),理论上永久。
+  纯前端改包,需开启 MITM 并信任根证书;仅在客户端本地生效,服务端课程是否真正解锁取决于 App 是否仅做前端校验。
+author: alzuobaba
+homepage: https://github.com/alzuobaba/private-override
+category: '解锁'
+date: '2026-06-04'
+version: '1.0.0'
+
+http:
+  mitm:
+    - app.666syh.com
+
+  script:
+    - match: ^https?:\/\/app\.666syh\.com\/cloud\/api-(mall\/book\/(online\/getOnlineLearnDel|book\/getVideoDel)|member\/user\/memberDetail)(\?.*)?$
+      name: JS-1_666syh
+      type: response
+      require-body: true
+      timeout: 5
+
+script-providers:
+  JS-1_666syh:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/apps/JS-1_666syh.js
+    interval: 86400

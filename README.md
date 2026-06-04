@@ -117,6 +117,7 @@ https://github.com/alzuobaba/private-override
 | `云听.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/%E4%BA%91%E5%90%AC.stoverride` |
 | `pixiv.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/pixiv.stoverride` |
 | `funimate.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/funimate.stoverride` |
+| `666书友会.stoverride` | `https://raw.githubusercontent.com/alzuobaba/private-override/main/666%E4%B9%A6%E5%8F%8B%E4%BC%9A.stoverride` |
 
 ---
 
@@ -160,6 +161,16 @@ https://github.com/alzuobaba/private-override
 ## KCallme — 城市编码修改
 
 拦截影院列表请求，强制修改 cityCode 为 469000。内置 `$configuration.sendMessage` 策略控制，确保规则模式生效。
+
+## 666书友会 — 会员 + 付费课
+
+拦截 `app.666syh.com` 的 3 个接口并直接覆写响应 JSON：
+
+- `cloud/api-mall/member/user/memberDetail`：会员信息，`isVip=true, level=5, endTime=9999999999999 (~2287 年), auto_renew=true`
+- `cloud/api-mall/book/online/getOnlineLearnDel`：在线学习，同样的 VIP 字段覆盖
+- `cloud/api-mall/book/book/getVideoDel`：视频课，`payStatus="1", isPay=true, read[0].status=1`
+
+纯前端改包：需开启 MITM 并信任根证书。仅在客户端本地把校验标志位改写为“已付费/已开通”，服务端是否真正解锁取决于 App 是否仅做前端校验。
 
 ---
 
@@ -295,5 +306,5 @@ tech.miidii.MDClock
 |------|---------|
 | RevenueCat（rc-unlock） | 368 |
 | iTunes（itunes-unlock） | 通用（所有 verifyReceipt App） |
-| 单 App 覆写 | 88 |
-| **合计** | **~450+** |
+| 单 App 覆写 | 89 |
+| **合计** | **~451+** |
