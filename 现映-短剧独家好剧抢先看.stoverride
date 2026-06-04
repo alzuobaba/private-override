@@ -2,7 +2,7 @@ name: '现映-短剧独家好剧抢先看'
 desc: |-
   从 WeiGiegie/666 仓库转换。MITM: xianying-api.fansxiaoshuo.cn
   拦截 1 个接口。
-author: alzuobaba (converted)
+author: WeiGiegie/666
 homepage: https://github.com/alzuobaba/private-override
 category: '解锁'
 date: '2026-06-04'

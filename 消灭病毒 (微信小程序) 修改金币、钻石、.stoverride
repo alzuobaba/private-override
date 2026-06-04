@@ -2,7 +2,7 @@ name: '消灭病毒 (微信小程序) 修改金币、钻石、'
 desc: |-
   从 WeiGiegie/666 仓库转换。MITM: wx-bingdu.lanfeitech.com
   拦截 1 个接口。
-author: alzuobaba (converted)
+author: WeiGiegie/666
 homepage: https://github.com/alzuobaba/private-override
 category: '解锁'
 date: '2026-06-04'

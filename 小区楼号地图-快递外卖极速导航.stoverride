@@ -2,7 +2,7 @@ name: '小区楼号地图-快递外卖极速导航'
 desc: |-
   从 WeiGiegie/666 仓库转换。MITM: mp.zhuzixi.cn
   拦截 1 个接口。
-author: alzuobaba (converted)
+author: WeiGiegie/666
 homepage: https://github.com/alzuobaba/private-override
 category: '解锁'
 date: '2026-06-04'

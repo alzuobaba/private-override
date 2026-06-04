@@ -2,7 +2,7 @@ name: 'line camera - 照片编辑器'
 desc: |-
   从 WeiGiegie/666 仓库转换。MITM: linecamera-api.snow.me
   拦截 1 个接口。
-author: alzuobaba (converted)
+author: WeiGiegie/666
 homepage: https://github.com/alzuobaba/private-override
 category: '解锁'
 date: '2026-06-04'

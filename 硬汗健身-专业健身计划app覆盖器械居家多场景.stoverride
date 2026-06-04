@@ -2,7 +2,7 @@ name: '硬汗健身-专业健身计划app覆盖器械居家多场景'
 desc: |-
   从 WeiGiegie/666 仓库转换。MITM: api.dailyworkout.cn, 121.41.11.0
   拦截 1 个接口。
-author: alzuobaba (converted)
+author: WeiGiegie/666
 homepage: https://github.com/alzuobaba/private-override
 category: '解锁'
 date: '2026-06-04'

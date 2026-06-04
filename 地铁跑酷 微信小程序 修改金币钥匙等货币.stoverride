@@ -2,7 +2,7 @@ name: '地铁跑酷 微信小程序 修改金币钥匙等货币'
 desc: |-
   从 WeiGiegie/666 仓库转换。MITM: dtpkwx-prod-web.gxpan.cn
   拦截 1 个接口。
-author: alzuobaba (converted)
+author: WeiGiegie/666
 homepage: https://github.com/alzuobaba/private-override
 category: '解锁'
 date: '2026-06-04'

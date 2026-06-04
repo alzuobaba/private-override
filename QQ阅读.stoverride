@@ -2,7 +2,7 @@ name: 'QQ阅读'
 desc: |-
   从 WeiGiegie/666 仓库转换。MITM: .reader.qq.com,newminerva-tgw.reader.qq.com,detailadr.reader.qq.com,commontgw.reader.qq.com
   拦截 2 个接口。
-author: alzuobaba (converted)
+author: WeiGiegie/666
 homepage: https://github.com/alzuobaba/private-override
 category: '解锁'
 date: '2026-06-04'

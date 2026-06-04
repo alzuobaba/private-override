@@ -8,7 +8,7 @@ desc: |-
   所有会员到期时间设为 2099-09-09，理论上永久。
   纯前端改包，需开启 MITM 并信任根证书；仅在客户端本地生效。
   基于 2026-06-04 ProxyPin 抓包 HAR 校准字段名。
-author: alzuobaba
+author: WeiGiegie/666
 homepage: https://github.com/alzuobaba/private-override
 category: '解锁'
 date: '2026-06-04'

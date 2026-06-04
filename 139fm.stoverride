@@ -4,7 +4,7 @@ desc: |-
   MITM: 139fm.bond, 139fm.cfd, 139fm.click, 139fm.cyou, 139fm.fun
   从 Quantumult X 格式转换为 Stash 覆写。
   原始脚本来源: WeiGiegie/666
-author: alzuobaba (converted)
+author: WeiGiegie/666
 homepage: https://github.com/alzuobaba/private-override
 category: '解锁'
 date: '2026-06-04'

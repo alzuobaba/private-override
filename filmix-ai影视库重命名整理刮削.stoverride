@@ -2,7 +2,7 @@ name: 'filmix-ai影视库重命名整理刮削'
 desc: |-
   从 WeiGiegie/666 仓库转换。MITM: appv3.filmix.com.cn
   拦截 1 个接口。
-author: alzuobaba (converted)
+author: WeiGiegie/666
 homepage: https://github.com/alzuobaba/private-override
 category: '解锁'
 date: '2026-06-04'

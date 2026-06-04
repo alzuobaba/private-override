@@ -2,7 +2,7 @@ name: '蜜柚短剧-触手可及的短剧世界'
 desc: |-
   从 WeiGiegie/666 仓库转换。MITM: api.duoyolo.cn, ioskgeyd.lmkaiger.sanwubeixin.cn, www.shutiaomh.com, mobads.baidu.com, bgg.baidu.com, sf3-fe-tos.pglstatp-toutiao.com, cmyd-10-88.getui.com, open.e.kuaishou.com, api-access.pangolin-sdk-toutiao.com, toblog.ctobsnssdk.com, log-api.pangolin-sdk-toutiao.com, api-access.pangolin-sdk-toutiao1.com, log-api.pangolin-sdk-toutiao-b.com, api-access.pangolin-sdk-toutiao-b.com, b-gy.getui.net, gy.gepush.com, mssdk.volces.com, sdk.open.talk.getui.net, gromore.pangolin-sdk-toutiao.com, sdk.open.talk.gepush.com, adservice.sigmob.cn, sdk.open.talk.getui.com, yun.tuitiger.com, mobads-pre-config.cdn.bcebos.com, mobads-logs.baidu.com
   拦截 1 个接口。
-author: alzuobaba (converted)
+author: WeiGiegie/666
 homepage: https://github.com/alzuobaba/private-override
 category: '解锁'
 date: '2026-06-04'

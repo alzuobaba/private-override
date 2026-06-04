@@ -2,7 +2,7 @@ name: 'keep 课程预览 直播课。会员付费课跟练 会员训练计划'
 desc: |-
   从 WeiGiegie/666 仓库转换。MITM: api.gotokeep.com, kit.gotokeep.com, *.gotokeep.*, 120.53.74.*, 162.14.5.*, 42.187.199.*, 101.42.124.*
   拦截 1 个接口。
-author: alzuobaba (converted)
+author: WeiGiegie/666
 homepage: https://github.com/alzuobaba/private-override
 category: '解锁'
 date: '2026-06-04'
