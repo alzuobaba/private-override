@@ -1,6 +1,5 @@
 .DS_Store
 *.log
 scripts/apps/_originals/
-scripts/__pycache__/
-scripts/tmp/__pycache__/
 *.pyc
+__pycache__/
