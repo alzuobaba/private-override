@@ -1,6 +1,10 @@
 // loc567-spoof.js
-// 拦截 gs-loc.apple.com 响应，替换坐标为自定义值
-// 坐标由 loc567-set-coord.js 通过 $persistentStore 传入
+// 拦截 gs-loc.apple.com 响应，替换坐标为香港（默认）
+// 
+// 如需修改坐标，编辑下方的 DEFAULT_LAT / DEFAULT_LNG
+
+const DEFAULT_LAT = 22.3027   // 香港 纬度
+const DEFAULT_LNG = 114.1772  // 香港 经度
 
 // ─── Protobuf 工具 ────────────────────────────────────────────────────────
 
@@ -30,13 +34,6 @@ class ProtobufWalker {
     return val
   }
 
-  writeDouble(arr, val) {
-    const buf = new ArrayBuffer(8)
-    new DataView(buf).setFloat64(0, val, true)
-    for (let i = 0; i < 8; i++) arr.push(buf[i])
-  }
-
-  // 遍历并替换 lat/lng
   walkAndReplace(targetLat, targetLng) {
     const out = []
     this._walk(out, targetLat, targetLng)
@@ -45,7 +42,6 @@ class ProtobufWalker {
 
   _walk(out, targetLat, targetLng) {
     while (this.bytesLeft() > 0) {
-      const keyStart = this.offset
       const key = this.readVarint()
       const fieldNum = key >> 3
       const wireType = key & 0x07
@@ -58,30 +54,22 @@ class ProtobufWalker {
           this._writeVarint(out, val)
           break
         }
-        case 1: { // 64-bit (double/fixed64)
+        case 1: { // 64-bit (double)
           const doubleVal = this.readDouble()
-          // field 1 = 可能是纬度, field 2 = 可能是经度
           if (fieldNum === 1 && doubleVal >= -90 && doubleVal <= 90 && targetLat !== null) {
             this._writeDouble(out, targetLat)
             this.modified = true
-            console.log(`loc567: 纬度已替换 ${doubleVal} → ${targetLat}`)
           } else if (fieldNum === 2 && doubleVal >= -180 && doubleVal <= 180 && targetLng !== null) {
             this._writeDouble(out, targetLng)
             this.modified = true
-            console.log(`loc567: 经度已替换 ${doubleVal} → ${targetLng}`)
           } else {
             this._writeDouble(out, doubleVal)
           }
           break
         }
-        case 2: { // length-delimited (string / embedded message)
+        case 2: { // length-delimited (embedded message)
           const len = this.readVarint()
           this._writeVarint(out, len)
-          const subStart = this.offset
-          const subEnd = this.offset + len
-
-          // 尝试递归解析为 embedded message
-          const savedOffset = this.offset
           try {
             const subWalker = new ProtobufWalker(
               new Uint8Array(this.view.buffer, this.view.byteOffset + this.offset, len)
@@ -89,33 +77,27 @@ class ProtobufWalker {
             const subResult = subWalker.walkAndReplace(targetLat, targetLng)
             if (subResult.modified) {
               this.modified = true
-              // 重写长度（内容长度可能变了——但这里长度不变因为 double 还是 8 字节）
-              // 覆盖已写入的长度
               out.length -= this._varintLen(len)
               this._writeVarint(out, len)
               for (const b of subResult.data) out.push(b)
-              this.offset = subEnd
+              this.offset += len
             } else {
-              // 没修改，原样复制
               for (let i = 0; i < len; i++) {
                 out.push(this.view.getUint8(this.offset++))
               }
             }
           } catch {
-            // 不是有效的 protobuf，原样复制
-            this.offset = subStart
             for (let i = 0; i < len; i++) {
               out.push(this.view.getUint8(this.offset++))
             }
           }
           break
         }
-        case 5: { // 32-bit (float/fixed32)
+        case 5: { // 32-bit
           for (let i = 0; i < 4; i++) out.push(this.view.getUint8(this.offset++))
           break
         }
         default:
-          // 未知 wire type，跳过
           break
       }
     }
@@ -145,42 +127,17 @@ class ProtobufWalker {
 // ─── 主逻辑 ──────────────────────────────────────────────────────────────
 
 function main() {
-  // 读取目标坐标
-  const stored = $persistentStore.read("loc567_target_coord")
-  if (!stored) {
-    console.log("loc567: 未设置目标坐标，跳过修改")
-    $done({})  // 不修改
-    return
-  }
+  const targetLat = DEFAULT_LAT
+  const targetLng = DEFAULT_LNG
 
-  let targetLat = null, targetLng = null
-  try {
-    const parsed = JSON.parse(stored)
-    targetLat = parseFloat(parsed.latitude)
-    targetLng = parseFloat(parsed.longitude)
-  } catch (e) {
-    console.log(`loc567: 坐标格式错误: ${stored}`)
-    $done({})
-    return
-  }
+  console.log(`loc567: 目标坐标 ${targetLat}, ${targetLng} (香港)`)
 
-  if (isNaN(targetLat) || isNaN(targetLng)) {
-    console.log(`loc567: 无效坐标: ${targetLat}, ${targetLng}`)
-    $done({})
-    return
-  }
-
-  console.log(`loc567: 目标坐标 ${targetLat}, ${targetLng}`)
-
-  // 获取响应体
   const bodyBytes = $response.bodyBytes
   if (!bodyBytes || bodyBytes.byteLength === 0) {
-    console.log("loc567: 响应体为空")
     $done({})
     return
   }
 
-  // 转换为 Uint8Array
   const bytes = new Uint8Array(bodyBytes)
 
   try {
@@ -191,7 +148,7 @@ function main() {
       console.log("loc567: 坐标已修改 ✓")
       $done({ bodyBytes: result.data.buffer })
     } else {
-      console.log("loc567: 未找到可替换的坐标字段，响应原样放行")
+      console.log("loc567: 未找到可替换的坐标字段")
       $done({})
     }
   } catch (e) {
