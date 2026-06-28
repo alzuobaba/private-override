@@ -1,0 +1,36 @@
+name: "📍 loc567: Location Spoofer"
+desc: |-
+  在本地拦截 Apple 定位服务 (gs-loc.apple.com) 响应，
+  替换为自定义坐标。配合 loc567.local 前端使用。
+  原理：MITM Apple Wi-Fi 定位查询，返回伪造经纬度。
+author: "loc567.local"
+homepage: "https://loc567.local"
+icon: "https://img.icons8.com/color/256/worldwide-location.png"
+category: "📍 loc567"
+date: "2026-06-28"
+version: "1.0.0"
+
+http:
+  mitm:
+    - "gs-loc.apple.com"
+    - "gs-loc-cn.apple.com"
+  script:
+    # ─── 前端 → Stash 坐标通信 ───
+    - match: ^https?://loc567-set\.local/set\?
+      name: loc567-set-coord.request
+      type: request
+
+    # ─── Apple 定位服务拦截 ───
+    - match: ^https?://gs-loc(-cn)?\.apple\.com
+      name: loc567-spoof.response
+      type: response
+      require-body: true
+      binary-mode: true
+
+script-providers:
+  loc567-set-coord.request:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/loc567-set-coord.js
+    interval: 86400
+  loc567-spoof.response:
+    url: https://raw.githubusercontent.com/alzuobaba/private-override/main/scripts/loc567-spoof.js
+    interval: 86400
