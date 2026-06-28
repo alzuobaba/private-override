@@ -9,6 +9,10 @@ category: "📍 loc567"
 date: "2026-06-28"
 version: "1.0.0"
 
+rules:
+  - DOMAIN-SUFFIX,gs-loc.apple.com,PROXY
+  - DOMAIN-SUFFIX,gs-loc-cn.apple.com,PROXY
+
 http:
   mitm:
     - "gs-loc.apple.com"
